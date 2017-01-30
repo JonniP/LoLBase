@@ -44,19 +44,19 @@
                <children>
                   <ImageView fx:id="SkinRightArrow" fitHeight="121.0" fitWidth="200.0" layoutX="357.0" layoutY="88.0" onMouseClicked="#OnArrowClick" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Downloads/imageedit_1_6193813435.png" />
+                        <Image url="@Images/imageedit_1_6193813435.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="133.0" fitWidth="183.0" layoutX="213.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Desktop/d_va__by_guweiz-da224yn.jpg" />
+                        <Image url="@Images/d_va__by_guweiz-da224yn.jpg" />
                      </image>
                   </ImageView>
                   <Label layoutX="259.0" layoutY="14.0" text="Champion name" />
                   <Label layoutX="293.0" layoutY="31.0" text="Title" />
                   <ImageView fx:id="SkinLeftArrow" fitHeight="133.0" fitWidth="183.0" layoutX="133.0" layoutY="93.0" onMouseClicked="#OnArrowClick" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Downloads/imageedit_1_6193813435.png" />
+                        <Image url="@Images/imageedit_1_6193813435.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="289.0" layoutY="48.0" text="Skin" />
@@ -69,17 +69,17 @@
                   <Label layoutX="470.0" layoutY="33.0" text="Frost shot t.ex." />
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="440.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Downloads/1522096_476126622495782_1415591092_n.jpg" />
+                        <Image url="@Images/1522096_476126622495782_1415591092_n.jpg" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="AbilityRightArrow" fitHeight="121.0" fitWidth="200.0" layoutX="538.0" layoutY="77.0" onMouseClicked="#OnArrowClick" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Downloads/imageedit_1_6193813435.png" />
+                        <Image url="@Images/imageedit_1_6193813435.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="AbilityLeftArrow" fitHeight="121.0" fitWidth="200.0" layoutX="347.0" layoutY="77.0" onMouseClicked="#OnArrowClick" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Downloads/imageedit_1_6193813435.png" />
+                        <Image url="@Images/imageedit_1_6193813435.png" />
                      </image>
                   </ImageView>
                </children>
