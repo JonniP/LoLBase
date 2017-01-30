@@ -12,9 +12,9 @@ enum Position {
 
 public class Champion {
 
-	public static String name;
-	public static String title;
-	public static ArrayList<String> roles;
+	public String name;
+	public String title;
+	public ArrayList<String> roles;
 	public Position pos;
 	
 	public static void main(String[] args) {
