@@ -1,5 +1,7 @@
 package application;
 
+import java.util.ArrayList;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,6 +16,7 @@ public class ViewController {
 
 	public static ObservableList<String> ChampionText = FXCollections.observableArrayList();
 	public static ObservableList<Object> Data = FXCollections.observableArrayList();
+	public ArrayList<Champion> Champs;
 	
     @FXML
     private ListView<String> ChampionsList;
@@ -36,13 +39,25 @@ public class ViewController {
     @FXML
     private ImageView AbilityLeftArrow;
  
+    public void addChampExample() {
+    	//Example to show how to work with the champ obj
+    	Champion champ = new Champion();
+    	champ.pos = Position.Adc;
+    	champ.name = "Brand";
+    	champ.city = "Kuokkala";
+    	Ability abil = new Ability();
+    	abil.cooldown = 22;
+    	abil.title = "+5 OP/s";
+    	abil.description = "Increases credits per second for 22 seconds";
+    	champ.Abilities.add(abil);
+    	Champs.add(champ);
+    }
     
 	@FXML
     public void initialize() {
     	ChampionText.addAll("Test1", "Test2", "Test3");
-    	Champion champ = new Champion();
-    	champ.pos = Position.Adc;
-    	champ.name = "Brand";
+    	
+    	addChampExample();
     	
     	//Lore box
     	Text t1 = new Text("Champion lore: "
