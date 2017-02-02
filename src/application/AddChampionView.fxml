@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="583.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="483.0" layoutY="427.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Add" />
+      <Button layoutX="388.0" layoutY="427.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Cancel" />
+      <Label layoutX="29.0" layoutY="27.0" text="Name" />
+      <TextField layoutX="91.0" layoutY="23.0" />
+      <Label layoutX="29.0" layoutY="62.0" text="Title" />
+      <TextField layoutX="91.0" layoutY="58.0" />
+      <Label layoutX="29.0" layoutY="101.0" text="Role" />
+      <TextField layoutX="91.0" layoutY="97.0" />
+      <Label layoutX="29.0" layoutY="137.0" text="Position" />
+      <TextField layoutX="91.0" layoutY="133.0" />
+      <Label layoutX="29.0" layoutY="171.0" text="City" />
+      <TextField layoutX="91.0" layoutY="167.0" />
+      <Label layoutX="29.0" layoutY="204.0" text="Related" />
+      <TextField layoutX="91.0" layoutY="200.0" />
+      <Label layoutX="29.0" layoutY="243.0" text="Profession" />
+      <TextField layoutX="91.0" layoutY="239.0" />
+      <ImageView fitHeight="118.0" fitWidth="176.0" layoutX="29.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/d_va__by_guweiz-da224yn.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="30.0" layoutY="414.0" mnemonicParsing="false" text="Add skin" />
+      <ImageView fitHeight="68.0" fitWidth="94.0" layoutX="489.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/1522096_476126622495782_1415591092_n.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="398.0" layoutY="180.0" mnemonicParsing="false" text="Add ability" />
+      <Label layoutX="319.0" layoutY="56.0" text="Ability name" />
+      <TextField layoutX="398.0" layoutY="52.0" />
+      <Label layoutX="319.0" layoutY="91.0" text="Description" />
+      <TextField layoutX="398.0" layoutY="87.0" />
+      <Label layoutX="319.0" layoutY="130.0" text="Cooldown" />
+      <TextField layoutX="398.0" layoutY="126.0" />
+      <Label layoutX="409.0" layoutY="19.0" prefHeight="17.0" prefWidth="104.0" text="Abilities" />
+   </children>
+</AnchorPane>
