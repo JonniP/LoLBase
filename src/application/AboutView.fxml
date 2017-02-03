@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0" prefWidth="269.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="117.0" layoutY="14.0" text="About" />
+      <Label layoutX="24.0" layoutY="41.0" prefHeight="46.0" prefWidth="227.0" text="Developers: Valtteri Koskivuori, Elias Haaralahti, Jonni Pitkänen." textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="45.0" layoutY="95.0" prefHeight="21.0" prefWidth="192.0" text="Version: In-developement" textAlignment="CENTER" />
+      <Label alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="18.0" layoutY="133.0" prefHeight="114.0" prefWidth="240.0" text="LoLBase is a database about League of Legends champions. It contains general information about the characters. LoLBase allows you to add/modify/remove champion data." textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="24.0" layoutY="247.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="227.0" text="Close" />
+   </children>
+</AnchorPane>

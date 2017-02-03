@@ -24,13 +24,6 @@
                   <MenuItem mnemonicParsing="false" text="Delete Champion" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Search">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Search by name" />
-                  <MenuItem mnemonicParsing="false" text="Search by role" />
-                  <MenuItem mnemonicParsing="false" text="Search by related champions" />
-            </items>
-          </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
@@ -92,8 +85,8 @@
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ListView fx:id="ChampionsList" layoutY="39.0" prefHeight="411.0" prefWidth="200.0" AnchorPane.bottomAnchor="1.0" AnchorPane.topAnchor="39.0" />
-            <TextField fx:id="ChampionSearchField" layoutX="26.0" layoutY="2.0" promptText="Search by name" />
+            <ListView fx:id="ChampionsList" layoutY="39.0" prefHeight="406.0" prefWidth="213.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="39.0" />
+            <TextField fx:id="ChampionSearchField" layoutX="19.0" layoutY="-1.0" prefHeight="31.0" prefWidth="163.0" promptText="Search" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="-1.0" />
          </children>
       </AnchorPane>
    </left>
