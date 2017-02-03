@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,35 +14,37 @@
 <?import javafx.scene.text.TextFlow?>
 
 <BorderPane prefHeight="478.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewController">
-   <left>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-   </left>
    <top>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <items>
-            <Button fx:id="AddChampionButton" mnemonicParsing="false" onMouseClicked="#AddChampionClicked" text="Add Champion" />
-            <MenuButton mnemonicParsing="false" text="Modify Champion">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
-              </items>
-            </MenuButton>
-            <MenuButton mnemonicParsing="false" text="Search">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
-              </items>
-            </MenuButton>
-            <Button mnemonicParsing="false" text="Donate" />
-        </items>
-      </ToolBar>
+      <MenuBar prefHeight="27.0" prefWidth="895.0" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Champions">
+            <items>
+              <MenuItem fx:id="AddChampionButton" mnemonicParsing="false" onAction="#AddChampionClicked" text="Add Champion" />
+                  <MenuItem mnemonicParsing="false" text="Modify Champion" />
+                  <MenuItem mnemonicParsing="false" text="Delete Champion" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Search">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Search by name" />
+                  <MenuItem mnemonicParsing="false" text="Search by role" />
+                  <MenuItem mnemonicParsing="false" text="Search by related champions" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
    </top>
-   <center>
-      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+   <right>
+      <SplitPane dividerPositions="0.512249443207127" orientation="VERTICAL" prefHeight="451.0" prefWidth="730.0" BorderPane.alignment="CENTER">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ImageView fx:id="SkinRightArrow" fitHeight="121.0" fitWidth="200.0" layoutX="357.0" layoutY="88.0" onMouseClicked="#OnArrowClick" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="SkinRightArrow" fitHeight="115.0" fitWidth="241.0" layoutX="357.0" layoutY="88.0" onMouseClicked="#OnArrowClick" onMouseEntered="#ArrowOnMouseEnter" onMouseExited="#ArrowOnMouseExit" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Images/imageedit_1_6193813435.png" />
                      </image>
@@ -52,32 +54,32 @@
                         <Image url="@Images/d_va__by_guweiz-da224yn.jpg" />
                      </image>
                   </ImageView>
-                  <Label layoutX="259.0" layoutY="14.0" text="Champion name" />
-                  <Label layoutX="293.0" layoutY="31.0" text="Title" />
-                  <ImageView fx:id="SkinLeftArrow" fitHeight="133.0" fitWidth="183.0" layoutX="133.0" layoutY="93.0" onMouseClicked="#OnArrowClick" pickOnBounds="true" preserveRatio="true">
+                  <Label fx:id="ChampionNameLabel" layoutX="259.0" layoutY="14.0" text="Champion name" />
+                  <Label fx:id="ChampionTitleLabel" layoutX="293.0" layoutY="31.0" text="Title" />
+                  <ImageView fx:id="SkinLeftArrow" fitHeight="133.0" fitWidth="183.0" layoutX="133.0" layoutY="93.0" onMouseClicked="#OnArrowClick" onMouseEntered="#ArrowOnMouseEnter" onMouseExited="#ArrowOnMouseExit" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Images/imageedit_1_6193813435.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="289.0" layoutY="48.0" text="Skin" />
+                  <Label fx:id="ChampionSkinNameLabel" layoutX="276.0" layoutY="48.0" text="Skin name" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
                   <TextFlow fx:id="TempTextFlow" layoutX="7.0" layoutY="62.0" prefHeight="138.0" prefWidth="333.0" textAlignment="CENTER" />
                   <Label layoutX="491.0" layoutY="16.0" text="Ability" />
-                  <Label layoutX="470.0" layoutY="33.0" text="Frost shot t.ex." />
+                  <Label fx:id="AbilityNameLabel" layoutX="484.0" layoutY="33.0" prefHeight="17.0" prefWidth="67.0" text="Frost shot" />
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="440.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Images/1522096_476126622495782_1415591092_n.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="AbilityRightArrow" fitHeight="121.0" fitWidth="200.0" layoutX="538.0" layoutY="77.0" onMouseClicked="#OnArrowClick" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="AbilityRightArrow" fitHeight="121.0" fitWidth="200.0" layoutX="538.0" layoutY="77.0" onMouseClicked="#OnArrowClick" onMouseEntered="#ArrowOnMouseEnter" onMouseExited="#ArrowOnMouseExit" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Images/imageedit_1_6193813435.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="AbilityLeftArrow" fitHeight="121.0" fitWidth="200.0" layoutX="347.0" layoutY="77.0" onMouseClicked="#OnArrowClick" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="AbilityLeftArrow" fitHeight="121.0" fitWidth="200.0" layoutX="347.0" layoutY="77.0" onMouseClicked="#OnArrowClick" onMouseEntered="#ArrowOnMouseEnter" onMouseExited="#ArrowOnMouseExit" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Images/imageedit_1_6193813435.png" />
                      </image>
@@ -86,5 +88,13 @@
             </AnchorPane>
         </items>
       </SplitPane>
-   </center>
+   </right>
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ListView fx:id="ChampionsList" layoutY="39.0" prefHeight="411.0" prefWidth="200.0" AnchorPane.bottomAnchor="1.0" AnchorPane.topAnchor="39.0" />
+            <TextField fx:id="ChampionSearchField" layoutX="26.0" layoutY="2.0" promptText="Search by name" />
+         </children>
+      </AnchorPane>
+   </left>
 </BorderPane>

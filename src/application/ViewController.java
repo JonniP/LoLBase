@@ -6,7 +6,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -18,11 +21,26 @@ public class ViewController {
 	public static ObservableList<Object> Data = FXCollections.observableArrayList();
 	public ArrayList<Champion> Champs;
 	
-    @FXML
+	@FXML
+    private MenuItem AddChampionButton;
+	
+	@FXML
     private ListView<String> ChampionsList;
+	
+	@FXML
+    private Label ChampionNameLabel;
 
     @FXML
-    private Button AddChampionButton;
+    private Label ChampionTitleLabel;
+
+    @FXML
+    private Label ChampionSkinNameLabel;
+    
+    @FXML
+    private Label AbilityNameLabel;
+    
+    @FXML
+    private TextField ChampionSearchField;
 	
     @FXML
     private TextFlow TempTextFlow;
@@ -55,11 +73,11 @@ public class ViewController {
     
 	@FXML
     public void initialize() {
-    	ChampionText.addAll("Test1", "Test2", "Test3");
+		ChampionsList.getItems().addAll("Ashe","Brand","Warwick");
     	
-    	addChampExample();
+    	//addChampExample();	//Causes null pointer exception
     	
-    	//Lore box
+    	//TEMPORARY lore box (for UI)
     	Text t1 = new Text("Champion lore: "
     			+ "Jhin is a meticulous criminal psychopath who believes murder is art. Once an Ionian prisoner, "
     			+ "but freed by shadowy elements within Ionia's ruling council, the serial killer now works as their cabal's assassin. "
@@ -72,7 +90,7 @@ public class ViewController {
 
 	@FXML
     void AddChampionClicked(MouseEvent event) {
-
+		//Menu item AddChampion clicked
     }
 
     @FXML
@@ -82,11 +100,28 @@ public class ViewController {
     
     @FXML
     void OnArrowClick(MouseEvent event) {
-    	String s = AddChampionButton.getText();
-    	s += "1";
-    	AddChampionButton.setText(s); //Temporary test
-    	
+    	ChampionSearchField.setText("Skin change");
     	//ToDo: Change champion skin/ability icons using arrows
+    }
+    
+    @FXML
+    void ArrowOnMouseEnter(MouseEvent event) {
+    	ChampionSearchField.setText("Mouse entered arrow area");
+    	//ToDo: Change arrow image to show that it is clickable
+    }
+
+    @FXML
+    void ArrowOnMouseExit(MouseEvent event) {
+    	ChampionSearchField.setText("Mouse left arrow area");
+    	//ToDo: Change arrow image back to normal
+    }
+    
+    @FXML	//No event added
+    void ChampionsListClicked(MouseEvent event) {
+    	/*ObservableList<String> selected;
+		selected = ChampionsList.getSelectionModel().getSelectedItems();
+		ChampionSearchField.setText(selected.get(1));*/
+    	
     }
 
     
