@@ -13,12 +13,10 @@ enum Position {
 class Ability {
 	public String title;
 	public String description;
-	public int cooldown;
 	
 	public Ability() {
 		this.title = "";
 		this.description = "";
-		this.cooldown = -1;
 	}
 }
 
@@ -28,7 +26,7 @@ class Skin {
 }
 
 public class Champion {
-
+	
 	public String name;
 	public String title;
 	public ArrayList<String> roles;
@@ -36,11 +34,22 @@ public class Champion {
 	public ArrayList<Ability> Abilities;
 	public String city;
 	public ArrayList<Champion> relatedChampions;
-	public String Profession;
-	public ArrayList<Skin> Skins;
+	public String profession;
+	public String lore;
+	public ArrayList<Skin> skins;
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	//Constructor to initialize values
+	public Champion(){
+		this.name = "DefaultName";
+		this.title = "DefaultTitle";
+		this.pos = null;
+		this.city = "DefaultCity";
+		this.profession = "DefaultProfession";
+		
+		this.roles = new ArrayList<String>();
+		this.Abilities = new ArrayList<Ability>();
+		this.relatedChampions = new ArrayList<Champion>();
+		this.skins = new ArrayList<Skin>();
 	}
 
 }

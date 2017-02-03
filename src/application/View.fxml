@@ -13,29 +13,29 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane prefHeight="478.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewController">
+<BorderPane prefHeight="571.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewController">
    <top>
       <MenuBar prefHeight="27.0" prefWidth="895.0" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Champions">
             <items>
-              <MenuItem fx:id="AddChampionButton" mnemonicParsing="false" onAction="#AddChampionClicked" text="Add Champion" />
-                  <MenuItem mnemonicParsing="false" text="Modify Champion" />
-                  <MenuItem mnemonicParsing="false" text="Delete Champion" />
+              <MenuItem mnemonicParsing="false" onAction="#AddChampionClicked" text="Add Champion" />
+                  <MenuItem mnemonicParsing="false" onAction="#AddChampionClicked" text="Modify Champion" />
+                  <MenuItem mnemonicParsing="false" onAction="#OnDeleteChampionClicked" text="Delete Champion" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#OnMenuAboutClicked" text="About" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
    </top>
    <right>
-      <SplitPane dividerPositions="0.512249443207127" orientation="VERTICAL" prefHeight="451.0" prefWidth="730.0" BorderPane.alignment="CENTER">
+      <SplitPane dividerPositions="0.512249443207127" orientation="VERTICAL" prefHeight="544.0" prefWidth="807.0" BorderPane.alignment="CENTER_LEFT">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="256.0" prefWidth="751.0">
                <children>
                   <ImageView fx:id="SkinRightArrow" fitHeight="115.0" fitWidth="241.0" layoutX="357.0" layoutY="88.0" onMouseClicked="#OnArrowClick" onMouseEntered="#ArrowOnMouseEnter" onMouseExited="#ArrowOnMouseExit" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -85,8 +85,8 @@
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ListView fx:id="ChampionsList" layoutY="39.0" prefHeight="406.0" prefWidth="213.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="39.0" />
-            <TextField fx:id="ChampionSearchField" layoutX="19.0" layoutY="-1.0" prefHeight="31.0" prefWidth="163.0" promptText="Search" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="-1.0" />
+            <ListView fx:id="ChampionsList" layoutY="50.0" prefHeight="461.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+            <TextField fx:id="ChampionSearchField" layoutX="19.0" layoutY="8.0" prefHeight="31.0" prefWidth="163.0" promptText="Search" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="8.0" />
          </children>
       </AnchorPane>
    </left>

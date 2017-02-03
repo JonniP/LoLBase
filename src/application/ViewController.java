@@ -2,27 +2,26 @@ package application;
 
 import java.util.ArrayList;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import javafx.stage.Stage;
 
 public class ViewController {
 
-	public static ObservableList<String> ChampionText = FXCollections.observableArrayList();
-	public static ObservableList<Object> Data = FXCollections.observableArrayList();
-	public ArrayList<Champion> Champs;
+	//public static ObservableList<String> ChampionText = FXCollections.observableArrayList();
+	//public static ObservableList<Object> Data = FXCollections.observableArrayList();
 	
-	@FXML
-    private MenuItem AddChampionButton;
+	public ArrayList<Champion> Champs = new ArrayList<Champion>();
 	
 	@FXML
     private ListView<String> ChampionsList;
@@ -60,40 +59,64 @@ public class ViewController {
     public void addChampExample() {
     	//Example to show how to work with the champ obj
     	Champion champ = new Champion();
+    	champ.name = "Jhin";
     	champ.pos = Position.Adc;
-    	champ.name = "Brand";
-    	champ.city = "Kuokkala";
-    	Ability abil = new Ability();
-    	abil.cooldown = 22;
-    	abil.title = "+5 OP/s";
-    	abil.description = "Increases credits per second for 22 seconds";
-    	champ.Abilities.add(abil);
-    	Champs.add(champ);
-    }
-    
-	@FXML
-    public void initialize() {
-		ChampionsList.getItems().addAll("Ashe","Brand","Warwick");
-    	
-    	//addChampExample();	//Causes null pointer exception
-    	
-    	//TEMPORARY lore box (for UI)
-    	Text t1 = new Text("Champion lore: "
+    	champ.lore = "Champion lore: "
     			+ "Jhin is a meticulous criminal psychopath who believes murder is art. Once an Ionian prisoner, "
     			+ "but freed by shadowy elements within Ionia's ruling council, the serial killer now works as their cabal's assassin. "
     			+ "Using his Whisper gun as his paintbrush, Jhin creates works of artistic brutality, horrifying victims and onlookers. "
     			+ "He gains a cruel pleasure from putting on his gruesome theater, making him the ideal choice to send the most powerful of "
-    			+ "messages: terror.");
-    	//Adds t1 to TempTextFlow
+    			+ "messages: terror.";
+    	
+    	Text t1 = new Text(champ.lore);
     	TempTextFlow.getChildren().add(t1);
+    	
+    	Ability abil = new Ability();
+    	abil.title = "+5 OP/s";
+    	abil.description = "Increases credits per second for 22 seconds";
+    	champ.Abilities.add(abil);
+    	
+    	Champs.add(champ);
+    	ChampionsList.getItems().addAll(champ.name);
+    }
+    
+	@FXML
+    public void initialize() {
+		//ChampionsList.getItems().addAll("Ashe","Brand","Warwick");
+    	
+    	addChampExample();
+    }
+
+	
+	@FXML
+    void AddChampionClicked(ActionEvent event) {
+		openAnchorWindow("AddChampionView.fxml");
     }
 
 	@FXML
-    void AddChampionClicked(MouseEvent event) {
-		//Menu item AddChampion clicked
-    }
-
-    @FXML
+	void OnDeleteChampionClicked(ActionEvent event) {
+		openAnchorWindow("ConfirmActionView.fxml");
+	}
+	
+	@FXML
+	void OnMenuAboutClicked(ActionEvent event) {
+		ChampionSearchField.setText("Rekt");
+		openAnchorWindow("AboutView.fxml");
+	}
+	
+	//Open any window with AnchorPane as root 'item'
+	private void openAnchorWindow(String path){
+		try {
+			AnchorPane root = FXMLLoader.load(ViewController.class.getResource(path));
+			Scene addWindow = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(addWindow); 
+			stage.show();		
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+    
     void ChampionSelected(MouseEvent event) {
 
     }
@@ -116,7 +139,7 @@ public class ViewController {
     	//ToDo: Change arrow image back to normal
     }
     
-    @FXML	//No event added
+    @FXML	//ToDo: Add event for this (which?)
     void ChampionsListClicked(MouseEvent event) {
     	/*ObservableList<String> selected;
 		selected = ChampionsList.getSelectionModel().getSelectedItems();
