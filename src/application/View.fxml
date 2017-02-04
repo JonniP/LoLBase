@@ -39,19 +39,19 @@
                <children>
                   <ImageView fx:id="SkinRightArrow" fitHeight="115.0" fitWidth="241.0" layoutX="357.0" layoutY="88.0" onMouseClicked="#OnArrowClick" onMouseEntered="#ArrowOnMouseEnter" onMouseExited="#ArrowOnMouseExit" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Images/imageedit_1_6193813435.png" />
+                        <Image url="@Images/temp2.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="133.0" fitWidth="183.0" layoutX="213.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Images/d_va__by_guweiz-da224yn.jpg" />
+                        <Image url="@Images/temp1.jpg" />
                      </image>
                   </ImageView>
                   <Label fx:id="ChampionNameLabel" layoutX="259.0" layoutY="14.0" text="Champion name" />
                   <Label fx:id="ChampionTitleLabel" layoutX="293.0" layoutY="31.0" text="Title" />
                   <ImageView fx:id="SkinLeftArrow" fitHeight="133.0" fitWidth="183.0" layoutX="133.0" layoutY="93.0" onMouseClicked="#OnArrowClick" onMouseEntered="#ArrowOnMouseEnter" onMouseExited="#ArrowOnMouseExit" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Images/imageedit_1_6193813435.png" />
+                        <Image url="@Images/temp2.png" />
                      </image>
                   </ImageView>
                   <Label fx:id="ChampionSkinNameLabel" layoutX="276.0" layoutY="48.0" text="Skin name" />
@@ -64,17 +64,17 @@
                   <Label fx:id="AbilityNameLabel" layoutX="484.0" layoutY="33.0" prefHeight="17.0" prefWidth="67.0" text="Frost shot" />
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="440.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Images/1522096_476126622495782_1415591092_n.jpg" />
+                        <Image url="@Images/temp3.jpg" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="AbilityRightArrow" fitHeight="121.0" fitWidth="200.0" layoutX="538.0" layoutY="77.0" onMouseClicked="#OnArrowClick" onMouseEntered="#ArrowOnMouseEnter" onMouseExited="#ArrowOnMouseExit" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Images/imageedit_1_6193813435.png" />
+                        <Image url="@Images/temp2.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="AbilityLeftArrow" fitHeight="121.0" fitWidth="200.0" layoutX="347.0" layoutY="77.0" onMouseClicked="#OnArrowClick" onMouseEntered="#ArrowOnMouseEnter" onMouseExited="#ArrowOnMouseExit" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Images/imageedit_1_6193813435.png" />
+                        <Image url="@Images/temp2.png" />
                      </image>
                   </ImageView>
                </children>

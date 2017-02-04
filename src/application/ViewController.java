@@ -2,6 +2,8 @@ package application;
 
 import java.util.ArrayList;
 
+import com.sun.javafx.tk.Toolkit;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -55,6 +58,9 @@ public class ViewController {
 
     @FXML
     private ImageView AbilityLeftArrow;
+    
+    private Image arrowClickedImage;
+    private Image arrowDefaultImage;
  
     public void addChampExample() {
     	//Example to show how to work with the champ obj
@@ -82,7 +88,9 @@ public class ViewController {
     
 	@FXML
     public void initialize() {
-		//ChampionsList.getItems().addAll("Ashe","Brand","Warwick");
+		arrowClickedImage = new Image(getClass().getResource("Images/temp1.jpg").toString());
+		arrowDefaultImage = new Image(getClass().getResource("Images/temp2.png").toString());
+		 
     	
     	addChampExample();
     }
@@ -123,27 +131,51 @@ public class ViewController {
     
     @FXML
     void OnArrowClick(MouseEvent event) {
-    	ChampionSearchField.setText("Skin change");
-    	//ToDo: Change champion skin/ability icons using arrows
+    	ImageView imgView = (ImageView)event.getSource();
+    	String name = Utility.retrieveID(imgView.toString());
+    	ChampionSearchField.setText(name);
+    	
+    	Utility.setImage(imgView, arrowDefaultImage);
+    	
+    	switch(name){
+    		//Note: Utility.setImage will work just fine
+    		case "SkinLeftArrow":
+    			//ToDo: Change skin to left
+    			break;
+    			
+    		case "SkinRightArrow":
+    			//ToDo: Change skin to right
+    			break;
+    		
+    		case "AbilityLeftArrow":
+    			//ToDo: Change ability to left
+    			break;
+    			
+    		case "AbilityRightArrow":
+    			//ToDo: Change ability to right
+    			break;
+    	}
+    	
+    	//ToDO: Change skin image
     }
     
     @FXML
     void ArrowOnMouseEnter(MouseEvent event) {
-    	ChampionSearchField.setText("Mouse entered arrow area");
-    	//ToDo: Change arrow image to show that it is clickable
+    	ImageView imgView = (ImageView)event.getSource();    	
+    	Utility.setImage(imgView, arrowClickedImage);
     }
 
     @FXML
     void ArrowOnMouseExit(MouseEvent event) {
-    	ChampionSearchField.setText("Mouse left arrow area");
-    	//ToDo: Change arrow image back to normal
+    	ImageView imgView = (ImageView)event.getSource();   	
+    	Utility.setImage(imgView, arrowDefaultImage);
     }
     
     @FXML	//ToDo: Add event for this (which?)
-    void ChampionsListClicked(MouseEvent event) {
+    void OnChampionsListClicked(MouseEvent event) {
     	/*ObservableList<String> selected;
 		selected = ChampionsList.getSelectionModel().getSelectedItems();
-		ChampionSearchField.setText(selected.get(1));*/
+		ChampionSearchField.setText(selected.get(0));*/
     	
     }
 
