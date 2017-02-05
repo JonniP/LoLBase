@@ -2,8 +2,6 @@ package application;
 
 import java.util.ArrayList;
 
-import com.sun.javafx.tk.Toolkit;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,7 +43,10 @@ public class ViewController {
     private TextField ChampionSearchField;
 	
     @FXML
-    private TextFlow TempTextFlow;
+    private TextFlow LoreTextFlow;
+    
+    @FXML
+    private TextFlow AbilityDescription;
     
     @FXML
     private ImageView SkinRightArrow;
@@ -66,7 +67,7 @@ public class ViewController {
     	//Example to show how to work with the champ obj
     	Champion champ = new Champion();
     	champ.name = "Jhin";
-    	champ.pos = Position.Adc;
+    	champ.pos = Position.Adc;	//Temp lore!
     	champ.lore = "Champion lore: "
     			+ "Jhin is a meticulous criminal psychopath who believes murder is art. Once an Ionian prisoner, "
     			+ "but freed by shadowy elements within Ionia's ruling council, the serial killer now works as their cabal's assassin. "
@@ -75,12 +76,18 @@ public class ViewController {
     			+ "messages: terror.";
     	
     	Text t1 = new Text(champ.lore);
-    	TempTextFlow.getChildren().add(t1);
+    	LoreTextFlow.getChildren().add(t1);
     	
     	Ability abil = new Ability();
     	abil.title = "+5 OP/s";
-    	abil.description = "Increases credits per second for 22 seconds";
+    								//Temp description!
+    	abil.description = "FROST SHOT: Ashe's basic attacks and abilities apply Frost to affected enemies, slowing them by 10 - 20 (based on level)% for 2 s"
+    			+ "econds and causing subsequent basic attacks against them to deal 10% + (critical chance  × (1 + bonus critical damage)) AD bonus physical "
+    			+ "damage while they remain slowed.";
     	champ.Abilities.add(abil);
+    	
+    	Text t2 = new Text(abil.description);
+    	AbilityDescription.getChildren().add(t2);
     	
     	Champs.add(champ);
     	ChampionsList.getItems().addAll(champ.name);
@@ -88,8 +95,11 @@ public class ViewController {
     
 	@FXML
     public void initialize() {
-		arrowClickedImage = new Image(getClass().getResource("Images/temp1.jpg").toString());
-		arrowDefaultImage = new Image(getClass().getResource("Images/temp2.png").toString());
+		arrowClickedImage = new Image(getClass().getResource("Images/Arrow_Clicked.png").toString());
+		arrowDefaultImage = new Image(getClass().getResource("Images/Arrow_Default.png").toString());
+		
+		SkinLeftArrow.setScaleX(-1);
+		AbilityLeftArrow.setScaleX(-1);
 		 
     	
     	addChampExample();
@@ -135,8 +145,6 @@ public class ViewController {
     	String name = Utility.retrieveID(imgView.toString());
     	ChampionSearchField.setText(name);
     	
-    	Utility.setImage(imgView, arrowDefaultImage);
-    	
     	switch(name){
     		//Note: Utility.setImage will work just fine
     		case "SkinLeftArrow":
@@ -155,8 +163,6 @@ public class ViewController {
     			//ToDo: Change ability to right
     			break;
     	}
-    	
-    	//ToDO: Change skin image
     }
     
     @FXML

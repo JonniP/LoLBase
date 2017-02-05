@@ -5,7 +5,7 @@ import javafx.scene.image.ImageView;
 
 public class Utility {
 
-	//Excepts form "...[id=SkinLeftArrow, ...]",
+	//Expects form "...[id=SkinLeftArrow, ...]",
 	//returns string between id= and ,
 	public static String retrieveID(String name){
 		int start = -1, end = -1;
