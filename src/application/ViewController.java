@@ -62,6 +62,10 @@ public class ViewController {
     
     private Image arrowClickedImage;
     private Image arrowDefaultImage;
+    
+
+
+
  
     public void addChampExample() {
     	//Example to show how to work with the champ obj
@@ -108,28 +112,32 @@ public class ViewController {
 	
 	@FXML
     void AddChampionClicked(ActionEvent event) {
-		openAnchorWindow("AddChampionView.fxml");
+		openAnchorWindow("AddChampionView.fxml", "Add Champion");
     }
 
 	@FXML
 	void OnDeleteChampionClicked(ActionEvent event) {
-		openAnchorWindow("ConfirmActionView.fxml");
+		openAnchorWindow("ConfirmActionView.fxml", "Confirm Action");
 	}
 	
 	@FXML
 	void OnMenuAboutClicked(ActionEvent event) {
 		ChampionSearchField.setText("Rekt");
-		openAnchorWindow("AboutView.fxml");
+		openAnchorWindow("AboutView.fxml", "About");
+		openAnchorWindow("AddSKinVieW.fxml", "Add Skin");
 	}
 	
+	
 	//Open any window with AnchorPane as root 'item'
-	private void openAnchorWindow(String path){
+	private void openAnchorWindow(String path, String title){
 		try {
 			AnchorPane root = FXMLLoader.load(ViewController.class.getResource(path));
 			Scene addWindow = new Scene(root);
 			Stage stage = new Stage();
 			stage.setScene(addWindow); 
-			stage.show();		
+			stage.show();
+			stage.setTitle(title);
+			stage.getIcons().add(new Image(getClass().getResource("Images/Temu.png").toString()));
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
