@@ -1,6 +1,7 @@
 package application;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -104,7 +105,6 @@ public class ViewController {
 		
 		SkinLeftArrow.setScaleX(-1);
 		AbilityLeftArrow.setScaleX(-1);
-		 
     	
     	addChampExample();
     }
@@ -152,6 +152,8 @@ public class ViewController {
     	ImageView imgView = (ImageView)event.getSource();
     	String name = Utility.retrieveID(imgView.toString());
     	ChampionSearchField.setText(name);
+    	
+    	DataReader.searchKey("src/application/Data/Abilities.dat", "n");
     	
     	switch(name){
     		//Note: Utility.setImage will work just fine

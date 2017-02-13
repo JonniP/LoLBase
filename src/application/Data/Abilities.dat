@@ -1,0 +1,9 @@
+//Abilities
+
+id|Ability                |Ability school   |Respected Champion     |Image path				|Ability description
+1 |Lay Waste              |Q                |Karthus                |Images/Temu.png		|This ability description
+2 |Stand Aside            |E                |Draven                 |Images/Temu.png		|This ability description
+3 |Dredge Line            |Q                |Nautilus               |Images/Temu.png		|This ability description
+4 |Deadly Flourish        |E                |Jhin                   |Images/Temu.png		|This ability description
+5 |Crescent Sweep         |R                |Xin Zhao               |Images/Temu.png		|This ability description
+6 |Nimble Fighter         |Passive          |Fizz                   |Images/Temu.png		|This ability description
