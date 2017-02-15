@@ -1,7 +1,11 @@
 package application;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class Utility {
 
@@ -31,5 +35,21 @@ public class Utility {
     	imgView.setPreserveRatio(true);
     	imgView.setSmooth(true);
     	imgView.setCache(true); //improves performance apparently
+	}
+	
+	
+	//Open any window with AnchorPane as root 'item'
+	public static void openAnchorWindow(String path, String title){
+		try {
+			AnchorPane root = FXMLLoader.load(ViewController.class.getResource(path));
+			Scene addWindow = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(addWindow); 
+			stage.show();
+			stage.setTitle(title);
+			stage.getIcons().add(new Image(Utility.class.getResource("Images/Temu.png").toString()));
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

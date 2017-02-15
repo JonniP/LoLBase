@@ -4,11 +4,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="126.0" prefWidth="227.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button layoutX="121.0" layoutY="74.0" mnemonicParsing="false" text="Confirm" />
-      <Button layoutX="45.0" layoutY="74.0" mnemonicParsing="false" text="Cancel" />
-      <Label layoutX="45.0" prefHeight="58.0" prefWidth="151.0" text="Are you sure you want to delete 'championName'?" wrapText="true" />
+      <Button layoutX="55.0" layoutY="74.0" mnemonicParsing="false" text="Cancel" />
+      <Label fx:id="messageLabel" alignment="CENTER" layoutX="38.0" prefHeight="58.0" prefWidth="151.0" text="Does not work yet" textAlignment="CENTER" wrapText="true" />
    </children>
 </AnchorPane>

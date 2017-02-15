@@ -1,7 +1,6 @@
 package application;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -112,36 +111,23 @@ public class ViewController {
 	
 	@FXML
     void AddChampionClicked(ActionEvent event) {
-		openAnchorWindow("AddChampionView.fxml", "Add Champion");
+		Utility.openAnchorWindow("AddChampionView.fxml", "Add Champion");
     }
 
 	@FXML
 	void OnDeleteChampionClicked(ActionEvent event) {
-		openAnchorWindow("ConfirmActionView.fxml", "Confirm Action");
+		Utility.openAnchorWindow("ConfirmActionView.fxml", "Confirm Action");
 	}
 	
 	@FXML
 	void OnMenuAboutClicked(ActionEvent event) {
 		ChampionSearchField.setText("Rekt");
-		openAnchorWindow("AboutView.fxml", "About");
-		openAnchorWindow("AddSKinVieW.fxml", "Add Skin");
+		Utility.openAnchorWindow("AboutView.fxml", "About");
+		//Utility.openAnchorWindow("AddSKinVieW.fxml", "Add Skin");
 	}
 	
 	
-	//Open any window with AnchorPane as root 'item'
-	private void openAnchorWindow(String path, String title){
-		try {
-			AnchorPane root = FXMLLoader.load(ViewController.class.getResource(path));
-			Scene addWindow = new Scene(root);
-			Stage stage = new Stage();
-			stage.setScene(addWindow); 
-			stage.show();
-			stage.setTitle(title);
-			stage.getIcons().add(new Image(getClass().getResource("Images/Temu.png").toString()));
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
+
     
     void ChampionSelected(MouseEvent event) {
 
