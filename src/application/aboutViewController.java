@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 /**
  * Controller class for aboutView window
  */
-public class aboutViewContoller {
+public class aboutViewController {
 	
     @FXML
     private Button closeButton;
