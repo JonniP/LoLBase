@@ -2,17 +2,21 @@ package application;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 
+/**
+ * Controller class for aboutView window
+ */
 public class aboutViewContoller {
 	
     @FXML
     private Button closeButton;
 
+    /**
+     * When add skin button is clicked opens ConfirmActionView
+     */
     @FXML
-    void onAddSkinButton_Clicked(MouseEvent event) {
+    void onAddSkinButton_Clicked() {
     	Utility.openAnchorWindow("ConfirmActionView.fxml", "Warning");
-
     }
 
 }

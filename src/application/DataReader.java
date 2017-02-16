@@ -8,36 +8,46 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Contains static methods for reading champion data from files.
+ */
 public class DataReader {
 	
+	/**
+	 * Reads a specified file and stores all non-comment lines to a list.
+	 * @param filePath - Path to file
+	 * @return - Returns a list of all the lines in the specified file.
+	 */
 	private static List<String> readFile(String filePath){
-		
 		try{
 			InputStream in = new FileInputStream(new File(filePath));
 	        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 	        List<String> data = new ArrayList<String>();
 	        String line;
+	        
 	        while ((line = reader.readLine()) != null) {
-	        	//Comment and null lines
+	        	//null and comment lines
 	        	if(line.length() > 1){
 	        		if(!line.contains("//")){
 	        			data.add(line);
 	        		}
-	        	}
-	        		
+	        	}	
 	        }
 	        reader.close();
 	        return data;
 		} catch(Exception e){
 			e.printStackTrace();
-			System.out.println(e);
 			return null;
 		}
 	}
 	
-	//Temporary to create a list of champions with only their name
-	//ToDo: Add other information or find a better way to do this
+	/**
+	 * Reads Champions.dat file and returns a list of all champions.
+	 * @return Returns a list of champions.
+	 */
 	public static ArrayList<Champion> getChampions(){
+		//ToDo: Get all info about all champions
+		//ToDo: No error checking for missing files
 		List<String> data = readFile("src/application/Data/Champions.dat");
 		ArrayList<Champion> champions = new ArrayList<Champion>();
 		Champion champ;
@@ -52,10 +62,15 @@ public class DataReader {
 				champions.add(champ);
 			}
 		}
-		
 		return champions;
 	}
 	
+	
+	/**
+	 * Reads specified file and searches for lines that contain key value.
+	 * @param filePath - Path to file
+	 * @param key - Word we are looking for
+	 */
 	public static void searchKey(String filePath, String key){
 		List<String> data = readFile(filePath);
 		

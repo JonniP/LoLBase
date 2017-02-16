@@ -2,6 +2,9 @@ package application;
 
 import java.util.ArrayList;
 
+/**
+ * Enum of champion lanes
+ */
 enum Position {
 	Top,
 	Mid,
@@ -10,6 +13,9 @@ enum Position {
 	Support
 }
 
+/**
+ * Class object for abilities
+ */
 class Ability {
 	public String title;
 	public String description;
@@ -20,11 +26,17 @@ class Ability {
 	}
 }
 
+/**
+ * Class object for skins
+ */
 class Skin {
 	public String name;
 	public String imgName;
 }
 
+/**
+ * Class object for champions, uses abilities and skins.
+ */
 public class Champion {
 	
 	public String name;

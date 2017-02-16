@@ -2,8 +2,10 @@ package application;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 
+/**
+ * Controller class for AddChampionView
+ */
 public class AddChampionViewController {
 
     @FXML
@@ -30,12 +32,13 @@ public class AddChampionViewController {
     @FXML
     private Button browseImageButton5;
 
-	    @FXML
-	    void onAddSkinButton_Clicked(MouseEvent event) {
-	    	Utility.openAnchorWindow("ConfirmActionView.fxml", "Warning");
-	    	
-	    }
-
+	/**
+	 *	Open a window for adding skins
+	 */
+	@FXML
+	void onAddSkinButton_Clicked() {
+		Utility.openAnchorWindow("ConfirmActionView.fxml", "Warning");
+	}
 }
 
 

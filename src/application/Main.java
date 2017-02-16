@@ -7,8 +7,11 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.fxml.FXMLLoader;
 
-
+/**
+ * Default JavaFX class for creating primary window
+ */
 public class Main extends Application {
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {

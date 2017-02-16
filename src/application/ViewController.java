@@ -14,6 +14,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
+/**
+ * Controller class for main view.
+ */
 public class ViewController {
 
 	//public static ObservableList<String> ChampionText = FXCollections.observableArrayList();
@@ -60,40 +63,9 @@ public class ViewController {
     private Image arrowClickedImage;
     private Image arrowDefaultImage;
     
-
-
-
- 
-    public void addChampExample() {
-    	//Example to show how to work with the champ obj
-    	Champion champ = new Champion();
-    	champ.name = "Jhin";
-    	champ.pos = Position.Adc;	//Temp lore!
-    	champ.lore = "Champion lore: "
-    			+ "Jhin is a meticulous criminal psychopath who believes murder is art. Once an Ionian prisoner, "
-    			+ "but freed by shadowy elements within Ionia's ruling council, the serial killer now works as their cabal's assassin. "
-    			+ "Using his Whisper gun as his paintbrush, Jhin creates works of artistic brutality, horrifying victims and onlookers. "
-    			+ "He gains a cruel pleasure from putting on his gruesome theater, making him the ideal choice to send the most powerful of "
-    			+ "messages: terror.";
-    	
-    	Text t1 = new Text(champ.lore);
-    	LoreTextFlow.getChildren().add(t1);
-    	
-    	Ability abil = new Ability();
-    	abil.title = "+5 OP/s";
-    								//Temp description!
-    	abil.description = "FROST SHOT: Ashe's basic attacks and abilities apply Frost to affected enemies, slowing them by 10 - 20 (based on level)% for 2 s"
-    			+ "econds and causing subsequent basic attacks against them to deal 10% + (critical chance  × (1 + bonus critical damage)) AD bonus physical "
-    			+ "damage while they remain slowed.";
-    	champ.Abilities.add(abil);
-    	
-    	Text t2 = new Text(abil.description);
-    	AbilityDescription.getChildren().add(t2);
-    	
-    	Champs.add(champ);
-    	ChampionsList.getItems().addAll(champ.name);
-    }
-    
+	/**
+	 * Initializes objects and loads data from files.
+	 */
 	@FXML
     public void initialize() {
 		arrowClickedImage = new Image(getClass().getResource("Images/Arrow_Clicked.png").toString());
@@ -104,37 +76,54 @@ public class ViewController {
 		
 		Champs = DataReader.getChampions();
 		
+		//Temporary lore text
+		Text tempLore = new Text("This area is reserved for lore");
+		LoreTextFlow.getChildren().add(tempLore);
+		
 		//fill champion list with names
 		for(Champion c : Champs){
-			ChampionsList.getItems().addAll(c.name); //better way to add?
+			ChampionsList.getItems().addAll(c.name);
 		}
     }
 
 	
+	/**
+	 * On add champion button clicked, opens AddChampionView window.
+	 */
 	@FXML
-    void AddChampionClicked(ActionEvent event) {
+    void AddChampionClicked() {
 		Utility.openAnchorWindow("AddChampionView.fxml", "Add Champion");
     }
 
+	/**
+	 * On delete champion clicked, opens ConfirmActionView window.
+	 */
 	@FXML
-	void OnDeleteChampionClicked(ActionEvent event) {
+	void OnDeleteChampionClicked() {
 		Utility.openAnchorWindow("ConfirmActionView.fxml", "Confirm Action");
 	}
 	
+	/**
+	 * On menu button About clicked. Opens AboutView window.
+	 */
 	@FXML
-	void OnMenuAboutClicked(ActionEvent event) {
-		ChampionSearchField.setText("Rekt");
+	void OnMenuAboutClicked() {
 		Utility.openAnchorWindow("AboutView.fxml", "About");
-		//Utility.openAnchorWindow("AddSKinVieW.fxml", "Add Skin");
 	}
     
+    /**
+     * On arrow click, determines which arrow was clicked and
+     * does something.
+     * @param event - Contains information about the mouse event.
+     */
     @FXML
     void OnArrowClick(MouseEvent event) {
     	ImageView imgView = (ImageView)event.getSource();
     	String name = Utility.retrieveID(imgView.toString());
     	ChampionSearchField.setText(name);
     	
-    	DataReader.searchKey("src/application/Data/Abilities.dat", "n");
+    	//Temporary
+    	DataReader.searchKey("src/application/Data/Abilities.dat", "Nautilus");
     	
     	switch(name){
     		//Note: Utility.setImage will work just fine
@@ -156,22 +145,35 @@ public class ViewController {
     	}
     }
     
+    /**
+     * On mouse enter arrow area changes image.
+     * @param event - Information about mouse event.
+     */
     @FXML
     void ArrowOnMouseEnter(MouseEvent event) {
     	ImageView imgView = (ImageView)event.getSource();    	
     	Utility.setImage(imgView, arrowClickedImage);
     }
 
+    /**
+     * On mouse exit arrow area changes image.
+     * @param event - Information about mouse event.
+     */
     @FXML
     void ArrowOnMouseExit(MouseEvent event) {
     	ImageView imgView = (ImageView)event.getSource();   	
     	Utility.setImage(imgView, arrowDefaultImage);
     }
     
+    /**
+     * On champion list clicked, shows the clicked value in search field.
+     */
     @FXML
-    void OnChampionsListClicked(MouseEvent event) {
+    void OnChampionsListClicked() {
     	ObservableList<String> selected;
 		selected = ChampionsList.getSelectionModel().getSelectedItems();
 		ChampionSearchField.setText(selected.get(0));
+		
+		//ToDo: Change data according to the clicked champion.
     }    
 }
