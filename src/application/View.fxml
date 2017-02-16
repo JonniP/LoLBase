@@ -86,7 +86,7 @@
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ListView fx:id="ChampionsList" layoutY="50.0" prefHeight="461.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+            <ListView fx:id="ChampionsList" layoutY="50.0" onMouseClicked="#OnChampionsListClicked" prefHeight="461.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
             <TextField fx:id="ChampionSearchField" layoutX="19.0" layoutY="8.0" prefHeight="31.0" prefWidth="163.0" promptText="Search" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="8.0" />
          </children>
       </AnchorPane>

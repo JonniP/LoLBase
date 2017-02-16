@@ -2,20 +2,17 @@ package application;
 
 import java.util.ArrayList;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
-import javafx.stage.Stage;
 
 public class ViewController {
 
@@ -104,8 +101,13 @@ public class ViewController {
 		
 		SkinLeftArrow.setScaleX(-1);
 		AbilityLeftArrow.setScaleX(-1);
-    	
-    	addChampExample();
+		
+		Champs = DataReader.getChampions();
+		
+		//fill champion list with names
+		for(Champion c : Champs){
+			ChampionsList.getItems().addAll(c.name); //better way to add?
+		}
     }
 
 	
@@ -125,13 +127,6 @@ public class ViewController {
 		Utility.openAnchorWindow("AboutView.fxml", "About");
 		//Utility.openAnchorWindow("AddSKinVieW.fxml", "Add Skin");
 	}
-	
-	
-
-    
-    void ChampionSelected(MouseEvent event) {
-
-    }
     
     @FXML
     void OnArrowClick(MouseEvent event) {
@@ -173,13 +168,10 @@ public class ViewController {
     	Utility.setImage(imgView, arrowDefaultImage);
     }
     
-    @FXML	//ToDo: Add event for this (which?)
+    @FXML
     void OnChampionsListClicked(MouseEvent event) {
-    	/*ObservableList<String> selected;
+    	ObservableList<String> selected;
 		selected = ChampionsList.getSelectionModel().getSelectedItems();
-		ChampionSearchField.setText(selected.get(0));*/
-    	
-    }
-
-    
+		ChampionSearchField.setText(selected.get(0));
+    }    
 }
