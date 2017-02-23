@@ -9,7 +9,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="825.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddChampionViewController">
    <children>
       <Button fx:id="confirmButton" layoutX="720.0" layoutY="723.0" mnemonicParsing="false" onMouseClicked="#onAddSkinButton_Clicked" prefHeight="31.0" prefWidth="91.0" text="Confirm" />
-      <Button fx:id="cancelButton" layoutX="633.0" layoutY="723.0" mnemonicParsing="false" onMouseClicked="#onAddSkinButton_Clicked" prefHeight="25.0" prefWidth="73.0" text="Cancel" />
+      <Button fx:id="cancelButton" layoutX="633.0" layoutY="723.0" mnemonicParsing="false" onMouseClicked="#onCancelButton_Clicked" prefHeight="25.0" prefWidth="73.0" text="Cancel" />
       <Label layoutX="25.0" layoutY="65.0" text="Name" />
       <TextField layoutX="122.0" layoutY="60.0" />
       <Label layoutX="24.0" layoutY="108.0" text="Title" />

@@ -2,6 +2,7 @@ package application;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 /**
  * Controller class for AddChampionView
@@ -39,6 +40,12 @@ public class AddChampionViewController {
 	void onAddSkinButton_Clicked() {
 		Utility.openAnchorWindow("ConfirmActionView.fxml", "Warning");
 	}
+	
+	@FXML
+	 void onCancelButton_Clicked() {
+		 Stage stage = (Stage) cancelButton.getScene().getWindow();
+		 stage.close();
+	 }
 }
 
 
