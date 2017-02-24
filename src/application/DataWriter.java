@@ -10,7 +10,7 @@ public class DataWriter {
 	 */
 	public static void addChampion(){
 		//ToDo: get info from AddChampionView
-		Champion champ = new Champion();
+		//Champion champ = new Champion();
 		//ToDo: write info to Champios.dat
 		//ToDo: Update champions in mainView/ChampionList
 	}

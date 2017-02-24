@@ -1,8 +1,6 @@
 package application;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -20,7 +18,7 @@ public class DataReader {
 	 */
 	private static List<String> readFile(String filePath){
 		try{
-			InputStream in = new FileInputStream(new File(filePath));
+			InputStream in = DataReader.class.getResourceAsStream(filePath);
 	        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 	        List<String> data = new ArrayList<String>();
 	        String line;
@@ -48,7 +46,7 @@ public class DataReader {
 	public static ArrayList<Champion> getChampions(){
 		//ToDo: Get all info about all champions
 		//ToDo: No error checking for missing files
-		List<String> data = readFile("src/application/Data/Champions.dat");
+		List<String> data = readFile("Data/Champions.dat");
 		ArrayList<Champion> champions = new ArrayList<Champion>();
 		Champion champ;
 		
