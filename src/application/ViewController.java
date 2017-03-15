@@ -73,7 +73,7 @@ public class ViewController {
 		SkinLeftArrow.setScaleX(-1);
 		AbilityLeftArrow.setScaleX(-1);
 		
-		Champs = DataReader.getChampions();
+		Champs = Champions.getChampions();
 		
 		//Temporary lore text
 		Text tempLore = new Text("This area is reserved for lore");
@@ -122,7 +122,7 @@ public class ViewController {
     	ChampionSearchField.setText(name);
     	
     	//Temporary
-    	DataReader.searchKey("src/application/Data/Abilities.dat", "Nautilus");
+    	//DataReader.searchKey("src/application/Data/Abilities.dat", "Nautilus");
     	
     	switch(name){
     		//Note: Utility.setImage will work just fine

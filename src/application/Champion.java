@@ -34,6 +34,7 @@ class Skin {
 	public String imgName;
 }
 
+
 /**
  * Class object for champions, uses abilities and skins.
  */

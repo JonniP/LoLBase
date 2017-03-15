@@ -1,24 +1,28 @@
 package application;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Contains static methods for reading champion data from files.
  */
-public class DataReader {
+public class Champions {
+	private static final String filePath = "Data/Champions.dat";
 	
 	/**
 	 * Reads a specified file and stores all non-comment lines to a list.
 	 * @param filePath - Path to file
 	 * @return - Returns a list of all the lines in the specified file.
 	 */
-	private static List<String> readFile(String filePath){
+	private static List<String> readFile(){
 		try{
-			InputStream in = DataReader.class.getResourceAsStream(filePath);
+			InputStream in = Champions.class.getResourceAsStream(filePath);
 	        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 	        List<String> data = new ArrayList<String>();
 	        String line;
@@ -39,6 +43,11 @@ public class DataReader {
 		}
 	}
 	
+	private static void writeToFile(Champion champ) throws FileNotFoundException, UnsupportedEncodingException{
+		PrintWriter writer = new PrintWriter(filePath, "UTF-8");
+		
+	}
+	
 	/**
 	 * Reads Champions.dat file and returns a list of all champions.
 	 * @return Returns a list of champions.
@@ -46,7 +55,7 @@ public class DataReader {
 	public static ArrayList<Champion> getChampions(){
 		//ToDo: Get all info about all champions
 		//ToDo: No error checking for missing files
-		List<String> data = readFile("Data/Champions.dat");
+		List<String> data = readFile();
 		ArrayList<Champion> champions = new ArrayList<Champion>();
 		Champion champ;
 		
@@ -69,8 +78,8 @@ public class DataReader {
 	 * @param filePath - Path to file
 	 * @param key - Word we are looking for
 	 */
-	public static void searchKey(String filePath, String key){
-		List<String> data = readFile(filePath);
+	public static void searchKey(String key){
+		List<String> data = readFile();
 		
 		for(String s : data){
 			if(s.contains(key)){
