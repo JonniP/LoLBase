@@ -90,33 +90,6 @@ public class ViewController {
 		}
     }
 	
-
-	
-	/**
-	 * private static ArrayList<String> readFile(){
-		try{
-			InputStream in = Champions.class.getResourceAsStream(filePath);
-	        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-	        ArrayList<String> data = new ArrayList<String>();
-	        String line;
-	        
-	        while ((line = reader.readLine()) != null) {
-	        	//null and comment lines
-	        	if(line.length() > 1){
-	        		if(!line.contains("//")){
-	        			data.add(line);
-	        		}
-	        	}	
-	        }
-	        reader.close();
-	        return data;
-		} catch(Exception e){
-			e.printStackTrace();
-			return null;
-		}
-	}
-	 * /
-	
 	/**
 	 * On add champion button clicked, opens AddChampionView window.
 	 */
