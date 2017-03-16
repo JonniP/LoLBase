@@ -14,28 +14,6 @@ enum Position {
 }
 
 /**
- * Class object for abilities
- */
-class Ability {
-	public String title;
-	public String description;
-	
-	public Ability() {
-		this.title = "";
-		this.description = "";
-	}
-}
-
-/**
- * Class object for skins
- */
-class Skin {
-	public String name;
-	public String imgName;
-}
-
-
-/**
  * Class object for champions, uses abilities and skins.
  */
 public class Champion {

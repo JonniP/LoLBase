@@ -73,8 +73,6 @@ public class ViewController {
 		SkinLeftArrow.setScaleX(-1);
 		AbilityLeftArrow.setScaleX(-1);
 		
-		Champs = Champions.getChampions();
-		
 		//Temporary lore text
 		Text tempLore = new Text("This area is reserved for lore");
 		LoreTextFlow.getChildren().add(tempLore);
