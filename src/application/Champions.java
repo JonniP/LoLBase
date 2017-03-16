@@ -20,11 +20,11 @@ public class Champions {
 	 * @param filePath - Path to file
 	 * @return - Returns a list of all the lines in the specified file.
 	 */
-	private static List<String> readFile(){
+	private static ArrayList<String> readFile(){
 		try{
 			InputStream in = Champions.class.getResourceAsStream(filePath);
 	        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-	        List<String> data = new ArrayList<String>();
+	        ArrayList<String> data = new ArrayList<String>();
 	        String line;
 	        
 	        while ((line = reader.readLine()) != null) {
@@ -43,11 +43,24 @@ public class Champions {
 		}
 	}
 	
-	private static void writeToFile(Champion champ) throws FileNotFoundException, UnsupportedEncodingException{
+	public static void writeToFile(ArrayList<Champion> champs) throws FileNotFoundException, UnsupportedEncodingException{
 		PrintWriter writer = new PrintWriter(filePath, "UTF-8");
+		ArrayList<String> data = readFile();
 		
+		if (data.size() != 0) {
+			Utility.clearFile(filePath);
+		}
+		//ID, Name, Title, Position, Lore
+		String temp;
+		int id = 0;
+		for (Champion champ : champs){
+			temp = id++ + "|" + champ.name + "|" + champ.title + "|" + champ.pos + "|" + champ.lore;
+			writer.write(temp);
+		}
+		writer.close();
 	}
-	
+		
+		
 	/**
 	 * Reads Champions.dat file and returns a list of all champions.
 	 * @return Returns a list of champions.

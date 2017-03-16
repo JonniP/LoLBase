@@ -1,5 +1,8 @@
 package application;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -32,6 +35,21 @@ public class Utility {
 		}
 		if(start == -1) return "Invalid input";
 		return name.substring(start, end);
+	}
+	
+	/***
+	 * Empties a given file
+	 */
+	public static void clearFile(String filepath) {
+		try {
+			FileWriter fwOb = new FileWriter(filepath, false); 
+	        PrintWriter pwOb = new PrintWriter(fwOb, false);
+	        pwOb.flush();
+	        pwOb.close();
+	        fwOb.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**

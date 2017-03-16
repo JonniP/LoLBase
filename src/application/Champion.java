@@ -42,27 +42,15 @@ public class Champion {
 	
 	public String name;
 	public String title;
-	public ArrayList<String> roles;
 	public Position pos;
-	public ArrayList<Ability> Abilities;
-	public String city;
-	public ArrayList<Champion> relatedChampions;
-	public String profession;
 	public String lore;
-	public ArrayList<Skin> skins;
 	
-	//Constructor to initialize values
+	//Constructor to initialise values
 	public Champion(){
 		this.name = "DefaultName";
 		this.title = "DefaultTitle";
 		this.pos = null;
-		this.city = "DefaultCity";
-		this.profession = "DefaultProfession";
-		
-		this.roles = new ArrayList<String>();
-		this.Abilities = new ArrayList<Ability>();
-		this.relatedChampions = new ArrayList<Champion>();
-		this.skins = new ArrayList<Skin>();
+
 	}
 
 }
