@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Skins {
-	private static ArrayList<Skin> skins;
+	public static ArrayList<Skin> Skins = new ArrayList<Skin>();
 	private static String filePath = "Data/Skins.dat";
 
 	//ToDo: Write method for writing new skins
@@ -14,7 +14,7 @@ public class Skins {
 	}
 
 	//ToDo: Write method for reading skins
-	public static void writeFile(ArrayList<Skin> skins) {
+	public static void writeToFile(ArrayList<Skin> skins) {
 		try {
 			PrintWriter writer = new PrintWriter(filePath, "UTF-8");
 			ArrayList<String> data = readFile();

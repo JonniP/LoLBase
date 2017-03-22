@@ -24,7 +24,7 @@ public class Champions {
 	}
 
 	public static void writeToFile(ArrayList<Champion> champs) {
-		try{
+		try {
 			PrintWriter writer = new PrintWriter(filePath, "UTF-8");
 			ArrayList<String> data = readFile();
 

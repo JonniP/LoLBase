@@ -1,6 +1,7 @@
 package application;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -82,6 +83,20 @@ public class Utility {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	/***
+	 * Stores all Abilities, Champions and Skins to file
+	 */
+	public static void writeAll() {
+		//Store Abilities
+		Abilities.writeToFile(Abilities.Abilities);
+		
+		//Store Champions
+		Champions.writeToFile(Champions.Champs);
+		
+		//Store Skins
+		Skins.writeToFile(Skins.Skins);
 	}
 
 	/**

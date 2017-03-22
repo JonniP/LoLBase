@@ -8,7 +8,7 @@ public class Abilities {
 
 	private static final String filePath = "Data/abilities.dat";
 
-	private static ArrayList<Ability> abilities;
+	public static ArrayList<Ability> Abilities = new ArrayList<Ability>();
 
 	//ToDo: Write method for writing new abilities
 	public static ArrayList<String> readFile(){
@@ -16,7 +16,7 @@ public class Abilities {
 	}
 
 	//ToDo: Write method for reading abilities
-	public static void writeFile(ArrayList<Ability> abilities) throws FileNotFoundException{
+	public static void writeToFile(ArrayList<Ability> abilities) {
 		//ToDo: Clear file (Utility class) and write all abilities to i
 		try{
 			PrintWriter writer = new PrintWriter(filePath, "UTF-8");
