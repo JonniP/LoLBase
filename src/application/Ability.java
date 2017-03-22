@@ -4,11 +4,19 @@ package application;
  * Class object for abilities
  */
 class Ability {
-	public String title;
+	public String name;
+	public String school; //passive, Q, W, E, R...
+	public int respectedChampionID;
+	public String imagePath;
 	public String description;
-	
+	public String abilitySchool;
+	public String imagepath;
+
 	public Ability() {
-		this.title = "";
+		this.name = "";
 		this.description = "";
+		this.abilitySchool = "";
+		this.respectedChampionID = -1;
+		this.imagepath = "";
 	}
 }

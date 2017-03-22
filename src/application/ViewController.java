@@ -1,8 +1,5 @@
 package application;
 
-
-import java.util.ArrayList;
-
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -21,8 +18,6 @@ public class ViewController {
 
 	//public static ObservableList<String> ChampionText = FXCollections.observableArrayList();
 	//public static ObservableList<Object> Data = FXCollections.observableArrayList();
-	
-	public ArrayList<Champion> Champs = new ArrayList<Champion>();
 	
 	@FXML
     private ListView<String> ChampionsList;
@@ -85,7 +80,7 @@ public class ViewController {
 		LoreTextFlow.getChildren().add(tempLore);
 		
 		//fill champion list with names
-		for(Champion c : Champs){
+		for(Champion c : Champions.Champs){
 			ChampionsList.getItems().addAll(c.name);
 		}
     }

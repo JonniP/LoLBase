@@ -1,25 +1,55 @@
 package application;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Abilities {
-	private static ArrayList<Ability> abilities;
-	
+
+	private static final String filePath = "Data/abilities.dat";
+
+	public static ArrayList<Ability> Abilities = new ArrayList<Ability>();
+
 	//ToDo: Write method for writing new abilities
-	public static ArrayList<Ability> readFile(){
-		//ToDo: return all content
-		return null;
+	public static ArrayList<String> readFile(){
+		return Utility.readFile(filePath);
 	}
-	
+
 	//ToDo: Write method for reading abilities
-	public static void writeFile(){
-		//ToDo: Clear file (Utility class) and write all abilities to it
+	public static void writeToFile(ArrayList<Ability> abilities) {
+		//ToDo: Clear file (Utility class) and write all abilities to i
+		try{
+			PrintWriter writer = new PrintWriter(filePath, "UTF-8");
+			ArrayList<String> data = readFile();
+
+			if(data.size() != 0){
+				Utility.clearFile(filePath);
+			}
+			//ID, Ability name, Ability school(??), Respected champion, Image path, Description
+			String temp;
+			int id = 0;
+			for(Ability a : abilities){
+				temp = id++ + "|" + a.name + "|" + a.school + "|" + a.respectedChampionID + "|" +
+					a.imagepath + "|" + a.description;
+				writer.write(temp);
+			}
+			writer.close();
+		} catch(Exception e){
+			e.printStackTrace();
+		}
 	}
-	
+
 	//ToDo: Search abilities with champion ID
-	public static ArrayList<Ability> searchAbility(int ID){
+	public static ArrayList<String> searchAbilitiesWithChampionID(int ID){
 		//ToDo: Read the file and return only abilities with specific champion ID
-		return null;
+		String key = Integer.toString(ID);
+		ArrayList<String> data = readFile();
+		ArrayList<String> filteredData = new ArrayList<String>();
+		for(String s : data){
+			//ToDo: Check if ability is respected champion ID (?)
+			if(s.contains(key)) data.add(s);
+		}
+		return filteredData;
 	}
 
 }
