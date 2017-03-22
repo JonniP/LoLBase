@@ -2,6 +2,8 @@ package application;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
@@ -16,22 +18,67 @@ public class AddChampionViewController {
     private Button cancelButton;
 
     @FXML
+    private TextField nameField;
+
+    @FXML
+    private TextField titleField;
+
+    @FXML
+    private TextField roleField;
+
+    @FXML
+    private TextField positionField;
+
+    @FXML
     private Button AddSkinButton;
 
     @FXML
-    private Button browseImageButton1;
+    private TextField passiveName;
 
     @FXML
-    private Button browseImageButton2;
+    private TextField passiveInfo;
 
     @FXML
-    private Button browseImageButton3;
+    private TextArea loreField;
 
     @FXML
-    private Button browseImageButton4;
+    private Button browsePassiveImageButton;
 
     @FXML
-    private Button browseImageButton5;
+    private TextField qName;
+
+    @FXML
+    private TextField qInfo;
+
+    @FXML
+    private Button browseQImageButton;
+
+    @FXML
+    private TextField wName;
+
+    @FXML
+    private TextField wInfo;
+
+    @FXML
+    private Button browseWImageButton;
+
+    @FXML
+    private TextField eName;
+
+    @FXML
+    private TextField eInfo;
+
+    @FXML
+    private Button browseEImageButton;
+
+    @FXML
+    private TextField rName;
+
+    @FXML
+    private TextField rInfo;
+
+    @FXML
+    private Button browseRImageButton;
 
 	/**
 	 *	Open a window for adding skins
@@ -46,6 +93,15 @@ public class AddChampionViewController {
 		 Stage stage = (Stage) cancelButton.getScene().getWindow();
 		 stage.close();
 	 }
+	@FXML
+	void onConfirmClicked() {
+		//
+	}
+	@FXML
+	void onAddBrowseImageButton_Clicked(){
+		//
+	}
+	
 }
 
 

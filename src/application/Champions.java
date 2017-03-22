@@ -42,7 +42,6 @@ public class Champions {
 			return null;
 		}
 	}
-	
 	public static void writeToFile(ArrayList<Champion> champs) throws FileNotFoundException, UnsupportedEncodingException{
 		PrintWriter writer = new PrintWriter(filePath, "UTF-8");
 		ArrayList<String> data = readFile();

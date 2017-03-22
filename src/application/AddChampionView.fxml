@@ -8,56 +8,50 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="825.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddChampionViewController">
    <children>
-      <Button fx:id="confirmButton" layoutX="720.0" layoutY="723.0" mnemonicParsing="false" onMouseClicked="#onAddSkinButton_Clicked" prefHeight="31.0" prefWidth="91.0" text="Confirm" />
+      <Button fx:id="confirmButton" layoutX="720.0" layoutY="723.0" mnemonicParsing="false" onMouseClicked="#onConfirmClicked" prefHeight="31.0" prefWidth="91.0" text="Confirm" />
       <Button fx:id="cancelButton" layoutX="633.0" layoutY="723.0" mnemonicParsing="false" onMouseClicked="#onCancelButton_Clicked" prefHeight="25.0" prefWidth="73.0" text="Cancel" />
       <Label layoutX="25.0" layoutY="65.0" text="Name" />
-      <TextField layoutX="122.0" layoutY="60.0" />
+      <TextField fx:id="nameField" layoutX="122.0" layoutY="60.0" />
       <Label layoutX="24.0" layoutY="108.0" text="Title" />
-      <TextField layoutX="122.0" layoutY="103.0" />
+      <TextField fx:id="titleField" layoutX="122.0" layoutY="103.0" />
       <Label layoutX="23.0" layoutY="151.0" text="Role" />
-      <TextField layoutX="122.0" layoutY="146.0" />
+      <TextField fx:id="roleField" layoutX="122.0" layoutY="146.0" />
       <Label layoutX="24.0" layoutY="196.0" text="Position" />
-      <TextField layoutX="122.0" layoutY="191.0" />
-      <Label layoutX="25.0" layoutY="239.0" text="City" />
-      <TextField layoutX="122.0" layoutY="234.0" />
-      <Label layoutX="25.0" layoutY="322.0" text="Related" />
-      <TextField layoutX="122.0" layoutY="273.0" />
-      <Label layoutX="26.0" layoutY="278.0" text="Profession" />
-      <TextField layoutX="122.0" layoutY="317.0" />
-      <Button fx:id="AddSkinButton" layoutX="122.0" layoutY="682.0" mnemonicParsing="false" onMouseClicked="#onAddSkinButton_Clicked" text="Add skins" />
+      <TextField fx:id="positionField" layoutX="122.0" layoutY="191.0" />
+      <Button fx:id="AddSkinButton" layoutX="122.0" layoutY="658.0" mnemonicParsing="false" onMouseClicked="#onAddSkinButton_Clicked" text="Add skins" />
       <Label layoutX="473.0" layoutY="102.0" text="Ability name" />
-      <TextField layoutX="568.0" layoutY="97.0" />
+      <TextField fx:id="passiveName" layoutX="568.0" layoutY="97.0" />
       <Label layoutX="473.0" layoutY="145.0" text="Description" />
-      <TextField layoutX="568.0" layoutY="140.0" />
+      <TextField fx:id="passiveInfo" layoutX="568.0" layoutY="140.0" />
       <Label layoutX="473.0" layoutY="65.0" prefHeight="21.0" prefWidth="83.0" text="Passive" />
-      <TextArea layoutX="122.0" layoutY="384.0" prefHeight="264.0" prefWidth="249.0" />
-      <Label layoutX="24.0" layoutY="390.0" prefHeight="5.0" prefWidth="29.0" text="Lore" />
-      <Button fx:id="browseImageButton1" layoutX="568.0" layoutY="60.0" mnemonicParsing="false" onMouseClicked="#onAddSkinButton_Clicked" text="Browse Image" />
+      <TextArea fx:id="loreField" layoutX="122.0" layoutY="232.0" prefHeight="418.0" prefWidth="249.0" />
+      <Label layoutX="24.0" layoutY="233.0" prefHeight="5.0" prefWidth="29.0" text="Lore" />
+      <Button fx:id="browsePassiveImageButton" layoutX="568.0" layoutY="60.0" mnemonicParsing="false" onMouseClicked="#onAddBrowseImageButton_Clicked" text="Browse Image" />
       <Label layoutX="469.0" layoutY="233.0" text="Ability name" />
-      <TextField layoutX="568.0" layoutY="228.0" />
+      <TextField fx:id="qName" layoutX="568.0" layoutY="228.0" />
       <Label layoutX="469.0" layoutY="276.0" text="Description" />
-      <TextField layoutX="568.0" layoutY="271.0" />
+      <TextField fx:id="qInfo" layoutX="568.0" layoutY="271.0" />
       <Label layoutX="473.0" layoutY="196.0" prefHeight="21.0" prefWidth="83.0" text="Q-Ability" />
-      <Button fx:id="browseImageButton2" layoutX="567.0" layoutY="191.0" mnemonicParsing="false" onMouseClicked="#onAddSkinButton_Clicked" text="Browse Image" />
+      <Button fx:id="browseQImageButton" layoutX="567.0" layoutY="191.0" mnemonicParsing="false" onMouseClicked="#onAddBrowseImageButton_Clicked" text="Browse Image" />
       <Label layoutX="473.0" layoutY="364.0" text="Ability name" />
-      <TextField layoutX="568.0" layoutY="359.0" />
+      <TextField fx:id="wName" layoutX="568.0" layoutY="359.0" />
       <Label layoutX="473.0" layoutY="405.0" text="Description" />
-      <TextField layoutX="568.0" layoutY="400.0" />
+      <TextField fx:id="wInfo" layoutX="568.0" layoutY="400.0" />
       <Label layoutX="473.0" layoutY="322.0" prefHeight="21.0" prefWidth="83.0" text="W-Ability" />
-      <Button fx:id="browseImageButton3" layoutX="567.0" layoutY="317.0" mnemonicParsing="false" onMouseClicked="#onAddSkinButton_Clicked" text="Browse Image" />
+      <Button fx:id="browseWImageButton" layoutX="567.0" layoutY="317.0" mnemonicParsing="false" onMouseClicked="#onAddBrowseImageButton_Clicked" text="Browse Image" />
       <Label layoutX="469.0" layoutY="494.0" text="Ability name" />
-      <TextField layoutX="568.0" layoutY="489.0" />
+      <TextField fx:id="eName" layoutX="568.0" layoutY="489.0" />
       <Label layoutX="473.0" layoutY="527.0" prefHeight="31.0" prefWidth="76.0" text="Description" />
-      <TextField layoutX="568.0" layoutY="527.0" />
+      <TextField fx:id="eInfo" layoutX="568.0" layoutY="527.0" />
       <Label layoutX="478.0" layoutY="450.0" prefHeight="21.0" prefWidth="76.0" text="E-Ability" />
-      <Button fx:id="browseImageButton4" layoutX="568.0" layoutY="445.0" mnemonicParsing="false" onMouseClicked="#onAddSkinButton_Clicked" text="Browse Image" />
+      <Button fx:id="browseEImageButton" layoutX="568.0" layoutY="445.0" mnemonicParsing="false" onMouseClicked="#onAddBrowseImageButton_Clicked" text="Browse Image" />
       <Label layoutX="469.0" layoutY="625.0" text="Ability name" />
-      <TextField layoutX="568.0" layoutY="620.0" />
+      <TextField fx:id="rName" layoutX="568.0" layoutY="620.0" />
       <Label layoutX="473.0" layoutY="658.0" prefHeight="31.0" prefWidth="76.0" text="Description" />
-      <TextField layoutX="568.0" layoutY="658.0" />
+      <TextField fx:id="rInfo" layoutX="568.0" layoutY="658.0" />
       <Label layoutX="478.0" layoutY="581.0" prefHeight="21.0" prefWidth="73.0" text="R-Ability" />
-      <Button fx:id="browseImageButton5" layoutX="568.0" layoutY="577.0" mnemonicParsing="false" onMouseClicked="#onAddSkinButton_Clicked" text="Browse Image" />
-      <Label layoutX="28.0" layoutY="687.0" text="Skins" />
+      <Button fx:id="browseRImageButton" layoutX="568.0" layoutY="577.0" mnemonicParsing="false" onMouseClicked="#onAddBrowseImageButton_Clicked" text="Browse Image" />
+      <Label layoutX="28.0" layoutY="663.0" text="Skins" />
       <Label layoutX="478.0" layoutY="22.0" text="Abilities" />
       <Label layoutX="21.0" layoutY="22.0" text="General information" />
       <Label layoutX="689.0" layoutY="65.0" />

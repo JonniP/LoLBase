@@ -19,7 +19,9 @@ public class aboutViewController {
     void onAddSkinButton_Clicked() {
     	Utility.openAnchorWindow("ConfirmActionView.fxml", "Warning");
     }
-    
+    /**
+     * When cancel button is clicked closes window
+     */
     @FXML
 	 void onCancelButton_Clicked() {
 		 Stage stage = (Stage) closeButton.getScene().getWindow();
