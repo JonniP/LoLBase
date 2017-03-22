@@ -74,6 +74,7 @@ public class Champions {
 	 */
 	public static void addChampion(Champion champ) {
 		Champs.add(champ);
+		Utility.writeAll();
 	}
 
 	/**

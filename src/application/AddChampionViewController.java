@@ -95,7 +95,11 @@ public class AddChampionViewController {
 	 }
 	@FXML
 	void onConfirmClicked() {
-		//
+		Champion newChamp = new Champion();
+		newChamp.name = nameField.getText();
+		newChamp.lore = loreField.getText();
+		newChamp.title = titleField.getText();
+		Champions.addChampion(newChamp);		
 	}
 	@FXML
 	void onAddBrowseImageButton_Clicked(){
