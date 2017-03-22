@@ -13,6 +13,10 @@ import java.util.List;
  * Contains static methods for reading champion data from files.
  */
 public class Champions {
+
+	// Global champions array
+	public static ArrayList<Champion> Champs = new ArrayList<Champion>();
+
 	private static final String filePath = "Data/Champions.dat";
 
 	public static ArrayList<Champion> readFile(){
@@ -65,6 +69,12 @@ public class Champions {
 		return champions;
 	}
 
+	/***
+	 * Add new Champion to the champions list
+	 */
+	public static void addChampion(Champion champ) {
+		Champs.add(champ);
+	}
 
 	/**
 	 * Reads specified file and searches for lines that contain key value.

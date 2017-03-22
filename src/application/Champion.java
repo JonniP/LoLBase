@@ -1,5 +1,7 @@
 package application;
 
+import java.util.ArrayList;
+
 /**
  * Enum of champion lanes
  */
@@ -25,6 +27,7 @@ public class Champion {
 	public Champion(){
 		this.name = "DefaultName";
 		this.title = "DefaultTitle";
+		this.lore = "DefaultLore";
 		this.pos = null;
 
 	}
