@@ -1,11 +1,6 @@
 package application;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,8 +14,8 @@ public class Skins {
 	}
 
 	//ToDo: Write method for reading skins
-	public static void writeFile(ArrayList<Skin> skins)
-		try{
+	public static void writeFile(ArrayList<Skin> skins) {
+		try {
 			PrintWriter writer = new PrintWriter(filePath, "UTF-8");
 			ArrayList<String> data = readFile();
 
@@ -30,12 +25,12 @@ public class Skins {
 			// id, name, respected champ, imagepath
 			String temp;
 			int id = 0;
-			for (Skin skin : skins){
+			for (Skin skin : skins) {
 				temp = id++ + "|" + skin.name + "|" + skin.skinsChamp + "|" + skin.imgName;
 				writer.write(temp);
 			}
 			writer.close();
-		}  catch(Exception e){
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}

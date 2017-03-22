@@ -9,6 +9,8 @@ class Ability {
 	public int respectedChampionID;
 	public String imagePath;
 	public String description;
+	public String abilitySchool;
+	public String imagepath;
 
 	public Ability() {
 		this.name = "";

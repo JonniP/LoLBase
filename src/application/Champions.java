@@ -19,11 +19,11 @@ public class Champions {
 
 	private static final String filePath = "Data/Champions.dat";
 
-	public static ArrayList<Champion> readFile(){
+	public static ArrayList<String> readFile(){
 		return Utility.readFile(filePath);
 	}
 
-	public static void writeToFile(ArrayList<Champion> champs)n{
+	public static void writeToFile(ArrayList<Champion> champs) {
 		try{
 			PrintWriter writer = new PrintWriter(filePath, "UTF-8");
 			ArrayList<String> data = readFile();

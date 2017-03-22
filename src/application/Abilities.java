@@ -1,5 +1,7 @@
 package application;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Abilities {
@@ -9,7 +11,7 @@ public class Abilities {
 	private static ArrayList<Ability> abilities;
 
 	//ToDo: Write method for writing new abilities
-	public static ArrayList<Ability> readFile(){
+	public static ArrayList<String> readFile(){
 		return Utility.readFile(filePath);
 	}
 
@@ -38,7 +40,7 @@ public class Abilities {
 	}
 
 	//ToDo: Search abilities with champion ID
-	public static ArrayList<Ability> searchAbilitiesWithChampionID(int ID){
+	public static ArrayList<String> searchAbilitiesWithChampionID(int ID){
 		//ToDo: Read the file and return only abilities with specific champion ID
 		String key = Integer.toString(ID);
 		ArrayList<String> data = readFile();
