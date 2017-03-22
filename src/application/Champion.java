@@ -2,21 +2,26 @@ package application;
 
 import java.util.ArrayList;
 
-/**
- * Enum of champion lanes
- */
-enum Position {
-	Top,
-	Mid,
-	Jungle,
-	Adc,
-	Support
-}
 
 /**
  * Class object for champions, uses abilities and skins.
  */
 public class Champion {
+	/**
+	 * Enum of champion lanes
+	 */
+	enum Position {
+		Top,
+		Mid,
+		Jungle,
+		Adc,
+		Support;
+		
+		@Override
+		public String toString() {
+			return super.toString();
+		}
+	}
 	
 	public String name;
 	public String title;

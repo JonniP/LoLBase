@@ -29,8 +29,8 @@ public class Abilities {
 			String temp;
 			int id = 0;
 			for(Ability a : abilities){
-				temp = id++ + "|" + a.name + "|" + a.school + "|" + a.respectedChampionID + "|" +
-					a.imagepath + "|" + a.description;
+				temp = id++ + "|" + a.name + "|" + a.school + "|" + a.ChampionID + "|" +
+					a.imagePath + "|" + a.description;
 				writer.write(temp);
 			}
 			writer.close();

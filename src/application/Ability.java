@@ -6,17 +6,16 @@ package application;
 class Ability {
 	public String name;
 	public String school; //passive, Q, W, E, R...
-	public int respectedChampionID;
+	public int ChampionID;
 	public String imagePath;
 	public String description;
-	public String abilitySchool;
-	public String imagepath;
+
 
 	public Ability() {
 		this.name = "";
 		this.description = "";
-		this.abilitySchool = "";
-		this.respectedChampionID = -1;
-		this.imagepath = "";
+		this.school = "";
+		this.ChampionID = -1;
+		this.imagePath = "";
 	}
 }
