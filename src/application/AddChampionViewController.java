@@ -103,7 +103,7 @@ public class AddChampionViewController {
 	 */
 	@FXML
 	void onAddSkinButton_Clicked() {
-		Utility.openAnchorWindow("ConfirmActionView.fxml", "Warning");
+		Utility.openAnchorWindow("AddSKinView.fxml", "Add Skin");
 	}
 	/**
 	 * closes window when cancel is clicked
@@ -118,6 +118,7 @@ public class AddChampionViewController {
 	 */
 	@FXML
 	void onConfirmClicked() {
+<<<<<<< HEAD
 		Champion champ = new Champion();
 		champ.name = nameField.getText();
 		champ.title = titleField.getText();
@@ -159,6 +160,13 @@ public class AddChampionViewController {
 		newR.ChampionID = Champions.Champs.size()+1;
 		newR.imagePath = "Walla Balla BING BANG";
 		
+=======
+		Champion newChamp = new Champion();
+		newChamp.name = nameField.getText();
+		newChamp.lore = loreField.getText();
+		newChamp.title = titleField.getText();
+		Champions.addChampion(newChamp);		
+>>>>>>> 149f268cb77c3617ee99b7427134b6183892dcf9
 	}
 	@FXML
 	void onAddBrowseImageButton_Clicked(){
