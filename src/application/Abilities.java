@@ -1,6 +1,5 @@
 package application;
 
-import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
@@ -13,6 +12,11 @@ public class Abilities {
 	//ToDo: Write method for writing new abilities
 	public static ArrayList<String> readFile(){
 		return Utility.readFile(filePath);
+	}
+	
+	public void addAbility(Ability ability) {
+		Abilities.add(ability);
+		Utility.writeAll();
 	}
 
 	//ToDo: Write method for reading abilities

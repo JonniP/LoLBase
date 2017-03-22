@@ -5,12 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Skins {
-	public static ArrayList<Skin> Skins = new ArrayList<Skin>();
+	public static ArrayList<Skin> SkinsList = new ArrayList<Skin>();
 	private static String filePath = "Data/Skins.dat";
 
 	//ToDo: Write method for writing new skins
 	public static ArrayList<String> readFile(){
 		return Utility.readFile(filePath);
+	}
+	
+	public void addSkin(Skin skin) {
+		SkinsList.add(skin);
+		Utility.writeAll();
 	}
 
 	//ToDo: Write method for reading skins

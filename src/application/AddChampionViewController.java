@@ -85,7 +85,7 @@ public class AddChampionViewController {
 	 */
 	@FXML
 	void onAddSkinButton_Clicked() {
-		Utility.openAnchorWindow("ConfirmActionView.fxml", "Warning");
+		Utility.openAnchorWindow("AddSKinView.fxml", "Add Skin");
 	}
 	
 	@FXML

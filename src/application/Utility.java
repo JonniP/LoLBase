@@ -1,11 +1,15 @@
 package application;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 
 import javafx.fxml.FXMLLoader;
@@ -96,7 +100,7 @@ public class Utility {
 		Champions.writeToFile(Champions.Champs);
 		
 		//Store Skins
-		Skins.writeToFile(Skins.Skins);
+		Skins.writeToFile(Skins.SkinsList);
 	}
 
 	/**
@@ -128,5 +132,35 @@ public class Utility {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	/***
+	 * Copy one file to a new file
+	 * @param sourceFile
+	 * @param destFile
+	 * @throws IOException
+	 */
+	public static void copyFile(File sourceFile, File destFile)
+	        throws IOException {
+	    if (!sourceFile.exists()) {
+	        return;
+	    }
+	    if (!destFile.exists()) {
+	        destFile.createNewFile();
+	    }
+	    FileChannel source = null;
+	    FileChannel destination = null;
+	    source = new FileInputStream(sourceFile).getChannel();
+	    destination = new FileOutputStream(destFile).getChannel();
+	    if (destination != null && source != null) {
+	        destination.transferFrom(source, 0, source.size());
+	    }
+	    if (source != null) {
+	        source.close();
+	    }
+	    if (destination != null) {
+	        destination.close();
+	    }
+
 	}
 }
