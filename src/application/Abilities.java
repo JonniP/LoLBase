@@ -1,12 +1,13 @@
 package application;
 
+import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Abilities {
 
-	private static final String filePath = "Data/abilities.dat";
+	private static final String filePath = "Data/Abilities.dat";
 
 	public static ArrayList<Ability> AbilitiesList = new ArrayList<Ability>();
 
@@ -24,12 +25,15 @@ public class Abilities {
 	public static void writeToFile(ArrayList<Ability> abilities) {
 		//ToDo: Clear file (Utility class) and write all abilities to i
 		try{
-			PrintWriter writer = new PrintWriter(filePath, "UTF-8");
-			ArrayList<String> data = readFile();
+			//ArrayList<String> data = readFile();
+			//PrintWriter writer = new PrintWriter(filePath, "UTF-8");
+			ClassLoader loader = Abilities.class.getClassLoader();
+			File file = new File(loader.getResource(filePath).getFile());
+			PrintWriter writer = new PrintWriter(file);
 
-			if(data.size() != 0){
+			//if(data.size() != 0){
 				Utility.clearFile(filePath);
-			}
+			//}
 			//ID, Ability name, Ability school(??), Respected champion, Image path, Description
 			String temp;
 			int id = 0;
