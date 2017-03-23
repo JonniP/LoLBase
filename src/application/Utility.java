@@ -58,13 +58,15 @@ public class Utility {
 	    ArrayList<String> data = new ArrayList<String>();
 	    String line;
 
+	 
+	    
 	    while ((line = reader.readLine()) != null) {
 	    	//null and comment lines
 	      if(line.length() > 1){
 	      if(!line.contains("#")){
 	      	data.add(line);
-	        }
-				}
+	       }
+	      }
 			}
 	    reader.close();
 	    return data;

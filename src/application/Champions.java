@@ -2,6 +2,9 @@ package application;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,10 +17,22 @@ public class Champions {
 	public static ArrayList<Champion> Champs = new ArrayList<Champion>();
 
 	private static final String filePath = "Data/Champions.dat";
+	static String workingDirectory = System.getenv("AppData");
 
+	//TODO: Must fix
 	public static ArrayList<String> readFile(){
+		boolean test = new File(workingDirectory + "\\LoLBase").mkdir(); //false = alreeady exists
+		if(!test){
+			System.out.println("Read appdata");
+			//C:\Users\Johnny\AppData\Roaming\LoLBase
+			//return Utility.readFile(workingDirectory+"\\LoLBase\\Champions.txt");
+			return Utility.readFile(workingDirectory+"/Roaming/LoLBase/Champions.txt");
+		}
+		System.out.println(test);
 		return Utility.readFile(filePath);
-	}
+		}
+		
+	
 	
 	public static void writeToFile(ArrayList<Champion> champs){
 		try{
