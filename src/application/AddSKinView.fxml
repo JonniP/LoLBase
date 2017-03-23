@@ -7,11 +7,11 @@
 
 <AnchorPane prefHeight="260.0" prefWidth="297.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddSKinViewController">
    <children>
-      <TextField fx:id="skinNameField" layoutX="94.0" layoutY="39.0" />
+      <TextField fx:id="skinNameField" layoutX="94.0" layoutY="39.0" promptText="Name" />
       <Label layoutX="48.0" layoutY="96.0" text="Image" />
       <Label layoutX="21.0" layoutY="44.0" text="Skin name" />
       <Button fx:id="addButton" layoutX="231.0" layoutY="221.0" mnemonicParsing="false" onMouseClicked="#addButtonPressed" text="Add" />
       <Button fx:id="cancelButton" layoutX="156.0" layoutY="221.0" mnemonicParsing="false" onMouseClicked="#cancelButtonPressed" text="Cancel" />
-      <Button fx:id="browseFileButton" layoutX="94.0" layoutY="91.0" mnemonicParsing="false" onMouseClicked="#browseFileButtonPressed" prefHeight="27.0" prefWidth="167.0" text="Browse" />
+      <TextField fx:id="imageURLField" layoutX="94.0" layoutY="91.0" promptText="Image URL" />
    </children>
 </AnchorPane>

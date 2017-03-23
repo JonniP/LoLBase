@@ -1,17 +1,8 @@
 package application;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class AddSKinViewController {
@@ -26,18 +17,30 @@ public class AddSKinViewController {
     private Button cancelButton;
     
     @FXML
-    private Button browseFileButton;
+    private TextField imageURLField;
 
     @FXML
     void addButtonPressed() {
     	//Create new skin and add it to skins
     	Skin skin = new Skin();
     	skin.name = skinNameField.getText();
+    	skin.imgURL = imageURLField.getText();
+    	boolean inputValid = true;
     	//Make sure neither of these are empty before adding!
-    	//Skins.SkinsList.add(skin);
+    	if (skin.name.isEmpty()) {
+    		inputValid = false;
+    		skinNameField.setPromptText("Name field cannot be empty!");
+    	}
+    	if (skin.imgURL.isEmpty()) {
+    		inputValid = false;
+    		imageURLField.setPromptText("URL field cannot be empty!");
+    	}
+    	if (inputValid) {
+    		Skins.SkinsList.add(skin);
+    	}
     }
     
-    @FXML
+    /*@FXML
     void browseFileButtonPressed() {
     	
 		Stage stage = (Stage) browseFileButton.getScene().getWindow();
@@ -54,11 +57,12 @@ public class AddSKinViewController {
     		    e.printStackTrace();
     		}
     	}
-    }
+    }*/
 
     @FXML
     void cancelButtonPressed() {
-
+    	Stage stage = (Stage) cancelButton.getScene().getWindow();
+		stage.close();
     }
 
 }

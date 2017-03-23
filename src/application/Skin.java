@@ -6,5 +6,5 @@ package application;
 class Skin {
 	public String name;
 	public String skinsChamp;
-	public String imgName;
+	public String imgURL;
 }
