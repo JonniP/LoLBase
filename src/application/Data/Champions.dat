@@ -1,5 +1,5 @@
 #LoL champions
 # is a comment
 
-#id |name          |title    |position       |lore      |
- 0 |Karthus|the Deathsinger|Support|Karthus is afucking badass
+#id |name       |title    		|position       |lore	|role
+ 0  |Karthus	|the Deathsinger|Support		|test	|Tank

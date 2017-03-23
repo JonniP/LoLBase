@@ -58,8 +58,8 @@ public class Skins {
 			//id |skin name     |respected champion	|image URL     
 			if(parts.length > 1){
 				skin = new Skin();
-				skin.name = parts[1];
-				skin.imgURL = parts[3];
+				skin.name = parts[1].trim();
+				skin.imgURL = parts[3].trim();
 				skins.add(skin);
 				System.out.println("Added skin");
 			}

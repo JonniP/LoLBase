@@ -53,17 +53,14 @@ public class Champions {
 
 		for(String s : data){ //each line
 			//Note: | is a reserved character and needs \\ to "escape"
-			String[] parts = s.split("\\|");
-
-			
+			String[] parts = s.split("\\|");			
 
 			if(parts.length > 1){
 				champ = new Champion();
-				champ.name = parts[1];
-				champ.title = parts[2];
-				champ.pos = selectPos(parts[3]);
-				champ.lore = parts[4];
-				
+				champ.name = parts[1].trim();
+				champ.title = parts[2].trim();;
+				champ.pos = selectPos(parts[3].trim());
+				champ.lore = parts[4].trim();
 				champions.add(champ);
 			}
 		}

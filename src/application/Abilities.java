@@ -61,8 +61,9 @@ public class Abilities {
 
 			if(parts.length > 1){
 				abil = new Ability();
-				abil.name = parts[1];
-				abil.imageURL = parts[4];
+				abil.name = parts[1].trim();
+				abil.description = parts[4].trim();
+				abil.imageURL = parts[5].trim();
 				abilities.add(abil);
 			}
 		}

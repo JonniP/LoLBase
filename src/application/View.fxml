@@ -48,16 +48,16 @@
                         <Image url="@Images/Jhin_HighNoonSkin.jpg" />
                      </image>
                   </ImageView>
-                  <Label fx:id="ChampionNameLabel" layoutX="162.0" layoutY="49.0" text="Champion name" />
-                  <Label fx:id="ChampionTitleLabel" layoutX="203.0" layoutY="74.0" text="Title" />
+                  <Label fx:id="ChampionNameLabel" layoutX="162.0" layoutY="49.0" text="Champion name" textAlignment="CENTER" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="500.0" />
+                  <Label fx:id="ChampionTitleLabel" layoutX="203.0" layoutY="74.0" prefHeight="21.0" prefWidth="34.0" text="Title" textAlignment="CENTER" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="600.0" />
                   <ImageView fx:id="SkinLeftArrow" fitHeight="75.0" fitWidth="75.0" layoutX="383.0" layoutY="108.0" onMouseClicked="#OnArrowClick" onMouseEntered="#ArrowOnMouseEnter" onMouseExited="#ArrowOnMouseExit" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Images/Arrow_Default.png" />
                      </image>
                   </ImageView>
                   <Label fx:id="ChampionSkinNameLabel" layoutX="554.0" layoutY="49.0" text="Skin name" />
-                  <Label fx:id="RoleLabel" layoutX="202.0" layoutY="99.0" text="Role" />
-                  <Label fx:id="PositionLabel" layoutX="191.0" layoutY="125.0" text="Position" />
+                  <Label fx:id="RoleLabel" layoutX="202.0" layoutY="99.0" text="Role" textAlignment="CENTER" />
+                  <Label fx:id="PositionLabel" layoutX="191.0" layoutY="125.0" text="Position" textAlignment="CENTER" />
                   <Label layoutX="108.0" layoutY="14.0" prefHeight="35.0" prefWidth="218.0" text="General Information">
                      <font>
                         <Font size="24.0" />

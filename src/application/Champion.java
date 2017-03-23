@@ -36,6 +36,7 @@ public class Champion {
 	public String title;
 	public Position pos;
 	public String lore;
+	public Role role;
 	
 	//Constructor to initialise values
 	public Champion(){
@@ -43,6 +44,7 @@ public class Champion {
 		this.title = "DefaultTitle";
 		this.lore = "DefaultLore";
 		this.pos = null;
+		this.role = null;
 
 	}
 

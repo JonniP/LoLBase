@@ -121,6 +121,8 @@ public class Utility {
     	imgView.setCache(true); //improves performance apparently
 	}
 	
+	//Known bug: Sometimes displayes invisible images
+	//Potential reason: JPG appears to work, not jpg, png etc.
 	public static void setImage(ImageView imgView, String image){
 		setImage(imgView, new Image(image));
 	}
