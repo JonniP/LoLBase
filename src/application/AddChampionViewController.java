@@ -131,13 +131,17 @@ public class AddChampionViewController {
 	 */
 	@FXML
 	void onConfirmClicked() {
-
+		//Create new champion
 		Champion champ = new Champion();
 		champ.name = nameField.getText();
 		champ.title = titleField.getText();
 		champ.pos = positionField.getValue();
 		champ.lore = loreField.getText();
 		
+		//And add it to the list
+		Champions.addChampion(champ);
+		
+		//Create new abilities
 		Ability newP = new Ability();
 		newP.name = passiveName.getText();
 		newP.description = passiveInfo.getText();
@@ -173,13 +177,12 @@ public class AddChampionViewController {
 		newR.ChampionID = Champions.Champs.size()+1;
 		newR.imageURL = "Walla Balla BING BANG";
 		
-		Champions.addChampion(champ);
 		Abilities.addAbility(newP);
 		Abilities.addAbility(newQ);
 		Abilities.addAbility(newW);
 		Abilities.addAbility(newE);
 		Abilities.addAbility(newR);
-		//Skins.addSkin(skinny);
+		//TODO: Add skin here
 
 	}
 	@FXML

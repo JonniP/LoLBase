@@ -1,6 +1,8 @@
 package application;
 
+import java.io.File;
 import java.io.PrintWriter;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,12 +23,15 @@ public class Skins {
 	//ToDo: Write method for reading skins
 	public static void writeToFile(ArrayList<Skin> skins) {
 		try {
-			PrintWriter writer = new PrintWriter(filePath, "UTF-8");
-			ArrayList<String> data = readFile();
+			//ArrayList<String> data = readFile();
+			//PrintWriter writer = new PrintWriter(filePath, "UTF-8");
+			ClassLoader loader = Skins.class.getClassLoader();
+			File file = new File(loader.getResource(filePath).getFile());
+			PrintWriter writer = new PrintWriter(file);
 
-			if (data.size() != 0) {
+			//if (data.size() != 0) {
 				Utility.clearFile(filePath);
-			}
+			//}
 			// id, name, respected champ, imagepath
 			String temp;
 			int id = 0;
@@ -48,8 +53,6 @@ public class Skins {
 		List<String> data = readFile();
 		ArrayList<Skin> skins = new ArrayList<Skin>();
 		Skin skin;
-		
-		System.out.println("run");
 
 		for(String s : data){ //each line
 			//Note: | is a reserved character and needs \\ to "escape"

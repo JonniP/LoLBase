@@ -1,5 +1,6 @@
 package application;
 
+import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,12 +21,15 @@ public class Champions {
 
 	public static void writeToFile(ArrayList<Champion> champs) {
 		try {
-			PrintWriter writer = new PrintWriter(filePath, "UTF-8");
-			ArrayList<String> data = readFile();
+			//ArrayList<String> data = readFile();
+			//PrintWriter writer = new PrintWriter(filePath, "UTF-8");
+			ClassLoader loader = Champions.class.getClassLoader();
+			File file = new File(loader.getResource(filePath).getFile());
+			PrintWriter writer = new PrintWriter(file);
 
-			if (data.size() != 0) {
+			//if (data.size() != 0) {
 				Utility.clearFile(filePath);
-			}
+			//}
 			//ID, Name, Title, Position, Lore
 			String temp;
 			int id = 0;
@@ -86,6 +90,7 @@ public class Champions {
 	 */
 	public static void addChampion(Champion champ) {
 		Champs.add(champ);
+		Utility.writeAll();
 	}
 
 	/**
