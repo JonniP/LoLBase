@@ -150,7 +150,9 @@ public class ViewController {
     @FXML
     void ArrowOnMouseEnter(MouseEvent event) {
     	ImageView imgView = (ImageView)event.getSource();    	
-    	Utility.setImage(imgView, arrowClickedImage);
+    	//Utility.setImage(imgView, arrowClickedImage);
+    	Utility.setImage(imgView,
+    			"http://4.bp.blogspot.com/-_uaxLdQ6a0Y/UjWWqq0BIYI/AAAAAAAACew/qTxv2iTRwWM/s1600/KissaKuvahaku.JPG");
     }
 
     /**
@@ -172,6 +174,5 @@ public class ViewController {
 		selected = ChampionsList.getSelectionModel().getSelectedItems();
 		ChampionSearchField.setText(selected.get(0));
 		
-		//ToDo: Change data according to the clicked champion.
     }    
 }
