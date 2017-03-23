@@ -23,6 +23,15 @@ public class Champion {
 		}
 	}
 	
+	enum Role {
+		Mage,
+		Marksman,
+		Support,
+		Tank,
+		Fighter,
+		Assassin,
+	}
+	
 	public String name;
 	public String title;
 	public Position pos;

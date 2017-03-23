@@ -79,6 +79,7 @@ public class ViewController {
 		Text tempLore = new Text("This area is reserved for lore");
 		LoreTextFlow.getChildren().add(tempLore);
 		
+		Utility.readAll();
 		//fill champion list with names
 		for(Champion c : Champions.Champs){
 			ChampionsList.getItems().addAll(c.name);
@@ -150,9 +151,7 @@ public class ViewController {
     @FXML
     void ArrowOnMouseEnter(MouseEvent event) {
     	ImageView imgView = (ImageView)event.getSource();    	
-    	//Utility.setImage(imgView, arrowClickedImage);
-    	Utility.setImage(imgView,
-    			"http://4.bp.blogspot.com/-_uaxLdQ6a0Y/UjWWqq0BIYI/AAAAAAAACew/qTxv2iTRwWM/s1600/KissaKuvahaku.JPG");
+    	Utility.setImage(imgView, arrowClickedImage);
     }
 
     /**
@@ -172,7 +171,19 @@ public class ViewController {
     void OnChampionsListClicked() {
     	ObservableList<String> selected;
 		selected = ChampionsList.getSelectionModel().getSelectedItems();
-		ChampionSearchField.setText(selected.get(0));
+		String champName = selected.get(0);
 		
+		Champion champ = new Champion();
+		for(int i = 0; i<Champions.Champs.size(); i++){
+			if(Champions.Champs.get(i).name == champName){
+				champ = Champions.Champs.get(i);
+			}
+		}
+		
+		ChampionSearchField.setText(champ.name);
+		ChampionNameLabel.setText(champ.name);
+		ChampionTitleLabel.setText(champ.title);
+		PositionLabel.setText(champ.pos.toString());
+		LoreTextFlow.getChildren().add(new Text(champ.lore));
     }    
 }

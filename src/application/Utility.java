@@ -102,6 +102,12 @@ public class Utility {
 		//Store Skins
 		Skins.writeToFile(Skins.SkinsList);
 	}
+	
+	public static void readAll() {
+		Abilities.readFile();
+		Champions.Champs = Champions.getChampions();
+		Skins.readFile();
+	}
 
 	/**
 	 * Sets ImageView image with default settings

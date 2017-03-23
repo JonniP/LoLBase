@@ -29,7 +29,7 @@ public class AddChampionViewController {
     private TextField titleField;
 
     @FXML
-    private TextField roleField;
+    private ChoiceBox<Champion.Role> roleField;
 
     @FXML
     private ChoiceBox<Champion.Position> positionField;
@@ -91,14 +91,24 @@ public class AddChampionViewController {
     @FXML
     public void initialize() {
     	//Set choicebox options
-    	Champion.Position[] values = Champion.Position.values();
-    	ArrayList<Champion.Position> roles = new ArrayList<Champion.Position>();
+    	Champion.Position[] pvalues = Champion.Position.values();
+    	ArrayList<Champion.Position> posses = new ArrayList<Champion.Position>();
     	
-    	for(Champion.Position p : values) 
+    	for(Champion.Position p : pvalues) 
+    		posses.add(p);
+    	
+    	//Pass roles as parameter to observablelist
+    	positionField.getItems().setAll(FXCollections.observableList(posses));
+    	
+    	Champion.Role[] rvalues = Champion.Role.values();
+    	ArrayList<Champion.Role> roles = new ArrayList<Champion.Role>();
+    	
+    	for(Champion.Role p : rvalues) 
     		roles.add(p);
     	
     	//Pass roles as parameter to observablelist
-    	positionField.getItems().setAll(FXCollections.observableList(roles));
+    	roleField.getItems().setAll(FXCollections.observableList(roles));
+    	
     }
     
 	/**

@@ -55,13 +55,30 @@ public class Champions {
 			//Note: | is a reserved character and needs \\ to "escape"
 			String[] parts = s.split("\\|");
 
+			
+
 			if(parts.length > 1){
 				champ = new Champion();
 				champ.name = parts[1];
+				champ.title = parts[2];
+				champ.pos = selectPos(parts[3]);
+				champ.lore = parts[4];
+				
 				champions.add(champ);
 			}
 		}
 		return champions;
+	}
+	
+	public static Champion.Position selectPos(String a){
+		switch(a){
+		case "Support": return Champion.Position.Support;
+		case "Adc": return Champion.Position.Adc;
+		case "Mid": return Champion.Position.Mid;
+		case "Jungle": return Champion.Position.Jungle;
+		case "Top": return Champion.Position.Top;
+		default: return null;
+		}
 	}
 
 	/***
