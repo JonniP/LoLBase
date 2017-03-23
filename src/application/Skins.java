@@ -39,6 +39,31 @@ public class Skins {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Reads Skins.dat file and returns a list of all skins.
+	 * @return Returns a list of skins.
+	 */
+	public static ArrayList<Skin> getSkins(){
+		//ToDo: Get all info about all abilities
+		//ToDo: No error checking for missing files
+		List<String> data = readFile();
+		ArrayList<Skin> skins = new ArrayList<Skin>();
+		Skin skin;
+
+		for(String s : data){ //each line
+			//Note: | is a reserved character and needs \\ to "escape"
+			String[] parts = s.split("\\|");
+
+			if(parts.length > 1){
+				skin = new Skin();
+				skin.name = parts[1];
+				skin.imgURL = parts[3];
+				skins.add(skin);
+			}
+		}
+		return skins;
+	}
 
 	//ToDo: Search skins with champion ID
 	public static ArrayList<String> searchSkinWithChampionID(int ID){

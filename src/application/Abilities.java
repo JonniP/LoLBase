@@ -2,6 +2,7 @@ package application;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Abilities {
 
@@ -41,6 +42,30 @@ public class Abilities {
 		} catch(Exception e){
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Reads Abilities.dat file and returns a list of all abilities.
+	 * @return Returns a list of abilities.
+	 */
+	public static ArrayList<Ability> getAbilities(){
+		//ToDo: Get all info about all abilities
+		//ToDo: No error checking for missing files
+		List<String> data = readFile();
+		ArrayList<Ability> abilities = new ArrayList<Ability>();
+		Ability abil;
+
+		for(String s : data){ //each line
+			//Note: | is a reserved character and needs \\ to "escape"
+			String[] parts = s.split("\\|");
+
+			if(parts.length > 1){
+				abil = new Ability();
+				abil.name = parts[1];
+				abilities.add(abil);
+			}
+		}
+		return abilities;
 	}
 
 	//ToDo: Search abilities with champion ID
