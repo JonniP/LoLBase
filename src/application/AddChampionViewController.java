@@ -141,6 +141,8 @@ public class AddChampionViewController {
 		//And add it to the list
 		Champions.addChampion(champ);
 		
+		/*
+		
 		//Create new abilities
 		Ability newP = new Ability();
 		newP.name = passiveName.getText();
@@ -177,11 +179,12 @@ public class AddChampionViewController {
 		newR.ChampionID = Champions.Champs.size()+1;
 		newR.imageURL = "Walla Balla BING BANG";
 		
+		
 		Abilities.addAbility(newP);
 		Abilities.addAbility(newQ);
 		Abilities.addAbility(newW);
 		Abilities.addAbility(newE);
-		Abilities.addAbility(newR);
+		Abilities.addAbility(newR);*/
 		//TODO: Add skin here
 
 	}

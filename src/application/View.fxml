@@ -49,7 +49,7 @@
                      </image>
                   </ImageView>
                   <Label fx:id="ChampionNameLabel" layoutX="162.0" layoutY="49.0" text="Champion name" textAlignment="CENTER" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="500.0" />
-                  <Label fx:id="ChampionTitleLabel" layoutX="203.0" layoutY="74.0" prefHeight="21.0" prefWidth="34.0" text="Title" textAlignment="CENTER" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="600.0" />
+                  <Label fx:id="ChampionTitleLabel" layoutX="203.0" layoutY="74.0" prefHeight="21.0" prefWidth="34.0" text="Title" textAlignment="CENTER" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="500.0" />
                   <ImageView fx:id="SkinLeftArrow" fitHeight="75.0" fitWidth="75.0" layoutX="383.0" layoutY="108.0" onMouseClicked="#OnArrowClick" onMouseEntered="#ArrowOnMouseEnter" onMouseExited="#ArrowOnMouseExit" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Images/Arrow_Default.png" />

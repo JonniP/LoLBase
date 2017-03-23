@@ -23,6 +23,7 @@ public class Abilities {
 
 	//ToDo: Write method for reading abilities
 	public static void writeToFile(ArrayList<Ability> abilities) {
+		System.out.println("ERROR!");
 		//ToDo: Clear file (Utility class) and write all abilities to i
 		try{
 			//ArrayList<String> data = readFile();

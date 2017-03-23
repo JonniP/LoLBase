@@ -1,5 +1,6 @@
 #LoL champions
 # is a comment
 
-#id |name       |title    		|position       |lore	|role
- 0  |Karthus	|the Deathsinger|Support		|test	|Tank
+#id |name       |title    		|position       |lore		|role
+ 0  |Karthus	|the Deathsinger|Support		|testLore	|Tank
+ 1  |Zac 		|Blob			|Support		|testLor1e	|Tank

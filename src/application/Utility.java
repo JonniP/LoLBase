@@ -94,13 +94,13 @@ public class Utility {
 	 */
 	public static void writeAll() {
 		//Store Abilities
-		Abilities.writeToFile(Abilities.AbilitiesList);
+		//Abilities.writeToFile(Abilities.AbilitiesList);
 		
 		//Store Champions
 		Champions.writeToFile(Champions.Champs);
 		
 		//Store Skins
-		Skins.writeToFile(Skins.SkinsList);
+		//Skins.writeToFile(Skins.SkinsList);
 	}
 	
 	public static void readAll() {

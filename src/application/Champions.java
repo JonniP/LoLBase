@@ -18,28 +18,28 @@ public class Champions {
 	public static ArrayList<String> readFile(){
 		return Utility.readFile(filePath);
 	}
-
-	public static void writeToFile(ArrayList<Champion> champs) {
-		try {
-			//ArrayList<String> data = readFile();
-			//PrintWriter writer = new PrintWriter(filePath, "UTF-8");
-			ClassLoader loader = Champions.class.getClassLoader();
-			File file = new File(loader.getResource(filePath).getFile());
-			PrintWriter writer = new PrintWriter(file);
-
-			//if (data.size() != 0) {
-				Utility.clearFile(filePath);
-			//}
+	
+	public static void writeToFile(ArrayList<Champion> champs){
+		try{
+			
+			new File(System.getenv("APPDATA") + "\\LoLBase").mkdir();
+			File championFile = new File(System.getenv("APPDATA")+"\\LoLBase\\Champions.txt");
+			PrintWriter writer = new PrintWriter(championFile);
+			
 			//ID, Name, Title, Position, Lore
 			String temp;
 			int id = 0;
 			for (Champion champ : champs){
-				temp = id++ + "|" + champ.name + "|" + champ.title + "|" + champ.pos + "|" + champ.lore;
-				writer.write(temp);
+				if(champ != null){
+					temp = id++ + "|" + champ.name + "|" + champ.title + "|" + champ.pos + "|" + champ.lore;
+					writer.println(temp);
+				}
 			}
 			writer.close();
+			System.out.println("Champion: WriteToFile");
+			
 		} catch(Exception e){
-			e.printStackTrace();
+			System.out.println(e);
 		}
 	}
 
@@ -48,6 +48,7 @@ public class Champions {
 	 * Reads Champions.dat file and returns a list of all champions.
 	 * @return Returns a list of champions.
 	 */
+	
 	public static ArrayList<Champion> getChampions(){
 		//ToDo: Get all info about all champions
 		//ToDo: No error checking for missing files
@@ -87,7 +88,8 @@ public class Champions {
 	 */
 	public static void addChampion(Champion champ) {
 		Champs.add(champ);
-		Utility.writeAll();
+		//Utility.writeAll();
+		Champions.writeToFile(Champs);
 	}
 
 	/**

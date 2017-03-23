@@ -64,7 +64,6 @@ public class Skins {
 				skin.name = parts[1].trim();
 				skin.imgURL = parts[3].trim();
 				skins.add(skin);
-				System.out.println("Added skin");
 			}
 		}
 		return skins;
