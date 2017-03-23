@@ -31,7 +31,7 @@ public class Skins {
 			String temp;
 			int id = 0;
 			for (Skin skin : skins) {
-				temp = id++ + "|" + skin.name + "|" + skin.skinsChamp + "|" + skin.imgName;
+				temp = id++ + "|" + skin.name + "|" + skin.skinsChamp + "|" + skin.imgURL;
 				writer.write(temp);
 			}
 			writer.close();
