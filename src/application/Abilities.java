@@ -15,7 +15,7 @@ public class Abilities {
 		return Utility.readFile(filePath);
 	}
 	
-	public void addAbility(Ability ability) {
+	public static void addAbility(Ability ability) {
 		Abilities.add(ability);
 		Utility.writeAll();
 	}

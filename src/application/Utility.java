@@ -114,6 +114,10 @@ public class Utility {
     	imgView.setSmooth(true);
     	imgView.setCache(true); //improves performance apparently
 	}
+	
+	public static void setImage(ImageView imgView, String image){
+		setImage(imgView, new Image(image));
+	}
 
 	/**
 	 * Opens any window with AnchorPane as root object

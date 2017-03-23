@@ -85,6 +85,9 @@ public class AddChampionViewController {
     @FXML
     private Button browseRImageButton;
 
+    /**
+     * sets the choisebox's options when the window is opened
+     */
     @FXML
     public void initialize() {
     	//Set choicebox options
@@ -118,6 +121,7 @@ public class AddChampionViewController {
 	 */
 	@FXML
 	void onConfirmClicked() {
+
 		Champion champ = new Champion();
 		champ.name = nameField.getText();
 		champ.title = titleField.getText();
@@ -158,6 +162,15 @@ public class AddChampionViewController {
 		newR.school = "Ultimate";
 		newR.ChampionID = Champions.Champs.size()+1;
 		newR.imagePath = "Walla Balla BING BANG";
+		
+		Champions.addChampion(champ);
+		Abilities.addAbility(newP);
+		Abilities.addAbility(newQ);
+		Abilities.addAbility(newW);
+		Abilities.addAbility(newE);
+		Abilities.addAbility(newR);
+		//Skins.addSkin(skinny);
+
 	}
 	@FXML
 	void onAddBrowseImageButton_Clicked(){

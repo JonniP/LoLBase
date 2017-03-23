@@ -13,7 +13,7 @@ public class Skins {
 		return Utility.readFile(filePath);
 	}
 	
-	public void addSkin(Skin skin) {
+	public static void addSkin(Skin skin) {
 		SkinsList.add(skin);
 		Utility.writeAll();
 	}
