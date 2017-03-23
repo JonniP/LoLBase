@@ -61,7 +61,7 @@ public class Utility {
 	    while ((line = reader.readLine()) != null) {
 	    	//null and comment lines
 	      if(line.length() > 1){
-	      if(!line.contains("//")){
+	      if(!line.contains("#")){
 	      	data.add(line);
 	        }
 				}
@@ -94,7 +94,7 @@ public class Utility {
 	 */
 	public static void writeAll() {
 		//Store Abilities
-		Abilities.writeToFile(Abilities.Abilities);
+		Abilities.writeToFile(Abilities.AbilitiesList);
 		
 		//Store Champions
 		Champions.writeToFile(Champions.Champs);
@@ -104,9 +104,9 @@ public class Utility {
 	}
 	
 	public static void readAll() {
-		Abilities.readFile();
+		Abilities.AbilitiesList = Abilities.getAbilities();
 		Champions.Champs = Champions.getChampions();
-		Skins.readFile();
+		Skins.SkinsList = Skins.getSkins();
 	}
 
 	/**

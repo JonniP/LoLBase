@@ -7,7 +7,7 @@ class Ability {
 	public String name;
 	public String school; //passive, Q, W, E, R...
 	public int ChampionID;
-	public String imagePath;
+	public String imageURL;
 	public String description;
 
 
@@ -16,6 +16,6 @@ class Ability {
 		this.description = "";
 		this.school = "";
 		this.ChampionID = -1;
-		this.imagePath = "";
+		this.imageURL = "";
 	}
 }

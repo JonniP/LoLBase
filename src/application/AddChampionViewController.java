@@ -143,35 +143,35 @@ public class AddChampionViewController {
 		newP.description = passiveInfo.getText();
 		newP.school = "Passive";
 		newP.ChampionID = Champions.Champs.size()+1;
-		newP.imagePath = "Walla Balla BING BANG";
+		newP.imageURL = "Walla Balla BING BANG";
 		
 		Ability newQ = new Ability();
 		newQ.name = qName.getText();
 		newQ.description = qInfo.getText();
 		newQ.school = "Q";
 		newQ.ChampionID = Champions.Champs.size()+1;
-		newQ.imagePath = "Walla Balla BING BANG";
+		newQ.imageURL = "Walla Balla BING BANG";
 
 		Ability newW = new Ability();
 		newW.name = wName.getText();
 		newW.description = wInfo.getText();
 		newW.school = "W";
 		newW.ChampionID = Champions.Champs.size()+1;
-		newW.imagePath = "Walla Balla BING BANG";
+		newW.imageURL = "Walla Balla BING BANG";
 
 		Ability newE = new Ability();
 		newE.name = eName.getText();
 		newE.description = eInfo.getText();
 		newE.school = "E";
 		newE.ChampionID = Champions.Champs.size()+1;
-		newE.imagePath = "Walla Balla BING BANG";
+		newE.imageURL = "Walla Balla BING BANG";
 
 		Ability newR = new Ability();
 		newR.name = rName.getText();
 		newR.description = rInfo.getText();
 		newR.school = "Ultimate";
 		newR.ChampionID = Champions.Champs.size()+1;
-		newR.imagePath = "Walla Balla BING BANG";
+		newR.imageURL = "Walla Balla BING BANG";
 		
 		Champions.addChampion(champ);
 		Abilities.addAbility(newP);

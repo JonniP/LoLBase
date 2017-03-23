@@ -1,4 +1,5 @@
-//champion skins
+#champion skins
+# is a comment
 
-id |skin name     |respected champion	|image URL       |
- 
+#id |skin name     |respected champion	|image URL     
+0  | King 		| Karthus |http://www.rd.com/wp-content/uploads/sites/2/2016/04/01-cat-wants-to-tell-you-laptop.jpg

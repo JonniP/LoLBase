@@ -43,7 +43,7 @@
                         <Image url="@Images/Arrow_Default.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="142.0" fitWidth="230.0" layoutX="473.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="SkinImageView" fitHeight="142.0" fitWidth="230.0" layoutX="473.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Images/Jhin_HighNoonSkin.jpg" />
                      </image>
@@ -75,7 +75,7 @@
                   <TextFlow fx:id="LoreTextFlow" layoutX="51.0" layoutY="62.0" prefHeight="138.0" prefWidth="333.0" textAlignment="CENTER" />
                   <Label layoutX="562.0" layoutY="53.0" text="Ability" />
                   <Label fx:id="AbilityNameLabel" layoutX="555.0" layoutY="70.0" prefHeight="17.0" prefWidth="67.0" text="Frost shot" />
-                  <ImageView fitHeight="92.0" fitWidth="86.0" layoutX="546.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="AbilityImageView" fitHeight="92.0" fitWidth="86.0" layoutX="546.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Images/Frost_Shot.png" />
                      </image>

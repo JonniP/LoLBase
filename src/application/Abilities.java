@@ -8,7 +8,7 @@ public class Abilities {
 
 	private static final String filePath = "Data/abilities.dat";
 
-	public static ArrayList<Ability> Abilities = new ArrayList<Ability>();
+	public static ArrayList<Ability> AbilitiesList = new ArrayList<Ability>();
 
 	//ToDo: Write method for writing new abilities
 	public static ArrayList<String> readFile(){
@@ -16,7 +16,7 @@ public class Abilities {
 	}
 	
 	public static void addAbility(Ability ability) {
-		Abilities.add(ability);
+		AbilitiesList.add(ability);
 		Utility.writeAll();
 	}
 
@@ -35,7 +35,7 @@ public class Abilities {
 			int id = 0;
 			for(Ability a : abilities){
 				temp = id++ + "|" + a.name + "|" + a.school + "|" + a.ChampionID + "|" +
-					a.imagePath + "|" + a.description;
+					a.imageURL + "|" + a.description;
 				writer.write(temp);
 			}
 			writer.close();
@@ -62,6 +62,7 @@ public class Abilities {
 			if(parts.length > 1){
 				abil = new Ability();
 				abil.name = parts[1];
+				abil.imageURL = parts[4];
 				abilities.add(abil);
 			}
 		}

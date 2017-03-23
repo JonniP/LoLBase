@@ -22,6 +22,12 @@ public class ViewController {
 	@FXML
     private ListView<String> ChampionsList;
 	
+    @FXML
+    private ImageView AbilityImageView;
+    
+    @FXML
+    private ImageView SkinImageView;
+	
 	@FXML
     private Label ChampionNameLabel;
 
@@ -173,17 +179,32 @@ public class ViewController {
 		selected = ChampionsList.getSelectionModel().getSelectedItems();
 		String champName = selected.get(0);
 		
-		Champion champ = new Champion();
+		Champion champ = null;
 		for(int i = 0; i<Champions.Champs.size(); i++){
 			if(Champions.Champs.get(i).name == champName){
 				champ = Champions.Champs.get(i);
 			}
 		}
 		
-		ChampionSearchField.setText(champ.name);
+		ChangeChampion(champ);
+    }
+    
+    void ChangeChampion(Champion champ){
+    	ChampionSearchField.setText(champ.name);
 		ChampionNameLabel.setText(champ.name);
 		ChampionTitleLabel.setText(champ.title);
 		PositionLabel.setText(champ.pos.toString());
 		LoreTextFlow.getChildren().add(new Text(champ.lore));
-    }    
+		
+		
+		Skin currentSkin = Skins.SkinsList.get(0);
+		ChampionSkinNameLabel.setText(currentSkin.name);
+		Utility.setImage(SkinImageView, currentSkin.imgURL);
+		
+		
+		Ability currentAbility = Abilities.AbilitiesList.get(0);
+		AbilityNameLabel.setText(currentAbility.name);
+		AbilityDescription.getChildren().add(new Text(currentAbility.description));
+		Utility.setImage(AbilityImageView, currentAbility.imageURL);
+    }
 }
