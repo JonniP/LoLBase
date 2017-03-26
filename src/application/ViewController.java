@@ -81,7 +81,6 @@ public class ViewController {
 		SkinLeftArrow.setScaleX(-1);
 		AbilityLeftArrow.setScaleX(-1);
 		
-		
 		Utility.readAll();
 		//fill champion list with names
 		for(Champion c : Champions.Champs){

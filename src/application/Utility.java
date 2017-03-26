@@ -3,7 +3,9 @@ package application;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -52,7 +54,28 @@ public class Utility {
 	 * @return - Returns a list of all the lines in the specified file.
 	 */
 	static ArrayList<String> readFile(String filePath){
+		ArrayList<String> data = new ArrayList<String>();
+		try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+		    String line;
+		    while ((line = br.readLine()) != null) {
+		    	if(line.length() > 1){
+		    		if(!line.contains("#")){
+		    			data.add(line);
+		    		}
+		    	}
+		    }
+		    return data;
+		    
+		} catch (Exception e) {
+			System.out.println("Fatal error in Utility.readFile: "+e);
+			return null;
+		}
+	}
+	
+	
+	/*static ArrayList<String> readFile(String filePath){
 		try{
+			System.out.print("error");
 			InputStream in = Champions.class.getResourceAsStream(filePath);
 			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 	    ArrayList<String> data = new ArrayList<String>();
@@ -74,7 +97,9 @@ public class Utility {
 			e.printStackTrace();
 			return null;
 			}
-		}
+		}*/
+		
+		
 
 	/***
 	 * Empties a given file
@@ -106,9 +131,9 @@ public class Utility {
 	}
 	
 	public static void readAll() {
-		Abilities.AbilitiesList = Abilities.getAbilities();
+		//Abilities.AbilitiesList = Abilities.getAbilities();
 		Champions.Champs = Champions.getChampions();
-		Skins.SkinsList = Skins.getSkins();
+		//Skins.SkinsList = Skins.getSkins();
 	}
 
 	/**

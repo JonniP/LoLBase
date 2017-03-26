@@ -2,6 +2,7 @@ package application;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -17,29 +18,39 @@ public class Champions {
 	public static ArrayList<Champion> Champs = new ArrayList<Champion>();
 
 	private static final String filePath = "Data/Champions.dat";
-	static String workingDirectory = System.getenv("AppData");
+	private static final String dataDirectory = "Data/";
 
-	//TODO: Must fix
-	public static ArrayList<String> readFile(){
-		boolean test = new File(workingDirectory + "\\LoLBase").mkdir(); //false = alreeady exists
-		if(!test){
-			System.out.println("Read appdata");
-			//C:\Users\Johnny\AppData\Roaming\LoLBase
-			//return Utility.readFile(workingDirectory+"\\LoLBase\\Champions.txt");
-			return Utility.readFile(workingDirectory+"/Roaming/LoLBase/Champions.txt");
+	public static ArrayList<String> readFile() {
+		File f = new File(dataDirectory+"/champions.txt");
+		
+		if(f.exists()  && !f.isDirectory()) { //Data FOUND
+			System.out.println("Existing file found");
+			return Utility.readFile(f.getAbsolutePath()); 
 		}
-		System.out.println(test);
-		return Utility.readFile(filePath);
+		else{ //Not found
+			try{
+				
+				File dir = new File(dataDirectory);
+				dir.mkdir();
+				File tmp = new File(dir, "Champions.dat");
+				tmp.createNewFile();
+				System.out.println("Existing dir NOT found!");
+				return Utility.readFile(filePath);
+			}catch(Exception e){ 
+				System.out.println("Fatal error file could not be created: "+e);
+				return null;
+			}
 		}
+		
+	}
 		
 	
 	
 	public static void writeToFile(ArrayList<Champion> champs){
 		try{
+			String championFilePath = dataDirectory+"/Champions.dat";
 			
-			new File(System.getenv("APPDATA") + "\\LoLBase").mkdir();
-			File championFile = new File(System.getenv("APPDATA")+"\\LoLBase\\Champions.txt");
-			PrintWriter writer = new PrintWriter(championFile);
+			PrintWriter writer = new PrintWriter(championFilePath);
 			
 			//ID, Name, Title, Position, Lore
 			String temp;
@@ -50,9 +61,7 @@ public class Champions {
 					writer.println(temp);
 				}
 			}
-			writer.close();
-			System.out.println("Champion: WriteToFile");
-			
+			writer.close();			
 		} catch(Exception e){
 			System.out.println(e);
 		}
