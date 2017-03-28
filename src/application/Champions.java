@@ -22,28 +22,26 @@ public class Champions {
 
 	public static ArrayList<String> readFile() {
 		File f = new File(dataDirectory+"/champions.txt");
-		
+		/*
 		if(f.exists()  && !f.isDirectory()) { //Data FOUND
 			System.out.println("Existing file found");
 			return Utility.readFile(f.getAbsolutePath()); 
 		}
-		else{ //Not found
-			try{
-				
-				File dir = new File(dataDirectory);
-				dir.mkdir();
-				File tmp = new File(dir, "Champions.dat");
-				tmp.createNewFile();
-				System.out.println("Existing dir NOT found!");
-				return Utility.readFile(filePath);
-			}catch(Exception e){ 
-				System.out.println("Fatal error file could not be created: "+e);
-				return null;
-			}
+		//else{ //Not found
+		if(!f.exists()){
+		*/
+		try{
+			File dir = new File(dataDirectory);
+			dir.mkdir();
+			File tmp = new File(dir, "Champions.dat");
+			tmp.createNewFile();
+			return Utility.readFile(filePath);
+		}catch(Exception e){ 
+			System.out.println("Fatal error file could not be created: "+e);
+			return null;
 		}
-		
 	}
-		
+	
 	
 	
 	public static void writeToFile(ArrayList<Champion> champs){
@@ -121,14 +119,15 @@ public class Champions {
 	 * @param filePath - Path to file
 	 * @param key - Word we are looking for
 	 */
-	public static void searchKey(String key){
+	public static boolean championExistsSearchKey(String key){
 		//ToDo: Find with name/ID ?
 		List<String> data = readFile();
 
 		for(String s : data){
 			if(s.contains(key)){
-				System.out.println(s);
+				return true;
 			}
 		}
+		return false;
 	}
 }

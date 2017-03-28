@@ -71,35 +71,6 @@ public class Utility {
 			return null;
 		}
 	}
-	
-	
-	/*static ArrayList<String> readFile(String filePath){
-		try{
-			System.out.print("error");
-			InputStream in = Champions.class.getResourceAsStream(filePath);
-			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-	    ArrayList<String> data = new ArrayList<String>();
-	    String line;
-
-	 
-	    
-	    while ((line = reader.readLine()) != null) {
-	    	//null and comment lines
-	      if(line.length() > 1){
-	      if(!line.contains("#")){
-	      	data.add(line);
-	       }
-	      }
-			}
-	    reader.close();
-	    return data;
-		} catch(Exception e){
-			e.printStackTrace();
-			return null;
-			}
-		}*/
-		
-		
 
 	/***
 	 * Empties a given file

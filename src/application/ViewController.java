@@ -2,14 +2,18 @@ package application;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import javafx.stage.Stage;
 
 /**
  * Controller class for main view.
@@ -94,6 +98,23 @@ public class ViewController {
 	@FXML
     void AddChampionClicked() {
 		Utility.openAnchorWindow("AddChampionView.fxml", "Add Champion");
+		
+		/*
+		 public static void openAnchorWindow(String filePath, String title){
+		try {
+			AnchorPane root = FXMLLoader.load(ViewController.class.getResource(filePath));
+			Scene addWindow = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(addWindow);
+			stage.show();
+			stage.setTitle(title);
+			stage.getIcons().add(new Image(Utility.class.getResource("Images/Temu.png").toString()));
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+		 */
+		
     }
 
 	/**

@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -140,6 +141,8 @@ public class AddChampionViewController {
 		
 		//And add it to the list
 		Champions.addChampion(champ);
+		
+		//Update main list		
 		
 		/*
 		
