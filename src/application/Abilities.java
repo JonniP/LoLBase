@@ -12,7 +12,10 @@ public class Abilities {
 
 	public static ArrayList<Ability> AbilitiesList = new ArrayList<Ability>();
 
-	//ToDo: Write method for writing new abilities
+	/**
+	 * reads the ability datafile
+	 * @return the file as an arraylist
+	 */
 	public static ArrayList<String> readFile(){
 		File f = new File(dataDirectory+"/Abilities.txt");
 		/*
@@ -34,12 +37,25 @@ public class Abilities {
 			return null;
 		}
 	}
-	
+	/**
+	 * adds an ability to the abilitylist
+	 * @param ability the ability that is to be added
+	 * @example
+	 * <pre name="test">
+	 * Ability ability = new Ability();
+	 * int size = AbilitiesList.size();
+	 * addAbility(ability);
+	 * AbilitiesList.size() === size + 1;
+	 * </pre>
+	 */
 	public static void addAbility(Ability ability) {
 		AbilitiesList.add(ability);
 		Utility.writeAll();
 	}
-	
+	/**
+	 * writes abilities to the data file
+	 * @param abilities the list that is to be written
+	 */
 	 public static void writeToFile(ArrayList<Ability> abilities){
 		try{
 			String championFilePath = dataDirectory+"/Abilities.dat";
@@ -85,7 +101,11 @@ public class Abilities {
 		return abilities;
 	}
 
-	//ToDo: Search abilities with champion ID
+	/**
+	 * searches abilities from the ability file based on a champion id
+	 * @param ID champion's id
+	 * @return arraylist of the abilities that meet the required id
+	 */
 	public static ArrayList<String> searchAbilitiesWithChampionID(int ID){
 		//ToDo: Read the file and return only abilities with specific champion ID
 		String key = Integer.toString(ID);

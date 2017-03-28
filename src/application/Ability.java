@@ -10,7 +10,9 @@ class Ability {
 	public String imageURL;
 	public String description;
 
-
+	/**
+	 * constructor for an ability
+	 */
 	public Ability() {
 		this.name = "";
 		this.description = "";

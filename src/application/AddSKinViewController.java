@@ -19,6 +19,9 @@ public class AddSKinViewController {
     @FXML
     private TextField imageURLField;
 
+    /**
+     * DOES NOT WORK YET
+     */
     @FXML
     void addButtonPressed() {
     	//Create new skin and add it to skins
@@ -58,7 +61,9 @@ public class AddSKinViewController {
     		}
     	}
     }*/
-
+    /**
+     * closes the window
+     */
     @FXML
     void cancelButtonPressed() {
     	Stage stage = (Stage) cancelButton.getScene().getWindow();

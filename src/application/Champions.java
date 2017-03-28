@@ -93,7 +93,9 @@ public class Champions {
 		}
 		return champions;
 	}
-	
+	/**
+	 * @returns a position enum based on the input string
+	 */
 	public static Champion.Position selectPos(String a){
 		switch(a){
 		case "Support": return Champion.Position.Support;

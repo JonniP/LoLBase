@@ -206,6 +206,10 @@ public class ViewController {
 		ChangeChampion(champ);
     }
     
+    /**
+     * changes the information in the window to the new champion's
+     * @param champ the champion
+     */
     void ChangeChampion(Champion champ){
     	ChampionSearchField.setText(champ.name);
 		ChampionNameLabel.setText(champ.name);

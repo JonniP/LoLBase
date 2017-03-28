@@ -101,6 +101,9 @@ public class Utility {
 		//Skins.writeToFile(Skins.SkinsList);
 	}
 	
+	/**
+	 * reads all the datafiles
+	 */
 	public static void readAll() {
 		Abilities.AbilitiesList = Abilities.getAbilities();
 		Champions.Champs = Champions.getChampions();
