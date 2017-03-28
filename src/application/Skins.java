@@ -9,29 +9,41 @@ import java.util.List;
 public class Skins {
 	public static ArrayList<Skin> SkinsList = new ArrayList<Skin>();
 	private static String filePath = "Data/Skins.dat";
+	private static final String dataDirectory = "Data/";
 
 	//ToDo: Write method for writing new skins
 	public static ArrayList<String> readFile(){
-		return Utility.readFile(filePath);
+		File f = new File(dataDirectory+"/Skins.txt");
+		/*
+		if(f.exists()  && !f.isDirectory()) { //Data FOUND
+			System.out.println("Existing file found");
+			return Utility.readFile(f.getAbsolutePath()); 
+		}
+		//else{ //Not found
+		if(!f.exists()){
+		*/
+		try{
+			File dir = new File(dataDirectory);
+			dir.mkdir();
+			File tmp = new File(dir, "Skins.dat");
+			tmp.createNewFile();
+			return Utility.readFile(filePath);
+		}catch(Exception e){ 
+			System.out.println("Fatal error file could not be created: "+e);
+			return null;
+		}
 	}
 	
 	public static void addSkin(Skin skin) {
 		SkinsList.add(skin);
 		Utility.writeAll();
 	}
-
-	//ToDo: Write method for reading skins
-	public static void writeToFile(ArrayList<Skin> skins) {
-		try {
-			//ArrayList<String> data = readFile();
-			//PrintWriter writer = new PrintWriter(filePath, "UTF-8");
-			ClassLoader loader = Skins.class.getClassLoader();
-			File file = new File(loader.getResource(filePath).getFile());
-			PrintWriter writer = new PrintWriter(file);
-
-			//if (data.size() != 0) {
-				Utility.clearFile(filePath);
-			//}
+	
+	public static void writeToFile(ArrayList<Skin> skins){
+		try{
+			String championFilePath = dataDirectory+"/Skin.dat";
+			PrintWriter writer = new PrintWriter(championFilePath);
+			
 			// id, name, respected champ, imagepath
 			String temp;
 			int id = 0;
@@ -39,9 +51,9 @@ public class Skins {
 				temp = id++ + "|" + skin.name + "|" + skin.skinsChamp + "|" + skin.imgURL;
 				writer.write(temp);
 			}
-			writer.close();
-		} catch(Exception e) {
-			e.printStackTrace();
+			writer.close();			
+		} catch(Exception e){
+			System.out.println(e);
 		}
 	}
 	
