@@ -14,15 +14,6 @@ public class Abilities {
 
 	//ToDo: Write method for writing new abilities
 	public static ArrayList<String> readFile(){
-		File f = new File(dataDirectory+"/Abilities.txt");
-		/*
-		if(f.exists()  && !f.isDirectory()) { //Data FOUND
-			System.out.println("Existing file found");
-			return Utility.readFile(f.getAbsolutePath()); 
-		}
-		//else{ //Not found
-		if(!f.exists()){
-		*/
 		try{
 			File dir = new File(dataDirectory);
 			dir.mkdir();

@@ -1,8 +1,5 @@
 package application;
 
-import java.util.ArrayList;
-
-
 /**
  * Class object for champions, uses abilities and skins.
  */

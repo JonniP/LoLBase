@@ -1,17 +1,9 @@
 package application;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 
 import javafx.fxml.FXMLLoader;
@@ -30,7 +22,13 @@ public class Utility {
 	 * Returns ID from a string. Expected form: ...id=ID,...
 	 * @param name - String that contains the ID
 	 * @return Returns the ID
-	 */
+	 *
+	 * @example
+     * <pre name="test">
+     * retrieveID("Testsomethingid=5,Testsomething") === "id=5";
+     * retrieveID("|dd|id=5,<|") === "id=5";
+     * </pre>
+     */
 	public static String retrieveID(String name){
 		int start = -1, end = -1;
 
@@ -144,12 +142,14 @@ public class Utility {
 		}
 	}
 	
+	
 	/***
 	 * Copy one file to a new file
 	 * @param sourceFile
 	 * @param destFile
 	 * @throws IOException
 	 */
+	/*
 	public static void copyFile(File sourceFile, File destFile)
 	        throws IOException {
 	    if (!sourceFile.exists()) {
@@ -172,5 +172,5 @@ public class Utility {
 	        destination.close();
 	    }
 
-	}
+	}*/
 }

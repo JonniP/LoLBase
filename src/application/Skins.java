@@ -2,7 +2,6 @@ package application;
 
 import java.io.File;
 import java.io.PrintWriter;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,17 +10,7 @@ public class Skins {
 	private static String filePath = "Data/Skins.dat";
 	private static final String dataDirectory = "Data/";
 
-	//ToDo: Write method for writing new skins
 	public static ArrayList<String> readFile(){
-		File f = new File(dataDirectory+"/Skins.txt");
-		/*
-		if(f.exists()  && !f.isDirectory()) { //Data FOUND
-			System.out.println("Existing file found");
-			return Utility.readFile(f.getAbsolutePath()); 
-		}
-		//else{ //Not found
-		if(!f.exists()){
-		*/
 		try{
 			File dir = new File(dataDirectory);
 			dir.mkdir();
