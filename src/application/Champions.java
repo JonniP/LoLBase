@@ -81,6 +81,9 @@ public class Champions {
 		return champions;
 	}
 	
+	/**
+	 * @returns a position enum based on the input string
+	 */
 	/* @example
     * <pre name="test">
     * enum Position {

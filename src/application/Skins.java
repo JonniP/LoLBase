@@ -10,6 +10,10 @@ public class Skins {
 	private static String filePath = "Data/Skins.dat";
 	private static final String dataDirectory = "Data/";
 
+	/**
+	 * reads the skin file
+	 * @return the file as an arraylist
+	 */
 	public static ArrayList<String> readFile(){
 		try{
 			File dir = new File(dataDirectory);
@@ -22,12 +26,17 @@ public class Skins {
 			return null;
 		}
 	}
-	
+	/**
+	 * adds a skin to the skin file
+	 * @param skin
+	 */
 	public static void addSkin(Skin skin) {
 		SkinsList.add(skin);
 		Utility.writeAll();
 	}
-	
+	/**
+	 * writes the skins to the skin datafile
+	 */
 	public static void writeToFile(ArrayList<Skin> skins){
 		try{
 			String championFilePath = dataDirectory+"/Skin.dat";
@@ -70,7 +79,11 @@ public class Skins {
 		return skins;
 	}
 
-	//ToDo: Search skins with champion ID
+	/**
+	 * searches for skins that have a specific champion id
+	 * @param ID champion's id
+	 * @return skins that belong to the champion
+	 */
 	public static ArrayList<String> searchSkinWithChampionID(int ID){
 		//ToDo: Read the file and return only skins with specific champion ID
 		List<String> data = readFile();
