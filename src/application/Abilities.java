@@ -8,44 +8,54 @@ import java.util.List;
 public class Abilities {
 
 	private static final String filePath = "Data/Abilities.dat";
+	private static final String dataDirectory = "Data/";
 
 	public static ArrayList<Ability> AbilitiesList = new ArrayList<Ability>();
 
 	//ToDo: Write method for writing new abilities
 	public static ArrayList<String> readFile(){
-		return Utility.readFile(filePath);
+		File f = new File(dataDirectory+"/Abilities.txt");
+		/*
+		if(f.exists()  && !f.isDirectory()) { //Data FOUND
+			System.out.println("Existing file found");
+			return Utility.readFile(f.getAbsolutePath()); 
+		}
+		//else{ //Not found
+		if(!f.exists()){
+		*/
+		try{
+			File dir = new File(dataDirectory);
+			dir.mkdir();
+			File tmp = new File(dir, "Abilities.dat");
+			tmp.createNewFile();
+			return Utility.readFile(filePath);
+		}catch(Exception e){ 
+			System.out.println("Fatal error file could not be created: "+e);
+			return null;
+		}
 	}
 	
 	public static void addAbility(Ability ability) {
 		AbilitiesList.add(ability);
 		Utility.writeAll();
 	}
-
-	//ToDo: Write method for reading abilities
-	public static void writeToFile(ArrayList<Ability> abilities) {
-		System.out.println("ERROR!");
-		//ToDo: Clear file (Utility class) and write all abilities to i
+	
+	 public static void writeToFile(ArrayList<Ability> abilities){
 		try{
-			//ArrayList<String> data = readFile();
-			//PrintWriter writer = new PrintWriter(filePath, "UTF-8");
-			ClassLoader loader = Abilities.class.getClassLoader();
-			File file = new File(loader.getResource(filePath).getFile());
-			PrintWriter writer = new PrintWriter(file);
-
-			//if(data.size() != 0){
-				Utility.clearFile(filePath);
-			//}
+			String championFilePath = dataDirectory+"/Abilities.dat";
+			PrintWriter writer = new PrintWriter(championFilePath);
+			
 			//ID, Ability name, Ability school(??), Respected champion, Image path, Description
 			String temp;
 			int id = 0;
 			for(Ability a : abilities){
 				temp = id++ + "|" + a.name + "|" + a.school + "|" + a.ChampionID + "|" +
-					a.imageURL + "|" + a.description;
+					a.imageURL + "|" + a.description+"\n";
 				writer.write(temp);
 			}
-			writer.close();
+			writer.close();			
 		} catch(Exception e){
-			e.printStackTrace();
+			System.out.println(e);
 		}
 	}
 	

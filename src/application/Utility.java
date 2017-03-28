@@ -92,7 +92,7 @@ public class Utility {
 	 */
 	public static void writeAll() {
 		//Store Abilities
-		//Abilities.writeToFile(Abilities.AbilitiesList);
+		Abilities.writeToFile(Abilities.AbilitiesList);
 		
 		//Store Champions
 		Champions.writeToFile(Champions.Champs);
@@ -102,7 +102,7 @@ public class Utility {
 	}
 	
 	public static void readAll() {
-		//Abilities.AbilitiesList = Abilities.getAbilities();
+		Abilities.AbilitiesList = Abilities.getAbilities();
 		Champions.Champs = Champions.getChampions();
 		//Skins.SkinsList = Skins.getSkins();
 	}

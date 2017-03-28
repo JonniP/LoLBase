@@ -144,8 +144,6 @@ public class AddChampionViewController {
 		
 		//Update main list		
 		
-		/*
-		
 		//Create new abilities
 		Ability newP = new Ability();
 		newP.name = passiveName.getText();
@@ -187,7 +185,7 @@ public class AddChampionViewController {
 		Abilities.addAbility(newQ);
 		Abilities.addAbility(newW);
 		Abilities.addAbility(newE);
-		Abilities.addAbility(newR);*/
+		Abilities.addAbility(newR);
 		//TODO: Add skin here
 
 	}
