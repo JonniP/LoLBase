@@ -136,6 +136,7 @@ public class AddChampionViewController {
 		champ.title = titleField.getText();
 		champ.pos = positionField.getValue();
 		champ.lore = loreField.getText();
+		champ.role = roleField.getValue();
 		
 		//And add it to the list
 		Champions.addChampion(champ);

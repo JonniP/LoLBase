@@ -211,6 +211,7 @@ public class ViewController {
 		ChampionNameLabel.setText(champ.name);
 		ChampionTitleLabel.setText(champ.title);
 		PositionLabel.setText(champ.pos.toString());
+		RoleLabel.setText(champ.role.toString());
 		LoreTextFlow.getChildren().add(new Text(champ.lore));
 		
 		

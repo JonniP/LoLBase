@@ -2,6 +2,10 @@ package application;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +21,15 @@ public class Champions {
 	private static final String dataDirectory = "Data/";
 
 	public static ArrayList<String> readFile() {
+		File f = new File(dataDirectory+"/champions.txt");
+		/*
+		if(f.exists()  && !f.isDirectory()) { //Data FOUND
+			System.out.println("Existing file found");
+			return Utility.readFile(f.getAbsolutePath()); 
+		}
+		//else{ //Not found
+		if(!f.exists()){
+		*/
 		try{
 			File dir = new File(dataDirectory);
 			dir.mkdir();
@@ -42,7 +55,7 @@ public class Champions {
 			int id = 0;
 			for (Champion champ : champs){
 				if(champ != null){
-					temp = id++ + "|" + champ.name + "|" + champ.title + "|" + champ.pos + "|" + champ.lore;
+					temp = id++ + "|" + champ.name + "|" + champ.title + "|" + champ.pos + "|" + champ.role + "|" + champ.lore;
 					writer.println(temp);
 				}
 			}
@@ -74,31 +87,16 @@ public class Champions {
 				champ.name = parts[1].trim();
 				champ.title = parts[2].trim();;
 				champ.pos = selectPos(parts[3].trim());
-				champ.lore = parts[4].trim();
+				champ.role = selectRole(parts[4].trim());
+				champ.lore = parts[5].trim();
 				champions.add(champ);
 			}
 		}
 		return champions;
 	}
-	
 	/**
 	 * @returns a position enum based on the input string
 	 */
-	/* @example
-    * <pre name="test">
-    * enum Position {
-	*	Top,
-	*	Mid,
-	*	Jungle,
-	*	Adc,
-	*	Support;
-	*}
-    * 
-    * selectPos("Adc") ===  Position.Adc;
-    * selectPos("Support") ===  Position.Support;
-    * selectPos("Thunder") ===  Position.null
-    * </pre>
-    */
 	public static Champion.Position selectPos(String a){
 		switch(a){
 		case "Support": return Champion.Position.Support;
@@ -106,6 +104,20 @@ public class Champions {
 		case "Mid": return Champion.Position.Mid;
 		case "Jungle": return Champion.Position.Jungle;
 		case "Top": return Champion.Position.Top;
+		default: return null;
+		}
+	}
+	/**
+	 * @return a role based on the input string
+	 */
+	public static Champion.Role selectRole(String a){
+		switch(a){
+		case "Support": return Champion.Role.Support;
+		case "Mage": return Champion.Role.Mage;
+		case "Marksman": return Champion.Role.Marksman;
+		case "Tank": return Champion.Role.Tank;
+		case "Fighter": return Champion.Role.Fighter;
+		case "Assassin": return Champion.Role.Assassin;
 		default: return null;
 		}
 	}
