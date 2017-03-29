@@ -11,12 +11,12 @@ import java.util.List;
 public class Champions {
 
 	// Global champions array
-	public static ArrayList<Champion> Champs = new ArrayList<Champion>();
+	public ArrayList<Champion> Champs = new ArrayList<Champion>();
 
-	private static final String filePath = "Data/Champions.dat";
-	private static final String dataDirectory = "Data/";
+	private final String filePath = "Data/Champions.dat";
+	private final String dataDirectory = "Data/";
 
-	public static ArrayList<String> readFile() {
+	public ArrayList<String> readFile() {
 		try{
 			File dir = new File(dataDirectory);
 			dir.mkdir();
@@ -31,7 +31,7 @@ public class Champions {
 	
 	
 	
-	public static void writeToFile(ArrayList<Champion> champs){
+	public void writeToFile(){
 		try{
 			String championFilePath = dataDirectory+"/Champions.dat";
 			
@@ -40,7 +40,7 @@ public class Champions {
 			//ID, Name, Title, Position, Lore
 			String temp;
 			int id = 0;
-			for (Champion champ : champs){
+			for (Champion champ : this.Champs){
 				if(champ != null){
 					temp = id++ + "|" + champ.name + "|" + champ.title + "|" + champ.pos + "|" + champ.role + "|" + champ.lore;
 					writer.println(temp);
@@ -58,7 +58,7 @@ public class Champions {
 	 * @return Returns a list of champions.
 	 */
 	
-	public static ArrayList<Champion> getChampions(){
+	public ArrayList<Champion> getChampions(){
 		//ToDo: Get all info about all champions
 		//ToDo: No error checking for missing files
 		List<String> data = readFile();
@@ -112,10 +112,13 @@ public class Champions {
 	/***
 	 * Add new Champion to the champions list
 	 */
-	public static void addChampion(Champion champ) {
+	public void addChampion(Champion champ) {
 		Champs.add(champ);
-		//Utility.writeAll();
-		Champions.writeToFile(Champs);
+		writeToFile();
+	}
+	
+	public int getSize() {
+		return Champs.size();
 	}
 
 	/**
@@ -123,7 +126,7 @@ public class Champions {
 	 * @param filePath - Path to file
 	 * @param key - Word we are looking for
 	 */
-	public static boolean championExistsSearchKey(String key){
+	public boolean championExistsSearchKey(String key){
 		//ToDo: Find with name/ID ?
 		List<String> data = readFile();
 

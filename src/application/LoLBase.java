@@ -4,7 +4,7 @@ public class LoLBase {
 
 	//Champions
 	public int getChampionsAmount() {
-		return Champions.Champs.size();
+		return Champions.getSize();
 	}
 	
 	public void addChampion(Champion champ){

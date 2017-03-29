@@ -93,7 +93,7 @@ public class Utility {
 		Abilities.writeToFile(Abilities.AbilitiesList);
 		
 		//Store Champions
-		Champions.writeToFile(Champions.Champs);
+		Champions.writeToFile();
 		
 		//Store Skins
 		//Skins.writeToFile(Skins.SkinsList);
