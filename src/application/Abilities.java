@@ -10,7 +10,8 @@ public class Abilities {
 	private static final String filePath = "Data/Abilities.dat";
 	private static final String dataDirectory = "Data/";
 
-	public static ArrayList<Ability> AbilitiesList = new ArrayList<Ability>();
+	//public static ArrayList<Ability> AbilitiesList = new ArrayList<Ability>();
+	public static GenericArray<Ability> AbilitiesList = new GenericArray<Ability>(Ability.class);
 
 	/**
 	 * reads the ability datafile
@@ -45,9 +46,9 @@ public class Abilities {
 	}
 	/**
 	 * writes abilities to the data file
-	 * @param abilities the list that is to be written
+	 * @param abilitiesList2 the list that is to be written
 	 */
-	 public static void writeToFile(ArrayList<Ability> abilities){
+	 public static void writeToFile(GenericArray<Ability> abilityList){
 		try{
 			String championFilePath = dataDirectory+"/Abilities.dat";
 			PrintWriter writer = new PrintWriter(championFilePath);
@@ -55,7 +56,8 @@ public class Abilities {
 			//ID, Ability name, Ability school(??), Respected champion, Image path, Description
 			String temp;
 			int id = 0;
-			for(Ability a : abilities){
+			Ability[] abils = abilityList.toArray();
+			for(Ability a : abils){
 				temp = id++ + "|" + a.name + "|" + a.school + "|" + a.ChampionID + "|" +
 					a.imageURL + "|" + a.description+"\n";
 				writer.write(temp);
@@ -70,11 +72,11 @@ public class Abilities {
 	 * Reads Abilities.dat file and returns a list of all abilities.
 	 * @return Returns a list of abilities.
 	 */
-	public static ArrayList<Ability> getAbilities(){
+	public static GenericArray<Ability> getAbilities(){
 		//ToDo: Get all info about all abilities
 		//ToDo: No error checking for missing files
 		List<String> data = readFile();
-		ArrayList<Ability> abilities = new ArrayList<Ability>();
+		GenericArray<Ability> abilities = new GenericArray<Ability>(Ability.class);
 		Ability abil;
 
 		for(String s : data){ //each line
