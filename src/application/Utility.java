@@ -29,7 +29,7 @@ public class Utility {
      * retrieveID("|dd|id=5,<|") === "id=5";
      * </pre>
      */
-	public static String retrieveID(String name){
+	public String retrieveID(String name){
 		int start = -1, end = -1;
 
 		for(int i = 0; i < name.length(); i++){
@@ -51,7 +51,7 @@ public class Utility {
 	 * @param filePath - Path to file
 	 * @return - Returns a list of all the lines in the specified file.
 	 */
-	static ArrayList<String> readFile(String filePath){
+	public static ArrayList<String> readFile(String filePath){
 		ArrayList<String> data = new ArrayList<String>();
 		try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
 		    String line;
@@ -73,7 +73,7 @@ public class Utility {
 	/***
 	 * Empties a given file
 	 */
-	public static void clearFile(String filepath) {
+	public void clearFile(String filepath) {
 		try {
 			FileWriter fwOb = new FileWriter(filepath, false);
 	        PrintWriter pwOb = new PrintWriter(fwOb, false);
@@ -85,24 +85,10 @@ public class Utility {
 		}
 	}
 	
-	/***
-	 * Stores all Abilities, Champions and Skins to file
-	 */
-	public static void writeAll() {
-		//Store Abilities
-		Abilities.writeToFile(Abilities.AbilitiesList);
-		
-		//Store Champions
-		Champions.writeToFile();
-		
-		//Store Skins
-		//Skins.writeToFile(Skins.SkinsList);
-	}
-	
 	/**
 	 * reads all the datafiles
 	 */
-	public static void readAll() {
+	public void readAll() {
 		Abilities.AbilitiesList = Abilities.getAbilities();
 		Champions.Champs = Champions.getChampions();
 		//Skins.SkinsList = Skins.getSkins();
@@ -113,7 +99,7 @@ public class Utility {
 	 * @param imgView - Object containing the image
 	 * @param image - Image file
 	 */
-	public static void setImage(ImageView imgView, Image image){
+	public void setImage(ImageView imgView, Image image){
 		imgView.setImage(image);
     	imgView.setPreserveRatio(true);
     	imgView.setSmooth(true);
@@ -122,7 +108,7 @@ public class Utility {
 	
 	//Known bug: Sometimes displayes invisible images
 	//Potential reason: JPG appears to work, not jpg, png etc.
-	public static void setImage(ImageView imgView, String image){
+	public void setImage(ImageView imgView, String image){
 		setImage(imgView, new Image(image));
 	}
 

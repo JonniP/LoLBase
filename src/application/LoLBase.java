@@ -1,40 +1,58 @@
 package application;
 
 public class LoLBase {
+	
+	private final Champions champions = new Champions();
+	private final Skins skins = new Skins();
+	private final Abilities abilities = new Abilities();
 
+	/***
+	 * Stores all Abilities, Champions and Skins to file
+	 */
+	public void writeAll() {
+		//Store Abilities
+		Abilities.writeToFile(abilities.AbilitiesList);
+		
+		//Store Champions
+		Champions.writeToFile();
+		
+		//Store Skins
+		//Skins.writeToFile(Skins.SkinsList);
+	}
+	
 	//Champions
 	public int getChampionsAmount() {
-		return Champions.getSize();
+		return champions.getSize();
 	}
 	
 	public void addChampion(Champion champ){
-		Champions.Champs.add(champ);
+		champions.Champs.add(champ);
 	}
 	
 	public Champion getChampion(int i){
 		try{
-			return Champions.Champs.get(i);
+			return champions.Champs.get(i);
 		} catch(Exception e){
 			return null;
 		}
 	}
 	
 	public boolean championExists(String name){
-		return Champions.championExistsSearchKey(name);
+		return champions.championExistsSearchKey(name);
 	}
 	
 	//Abilities
 	public int getAbilitiesAmount(){
-		return Abilities.AbilitiesList.size();
+		return abilities.AbilitiesList.size();
 	}
 	
 	public void addAbility(Ability ability){
-		Abilities.AbilitiesList.add(Ability.class, ability);
+		abilities.AbilitiesList.add(Ability.class, ability);
 	}
 	
 	public Ability getAbility(int i){
 		try{
-			return Abilities.AbilitiesList.get(i);
+			return abilities.AbilitiesList.get(i);
 		} catch(Exception e){
 			return null;
 		}
@@ -42,16 +60,16 @@ public class LoLBase {
 	
 	//Skins
 	public int getSkinsAmount(){
-		return Skins.SkinsList.size();
+		return skins.SkinsList.size();
 	}
 	
 	public void addSkin(Skin skin){
-		Skins.SkinsList.add(skin);
+		skins.SkinsList.add(skin);
 	}
 	
 	public Skin getSkin(int i){
 		try{
-			return Skins.SkinsList.get(i);
+			return skins.SkinsList.get(i);
 		} catch(Exception e){
 			return null;
 		}

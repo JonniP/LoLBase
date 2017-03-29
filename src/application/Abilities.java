@@ -7,17 +7,17 @@ import java.util.List;
 
 public class Abilities {
 
-	private static final String filePath = "Data/Abilities.dat";
-	private static final String dataDirectory = "Data/";
+	private final String filePath = "Data/Abilities.dat";
+	private final String dataDirectory = "Data/";
 
 	//public static ArrayList<Ability> AbilitiesList = new ArrayList<Ability>();
-	public static GenericArray<Ability> AbilitiesList = new GenericArray<Ability>(Ability.class);
+	public GenericArray<Ability> AbilitiesList = new GenericArray<Ability>(Ability.class);
 
 	/**
 	 * reads the ability datafile
 	 * @return the file as an arraylist
 	 */
-	public static ArrayList<String> readFile(){
+	public ArrayList<String> readFile(){
 		try{
 			File dir = new File(dataDirectory);
 			dir.mkdir();
@@ -40,7 +40,7 @@ public class Abilities {
 	 * AbilitiesList.size() === size + 1;
 	 * </pre>
 	 */
-	public static void addAbility(Ability ability) {
+	public void addAbility(Ability ability) {
 		AbilitiesList.add(Ability.class, ability);
 		Utility.writeAll();
 	}
@@ -48,7 +48,7 @@ public class Abilities {
 	 * writes abilities to the data file
 	 * @param abilitiesList2 the list that is to be written
 	 */
-	 public static void writeToFile(GenericArray<Ability> abilityList){
+	 public void writeToFile(GenericArray<Ability> abilityList){
 		try{
 			String championFilePath = dataDirectory+"/Abilities.dat";
 			PrintWriter writer = new PrintWriter(championFilePath);
@@ -72,7 +72,7 @@ public class Abilities {
 	 * Reads Abilities.dat file and returns a list of all abilities.
 	 * @return Returns a list of abilities.
 	 */
-	public static GenericArray<Ability> getAbilities(){
+	public GenericArray<Ability> getAbilities(){
 		//ToDo: Get all info about all abilities
 		//ToDo: No error checking for missing files
 		List<String> data = readFile();
@@ -99,7 +99,7 @@ public class Abilities {
 	 * @param ID champion's id
 	 * @return arraylist of the abilities that meet the required id
 	 */
-	public static ArrayList<String> searchAbilitiesWithChampionID(int ID){
+	public ArrayList<String> searchAbilitiesWithChampionID(int ID){
 		//ToDo: Read the file and return only abilities with specific champion ID
 		String key = Integer.toString(ID);
 		ArrayList<String> data = readFile();

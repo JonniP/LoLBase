@@ -6,15 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Skins {
-	public static ArrayList<Skin> SkinsList = new ArrayList<Skin>();
-	private static String filePath = "Data/Skins.dat";
-	private static final String dataDirectory = "Data/";
+	public ArrayList<Skin> SkinsList = new ArrayList<Skin>();
+	private String filePath = "Data/Skins.dat";
+	private final String dataDirectory = "Data/";
 
 	/**
 	 * reads the skin file
 	 * @return the file as an arraylist
 	 */
-	public static ArrayList<String> readFile(){
+	public ArrayList<String> readFile(){
 		try{
 			File dir = new File(dataDirectory);
 			dir.mkdir();
@@ -30,14 +30,14 @@ public class Skins {
 	 * adds a skin to the skin file
 	 * @param skin
 	 */
-	public static void addSkin(Skin skin) {
+	public void addSkin(Skin skin) {
 		SkinsList.add(skin);
 		Utility.writeAll();
 	}
 	/**
 	 * writes the skins to the skin datafile
 	 */
-	public static void writeToFile(ArrayList<Skin> skins){
+	public void writeToFile(ArrayList<Skin> skins){
 		try{
 			String championFilePath = dataDirectory+"/Skin.dat";
 			PrintWriter writer = new PrintWriter(championFilePath);
@@ -59,7 +59,7 @@ public class Skins {
 	 * Reads Skins.dat file and returns a list of all skins.
 	 * @return Returns a list of skins.
 	 */
-	public static ArrayList<Skin> getSkins(){
+	public ArrayList<Skin> getSkins(){
 		List<String> data = readFile();
 		ArrayList<Skin> skins = new ArrayList<Skin>();
 		Skin skin;
@@ -84,7 +84,7 @@ public class Skins {
 	 * @param ID champion's id
 	 * @return skins that belong to the champion
 	 */
-	public static ArrayList<String> searchSkinWithChampionID(int ID){
+	public ArrayList<String> searchSkinWithChampionID(int ID){
 		//ToDo: Read the file and return only skins with specific champion ID
 		List<String> data = readFile();
 		ArrayList<String> results = new ArrayList<String>();
