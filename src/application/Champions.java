@@ -2,10 +2,6 @@ package application;
 
 import java.io.File;
 import java.io.PrintWriter;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,15 +17,6 @@ public class Champions {
 	private static final String dataDirectory = "Data/";
 
 	public static ArrayList<String> readFile() {
-		File f = new File(dataDirectory+"/champions.txt");
-		/*
-		if(f.exists()  && !f.isDirectory()) { //Data FOUND
-			System.out.println("Existing file found");
-			return Utility.readFile(f.getAbsolutePath()); 
-		}
-		//else{ //Not found
-		if(!f.exists()){
-		*/
 		try{
 			File dir = new File(dataDirectory);
 			dir.mkdir();
