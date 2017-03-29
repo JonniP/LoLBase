@@ -20,13 +20,13 @@ public class GenericArray<E> {
 		this.a = arr;
 	}
 	
-	public void add(E item) {
-		if (this.objCount < a.length) {
+	public void add(Class<E> c, E item) {
+		if (this.objCount + 1 < a.length) {
 			//Add it, will fit
 			a[this.objCount] = item;
 		} else {
 			//Increase array size, then add
-			increaseSizeOfArray(a);
+			increaseSizeOfArray(c);
 			a[this.objCount] = item;
 		}
 		this.objCount++;
@@ -39,12 +39,12 @@ public class GenericArray<E> {
 	}
 	
 	//This will double the size of the array, consider just adding X new elements
-	private void increaseSizeOfArray(E[] array) {
+	private void increaseSizeOfArray(Class<E> c) {
 		@SuppressWarnings("unchecked")
-		E[] newArr = (E[]) Array.newInstance(a.getClass(), objCount * 2);
+		E[] newArr = (E[]) Array.newInstance(c, this.objCount * 2);
 		//Now copy old objects and set
-		for (int i = 0; i < a.length; i++) {
-			newArr[i] = a[i];
+		for (int i = 0; i < this.a.length; i++) {
+			newArr[i] = this.a[i];
 		}
 		this.a = newArr;
 	}
@@ -57,10 +57,10 @@ public class GenericArray<E> {
 		return this.a[i];
 	}
 
-	public E[] toArray() {
+	public E[] toArray(Class<E> c) {
 		@SuppressWarnings("unchecked")
-		E[] newArr = (E[]) Array.newInstance(a.getClass(), objCount);
-		for (int i = 0; i < a.length; i++) {
+		E[] newArr = (E[]) Array.newInstance(c, this.objCount);
+		for (int i = 0; i < this.objCount; i++) {
 			newArr[i] = a[i];
 		}
 		return newArr;

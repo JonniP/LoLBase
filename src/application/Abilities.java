@@ -41,7 +41,7 @@ public class Abilities {
 	 * </pre>
 	 */
 	public static void addAbility(Ability ability) {
-		AbilitiesList.add(ability);
+		AbilitiesList.add(Ability.class, ability);
 		Utility.writeAll();
 	}
 	/**
@@ -56,7 +56,7 @@ public class Abilities {
 			//ID, Ability name, Ability school(??), Respected champion, Image path, Description
 			String temp;
 			int id = 0;
-			Ability[] abils = abilityList.toArray();
+			Ability[] abils = abilityList.toArray(Ability.class);
 			for(Ability a : abils){
 				temp = id++ + "|" + a.name + "|" + a.school + "|" + a.ChampionID + "|" +
 					a.imageURL + "|" + a.description+"\n";
@@ -88,7 +88,7 @@ public class Abilities {
 				abil.name = parts[1].trim();
 				abil.description = parts[4].trim();
 				abil.imageURL = parts[5].trim();
-				abilities.add(abil);
+				abilities.add(Ability.class, abil);
 			}
 		}
 		return abilities;

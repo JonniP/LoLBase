@@ -29,7 +29,7 @@ public class LoLBase {
 	}
 	
 	public void addAbility(Ability ability){
-		Abilities.AbilitiesList.add(ability);
+		Abilities.AbilitiesList.add(Ability.class, ability);
 	}
 	
 	public Ability getAbility(int i){
