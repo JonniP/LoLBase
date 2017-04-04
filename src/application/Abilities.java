@@ -11,7 +11,7 @@ public class Abilities {
 	private final String dataDirectory = "Data/";
 
 	//public static ArrayList<Ability> AbilitiesList = new ArrayList<Ability>();
-	public GenericArray<Ability> AbilitiesList = new GenericArray<Ability>(Ability.class);
+	private GenericArray<Ability> AbilitiesList = new GenericArray<Ability>(Ability.class);
 
 	/**
 	 * reads the ability datafile
@@ -42,7 +42,11 @@ public class Abilities {
 	 */
 	public void addAbility(Ability ability) {
 		AbilitiesList.add(Ability.class, ability);
-		Utility.writeAll();
+		//removed utility.writeall()
+	}
+	
+	public int abilitiesAmount(){
+		return AbilitiesList.size();
 	}
 	/**
 	 * writes abilities to the data file
@@ -92,6 +96,10 @@ public class Abilities {
 			}
 		}
 		return abilities;
+	}
+	
+	public Ability getAbility(int i){
+		return AbilitiesList.get(i);
 	}
 
 	/**

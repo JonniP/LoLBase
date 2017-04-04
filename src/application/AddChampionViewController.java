@@ -1,7 +1,6 @@
 package application;
 
 import java.util.ArrayList;
-
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,6 +8,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 
 /**
  * Controller class for AddChampionView
@@ -139,7 +139,9 @@ public class AddChampionViewController {
 		champ.role = roleField.getValue();
 		
 		//And add it to the list
-		Champions.addChampion(champ);
+		//Champions.addChampion(champ);
+		
+		
 		
 		//Update main list		
 		
@@ -148,43 +150,45 @@ public class AddChampionViewController {
 		newP.name = passiveName.getText();
 		newP.description = passiveInfo.getText();
 		newP.school = "Passive";
-		newP.ChampionID = Champions.Champs.size()+1;
+		//newP.ChampionID = Champions.Champs.size()+1;
 		newP.imageURL = "Walla Balla BING BANG";
 		
 		Ability newQ = new Ability();
 		newQ.name = qName.getText();
 		newQ.description = qInfo.getText();
 		newQ.school = "Q";
-		newQ.ChampionID = Champions.Champs.size()+1;
+		//newQ.ChampionID = Champions.Champs.size()+1;
 		newQ.imageURL = "Walla Balla BING BANG";
 
 		Ability newW = new Ability();
 		newW.name = wName.getText();
 		newW.description = wInfo.getText();
 		newW.school = "W";
-		newW.ChampionID = Champions.Champs.size()+1;
+		//newW.ChampionID = Champions.Champs.size()+1;
 		newW.imageURL = "Walla Balla BING BANG";
 
 		Ability newE = new Ability();
 		newE.name = eName.getText();
 		newE.description = eInfo.getText();
 		newE.school = "E";
-		newE.ChampionID = Champions.Champs.size()+1;
+		//newE.ChampionID = Champions.Champs.size()+1;
 		newE.imageURL = "Walla Balla BING BANG";
 
 		Ability newR = new Ability();
 		newR.name = rName.getText();
 		newR.description = rInfo.getText();
 		newR.school = "Ultimate";
-		newR.ChampionID = Champions.Champs.size()+1;
+		//newR.ChampionID = Champions.Champs.size()+1;
 		newR.imageURL = "Walla Balla BING BANG";
 		
 		
+		/*
 		Abilities.addAbility(newP);
 		Abilities.addAbility(newQ);
 		Abilities.addAbility(newW);
 		Abilities.addAbility(newE);
 		Abilities.addAbility(newR);
+		*/
 		//TODO: Add skin here
 
 	}

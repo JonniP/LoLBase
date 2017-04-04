@@ -39,7 +39,7 @@ public class AddSKinViewController {
     		imageURLField.setPromptText("URL field cannot be empty!");
     	}
     	if (inputValid) {
-    		Skins.SkinsList.add(skin);
+    		// removed Skins.SkinsList.add(skin);
     	}
     }
     

@@ -10,8 +10,7 @@ import java.util.List;
  */
 public class Champions {
 
-	// Global champions array
-	public ArrayList<Champion> Champs = new ArrayList<Champion>();
+	private ArrayList<Champion> Champs = new ArrayList<Champion>();
 
 	private final String filePath = "Data/Champions.dat";
 	private final String dataDirectory = "Data/";
@@ -28,8 +27,6 @@ public class Champions {
 			return null;
 		}
 	}
-	
-	
 	
 	public void writeToFile(){
 		try{
@@ -81,6 +78,11 @@ public class Champions {
 		}
 		return champions;
 	}
+	
+	public Champion getChampion(int i){
+		return Champs.get(i);
+	}
+	
 	/**
 	 * @returns a position enum based on the input string
 	 */

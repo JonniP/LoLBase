@@ -1,5 +1,7 @@
 package application;
 
+import java.util.ArrayList;
+
 public class LoLBase {
 	
 	private final Champions champions = new Champions();
@@ -11,10 +13,10 @@ public class LoLBase {
 	 */
 	public void writeAll() {
 		//Store Abilities
-		Abilities.writeToFile(abilities.AbilitiesList);
+		//Abilities.writeToFile(abilities.AbilitiesList);
 		
 		//Store Champions
-		Champions.writeToFile();
+		champions.writeToFile();
 		
 		//Store Skins
 		//Skins.writeToFile(Skins.SkinsList);
@@ -26,15 +28,19 @@ public class LoLBase {
 	}
 	
 	public void addChampion(Champion champ){
-		champions.Champs.add(champ);
+		champions.addChampion(champ);
 	}
 	
 	public Champion getChampion(int i){
 		try{
-			return champions.Champs.get(i);
+			return champions.getChampion(i);
 		} catch(Exception e){
 			return null;
 		}
+	}
+	
+	public ArrayList<Champion> getChampionList(){
+		return champions.getChampions();
 	}
 	
 	public boolean championExists(String name){
@@ -43,16 +49,16 @@ public class LoLBase {
 	
 	//Abilities
 	public int getAbilitiesAmount(){
-		return abilities.AbilitiesList.size();
+		return abilities.abilitiesAmount();
 	}
 	
 	public void addAbility(Ability ability){
-		abilities.AbilitiesList.add(Ability.class, ability);
+		abilities.addAbility(ability);
 	}
 	
 	public Ability getAbility(int i){
 		try{
-			return abilities.AbilitiesList.get(i);
+			return abilities.getAbility(i);
 		} catch(Exception e){
 			return null;
 		}

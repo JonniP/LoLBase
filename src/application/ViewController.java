@@ -1,6 +1,5 @@
 package application;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -80,13 +79,13 @@ public class ViewController {
 		
 		SkinLeftArrow.setScaleX(-1);
 		AbilityLeftArrow.setScaleX(-1);
-		
-		Utility.readAll();
-		//fill champion list with names
-		for(Champion c : Champions.Champs){
+    }
+	
+	public void updateListViewChampions(Champion[] champs){
+		for(Champion c : champs){
 			ChampionsList.getItems().addAll(c.name);
 		}
-    }
+	}
 	
 	/**
 	 * On add champion button clicked, opens AddChampionView window.
@@ -188,6 +187,7 @@ public class ViewController {
      */
     @FXML
     void OnChampionsListClicked() {
+    	/*
     	ObservableList<String> selected;
 		selected = ChampionsList.getSelectionModel().getSelectedItems();
 		String champName = selected.get(0);
@@ -200,6 +200,7 @@ public class ViewController {
 		}
 		
 		ChangeChampion(champ);
+		*/
     }
     
     /**
@@ -215,7 +216,7 @@ public class ViewController {
 		LoreTextFlow.getChildren().add(new Text(champ.lore));
 		
 		
-		Skin currentSkin = Skins.SkinsList.get(0);
+		/*Skin currentSkin = Skins.SkinsList.get(0);
 		ChampionSkinNameLabel.setText(currentSkin.name);
 		Utility.setImage(SkinImageView, currentSkin.imgURL);
 		
@@ -223,6 +224,6 @@ public class ViewController {
 		Ability currentAbility = Abilities.AbilitiesList.get(0);
 		AbilityNameLabel.setText(currentAbility.name);
 		AbilityDescription.getChildren().add(new Text(currentAbility.description));
-		Utility.setImage(AbilityImageView, currentAbility.imageURL);
+		Utility.setImage(AbilityImageView, currentAbility.imageURL);*/
     }
 }

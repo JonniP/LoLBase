@@ -32,7 +32,7 @@ public class Skins {
 	 */
 	public void addSkin(Skin skin) {
 		SkinsList.add(skin);
-		Utility.writeAll();
+		// removed Utility.writeAll();
 	}
 	/**
 	 * writes the skins to the skin datafile

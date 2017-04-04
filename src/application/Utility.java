@@ -29,7 +29,7 @@ public class Utility {
      * retrieveID("|dd|id=5,<|") === "id=5";
      * </pre>
      */
-	public String retrieveID(String name){
+	public static String retrieveID(String name){
 		int start = -1, end = -1;
 
 		for(int i = 0; i < name.length(); i++){
@@ -86,20 +86,11 @@ public class Utility {
 	}
 	
 	/**
-	 * reads all the datafiles
-	 */
-	public void readAll() {
-		Abilities.AbilitiesList = Abilities.getAbilities();
-		Champions.Champs = Champions.getChampions();
-		//Skins.SkinsList = Skins.getSkins();
-	}
-
-	/**
 	 * Sets ImageView image with default settings
 	 * @param imgView - Object containing the image
 	 * @param image - Image file
 	 */
-	public void setImage(ImageView imgView, Image image){
+	public static void setImage(ImageView imgView, Image image){
 		imgView.setImage(image);
     	imgView.setPreserveRatio(true);
     	imgView.setSmooth(true);
