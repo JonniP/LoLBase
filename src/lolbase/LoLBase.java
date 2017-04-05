@@ -1,25 +1,23 @@
-package application;
+package lolbase;
 
 import java.util.ArrayList;
 
 public class LoLBase {
 	
-	private final Champions champions = new Champions();
-	private final Skins skins = new Skins();
-	private final Abilities abilities = new Abilities();
-
-	/***
-	 * Stores all Abilities, Champions and Skins to file
-	 */
-	public void writeAll() {
-		//Store Abilities
-		//Abilities.writeToFile(abilities.AbilitiesList);
-		
-		//Store Champions
+	private Champions champions = new Champions();
+	private Abilities abilities = new Abilities();
+	private Skins skins = new Skins();
+	
+	public void readAll(){
+		champions.readFile();
+		abilities.readFile();
+		skins.readFile();
+	}
+	
+	public void writeAll(){
 		champions.writeToFile();
-		
-		//Store Skins
-		//Skins.writeToFile(Skins.SkinsList);
+		abilities.readFile();
+		skins.readFile();
 	}
 	
 	//Champions
@@ -30,6 +28,7 @@ public class LoLBase {
 	public void addChampion(Champion champ){
 		champions.addChampion(champ);
 	}
+	
 	
 	public Champion getChampion(int i){
 		try{

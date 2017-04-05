@@ -1,4 +1,4 @@
-package application;
+package lolbase;
 import java.lang.reflect.Array;
 
 /***

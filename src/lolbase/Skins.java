@@ -1,4 +1,4 @@
-package application;
+package lolbase;
 
 import java.io.File;
 import java.io.PrintWriter;

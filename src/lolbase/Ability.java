@@ -1,9 +1,9 @@
-package application;
+package lolbase;
 
 /**
  * Class object for abilities
  */
-class Ability {
+public class Ability {
 	public String name;
 	public String school; //passive, Q, W, E, R...
 	public int ChampionID;

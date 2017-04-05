@@ -1,4 +1,4 @@
-package application;
+package fx;
 
 import java.util.ArrayList;
 import javafx.collections.FXCollections;

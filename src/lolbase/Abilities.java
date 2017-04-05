@@ -1,4 +1,4 @@
-package application;
+package lolbase;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -7,10 +7,9 @@ import java.util.List;
 
 public class Abilities {
 
-	private final String filePath = "Data/Abilities.dat";
 	private final String dataDirectory = "Data/";
+	private final String filePath = "Data/Abilities.dat";
 
-	//public static ArrayList<Ability> AbilitiesList = new ArrayList<Ability>();
 	private GenericArray<Ability> AbilitiesList = new GenericArray<Ability>(Ability.class);
 
 	/**

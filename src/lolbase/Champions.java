@@ -1,4 +1,4 @@
-package application;
+package lolbase;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -12,8 +12,9 @@ public class Champions {
 
 	private ArrayList<Champion> Champs = new ArrayList<Champion>();
 
-	private final String filePath = "Data/Champions.dat";
 	private final String dataDirectory = "Data/";
+	private final String filePath = "Data/Champions.dat";
+	
 
 	public ArrayList<String> readFile() {
 		try{

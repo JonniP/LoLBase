@@ -1,4 +1,4 @@
-package application;
+package lolbase;
 
 /**
  * Class object for champions, uses abilities and skins.

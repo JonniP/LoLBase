@@ -1,4 +1,4 @@
-package application;
+package fx;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -9,65 +9,38 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import lolbase.Champion;
+import lolbase.LoLBase;
+import lolbase.Abilities;
+import lolbase.Skins;
+import lolbase.Utility;
 
 /**
  * Controller class for main view.
  */
 public class ViewController {
-
-	//public static ObservableList<String> ChampionText = FXCollections.observableArrayList();
-	//public static ObservableList<Object> Data = FXCollections.observableArrayList();
 	
-	@FXML
-    private ListView<String> ChampionsList;
-	
-    @FXML
-    private ImageView AbilityImageView;
-    
-    @FXML
-    private ImageView SkinImageView;
-	
-	@FXML
-    private Label ChampionNameLabel;
-
-    @FXML
-    private Label ChampionTitleLabel;
-    
-    @FXML
-    private Label RoleLabel;
-
-    @FXML
-    private Label PositionLabel;
-
-    @FXML
-    private Label ChampionSkinNameLabel;
-    
-    @FXML
-    private Label AbilityNameLabel;
-    
-    @FXML
-    private TextField ChampionSearchField;
-	
-    @FXML
-    private TextFlow LoreTextFlow;
-    
-    @FXML
-    private TextFlow AbilityDescription;
-    
-    @FXML
-    private ImageView SkinRightArrow;
-
-    @FXML
-    private ImageView SkinLeftArrow;
-    
-    @FXML
-    private ImageView AbilityRightArrow;
-
-    @FXML
-    private ImageView AbilityLeftArrow;
+	@FXML private ListView<String> ChampionsList;
+    @FXML private ImageView AbilityImageView;
+    @FXML private ImageView SkinImageView;
+	@FXML private Label ChampionNameLabel;
+    @FXML private Label ChampionTitleLabel;
+    @FXML private Label RoleLabel;
+    @FXML private Label PositionLabel;
+    @FXML private Label ChampionSkinNameLabel;
+    @FXML private Label AbilityNameLabel;
+    @FXML private TextField ChampionSearchField;
+    @FXML private TextFlow LoreTextFlow;
+    @FXML private TextFlow AbilityDescription;
+    @FXML private ImageView SkinRightArrow;
+    @FXML private ImageView SkinLeftArrow;
+    @FXML private ImageView AbilityRightArrow;
+    @FXML private ImageView AbilityLeftArrow;
     
     private Image arrowClickedImage;
     private Image arrowDefaultImage;
+    
+    private LoLBase lolbase;
     
 	/**
 	 * Initializes objects and loads data from files.
@@ -92,24 +65,7 @@ public class ViewController {
 	 */
 	@FXML
     void AddChampionClicked() {
-		Utility.openAnchorWindow("AddChampionView.fxml", "Add Champion");
-		
-		/*
-		 public static void openAnchorWindow(String filePath, String title){
-		try {
-			AnchorPane root = FXMLLoader.load(ViewController.class.getResource(filePath));
-			Scene addWindow = new Scene(root);
-			Stage stage = new Stage();
-			stage.setScene(addWindow);
-			stage.show();
-			stage.setTitle(title);
-			stage.getIcons().add(new Image(Utility.class.getResource("Images/Temu.png").toString()));
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
-		 */
-		
+		Utility.openAnchorWindow("AddChampionView.fxml", "Add Champion");		
     }
 
 	/**

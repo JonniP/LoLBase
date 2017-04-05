@@ -1,4 +1,4 @@
-package application;
+package lolbase;
 
 /**
  * Class object for skins
