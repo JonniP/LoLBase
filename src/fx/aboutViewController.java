@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import lolbase.Utility;
 /**
  * Controller class for aboutView window
  */

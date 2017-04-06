@@ -1,18 +1,25 @@
 package fx;
 
+import java.util.ArrayList;
+
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import javafx.stage.Stage;
+import lolbase.Ability;
 import lolbase.Champion;
 import lolbase.LoLBase;
-import lolbase.Abilities;
-import lolbase.Skins;
+import lolbase.Skin;
 import lolbase.Utility;
 
 /**
@@ -47,14 +54,19 @@ public class ViewController {
 	 */
 	@FXML
     public void initialize() {
-		arrowClickedImage = new Image(getClass().getResource("Images/Arrow_Clicked.png").toString());
-		arrowDefaultImage = new Image(getClass().getResource("Images/Arrow_Default.png").toString());
+		arrowClickedImage = new Image(getClass().getResource("/Images/Arrow_Clicked.png").toString());
+		arrowDefaultImage = new Image(getClass().getResource("/Images/Arrow_Default.png").toString());
 		
 		SkinLeftArrow.setScaleX(-1);
 		AbilityLeftArrow.setScaleX(-1);
     }
 	
-	public void updateListViewChampions(Champion[] champs){
+	public void setLoLBase(LoLBase lol){
+		this.lolbase = lol;
+	}
+	
+	public void updateListViewChampions(ArrayList<Champion> champs){
+		ChampionsList.getItems().clear();
 		for(Champion c : champs){
 			ChampionsList.getItems().addAll(c.name);
 		}
@@ -65,8 +77,43 @@ public class ViewController {
 	 */
 	@FXML
     void AddChampionClicked() {
-		Utility.openAnchorWindow("AddChampionView.fxml", "Add Champion");		
+		// Utility.openAnchorWindow("AddChampionView.fxml", "Add Champion");
+		
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("AddChampionView.fxml"));
+			
+			final AnchorPane root = (AnchorPane)loader.load();
+			Scene addWindow = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(addWindow);
+			
+			AddChampionViewController controller = loader.<AddChampionViewController>getController();
+			if(controller != null){
+				controller.setRef(this);
+			}
+			else System.out.println("null - error!");
+			
+			stage.show();
+			stage.setTitle("Add Champion");
+			stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
+		} catch(Exception e) {
+			e.printStackTrace();
+		}	
     }
+	/**
+	 * rounds up the data for file writing
+	 */
+	public void retrieveData(Champion champ, Ability[] abilys, ArrayList<Skin> skins){
+		lolbase.addChampion(champ);
+		for(Ability a : abilys){
+			lolbase.addAbility(a);
+		}
+		for(Skin b : skins){
+			lolbase.addSkin(b);
+		}
+		lolbase.writeAll();
+		updateListViewChampions(lolbase.getChampionList());
+	}
 
 	/**
 	 * On delete champion clicked, opens ConfirmActionView window.
@@ -143,20 +190,21 @@ public class ViewController {
      */
     @FXML
     void OnChampionsListClicked() {
-    	/*
+    	
     	ObservableList<String> selected;
 		selected = ChampionsList.getSelectionModel().getSelectedItems();
 		String champName = selected.get(0);
+		if (selected.get(0) != null) {
 		
 		Champion champ = null;
-		for(int i = 0; i<Champions.Champs.size(); i++){
-			if(Champions.Champs.get(i).name == champName){
-				champ = Champions.Champs.get(i);
+		for(int i = 0; i<lolbase.getChampionsAmount(); i++){
+			if(lolbase.getChampion(i).name == champName){
+				champ = lolbase.getChampion(i);
 			}
 		}
 		
 		ChangeChampion(champ);
-		*/
+		}
     }
     
     /**
@@ -169,17 +217,21 @@ public class ViewController {
 		ChampionTitleLabel.setText(champ.title);
 		PositionLabel.setText(champ.pos.toString());
 		RoleLabel.setText(champ.role.toString());
+		LoreTextFlow.getChildren().clear();
 		LoreTextFlow.getChildren().add(new Text(champ.lore));
+		LoreTextFlow.getChildren().add(new Text(champ.lore)); // it's a feature!!
 		
 		
-		/*Skin currentSkin = Skins.SkinsList.get(0);
+		Skin currentSkin = lolbase.getSkin(0);
 		ChampionSkinNameLabel.setText(currentSkin.name);
-		Utility.setImage(SkinImageView, currentSkin.imgURL);
+		//Utility.setImage(SkinImageView, currentSkin.imgURL);
 		
 		
-		Ability currentAbility = Abilities.AbilitiesList.get(0);
+		Ability currentAbility = lolbase.getAbility(0);
 		AbilityNameLabel.setText(currentAbility.name);
+		AbilityDescription.getChildren().clear();
 		AbilityDescription.getChildren().add(new Text(currentAbility.description));
-		Utility.setImage(AbilityImageView, currentAbility.imageURL);*/
+		AbilityDescription.getChildren().add(new Text(currentAbility.description));
+		//Utility.setImage(AbilityImageView, currentAbility.imageURL); // no paths yet
     }
 }

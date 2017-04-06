@@ -5,22 +5,23 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import lolbase.*;
+/**
+ * viewcontroller for addskinview
+ * @author Jonni
+ *
+ */
 public class AddSKinViewController {
 
-    @FXML
-    private TextField skinNameField;
+    @FXML private TextField skinNameField;
+    @FXML private Button addButton;
+    @FXML private Button cancelButton;
+    @FXML private TextField imageURLField;
 
-    @FXML
-    private Button addButton;
-
-    @FXML
-    private Button cancelButton;
-    
-    @FXML
-    private TextField imageURLField;
-
+    private AddChampionViewController addVC;
     /**
-     * DOES NOT WORK YET
+     * adds the skin when add button is pressed
+     * 
      */
     @FXML
     void addButtonPressed() {
@@ -39,8 +40,17 @@ public class AddSKinViewController {
     		imageURLField.setPromptText("URL field cannot be empty!");
     	}
     	if (inputValid) {
-    		// removed Skins.SkinsList.add(skin);
+    		addVC.retrieveData(skin);
+    		Stage stage = (Stage) addButton.getScene().getWindow();
+   		 stage.close();
     	}
+    }
+    /**
+     * corrects the viewcontroller that is used
+     * @param vc
+     */
+    public void setRef(AddChampionViewController vc){
+    	this.addVC = vc;
     }
     
     /*@FXML

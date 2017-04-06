@@ -16,7 +16,7 @@ public class Abilities {
 	 * reads the ability datafile
 	 * @return the file as an arraylist
 	 */
-	public ArrayList<String> readFile(){
+	private ArrayList<String> readFile(){
 		try{
 			File dir = new File(dataDirectory);
 			dir.mkdir();
@@ -41,7 +41,6 @@ public class Abilities {
 	 */
 	public void addAbility(Ability ability) {
 		AbilitiesList.add(Ability.class, ability);
-		//removed utility.writeall()
 	}
 	
 	public int abilitiesAmount(){
@@ -51,7 +50,7 @@ public class Abilities {
 	 * writes abilities to the data file
 	 * @param abilitiesList2 the list that is to be written
 	 */
-	 public void writeToFile(GenericArray<Ability> abilityList){
+	 public void writeToFile(){
 		try{
 			String championFilePath = dataDirectory+"/Abilities.dat";
 			PrintWriter writer = new PrintWriter(championFilePath);
@@ -59,11 +58,11 @@ public class Abilities {
 			//ID, Ability name, Ability school(??), Respected champion, Image path, Description
 			String temp;
 			int id = 0;
-			Ability[] abils = abilityList.toArray(Ability.class);
+			Ability[] abils = AbilitiesList.toArray(Ability.class);
 			for(Ability a : abils){
 				temp = id++ + "|" + a.name + "|" + a.school + "|" + a.ChampionID + "|" +
-					a.imageURL + "|" + a.description+"\n";
-				writer.write(temp);
+					a.imageURL + "|" + a.description;
+				writer.println(temp);
 			}
 			writer.close();			
 		} catch(Exception e){
@@ -76,10 +75,12 @@ public class Abilities {
 	 * @return Returns a list of abilities.
 	 */
 	public GenericArray<Ability> getAbilities(){
-		//ToDo: Get all info about all abilities
-		//ToDo: No error checking for missing files
+		return AbilitiesList;
+	}
+	 
+	public void getAbilitiesToList(){
 		List<String> data = readFile();
-		GenericArray<Ability> abilities = new GenericArray<Ability>(Ability.class);
+		//GenericArray<Ability> abilities = new GenericArray<Ability>(Ability.class);
 		Ability abil;
 
 		for(String s : data){ //each line
@@ -91,10 +92,9 @@ public class Abilities {
 				abil.name = parts[1].trim();
 				abil.description = parts[4].trim();
 				abil.imageURL = parts[5].trim();
-				abilities.add(Ability.class, abil);
+				AbilitiesList.add(Ability.class, abil);
 			}
 		}
-		return abilities;
 	}
 	
 	public Ability getAbility(int i){

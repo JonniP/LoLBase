@@ -1,6 +1,7 @@
 package lolbase;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ public class Champions {
 	private final String filePath = "Data/Champions.dat";
 	
 
-	public ArrayList<String> readFile() {
+	private ArrayList<String> readFile() {
 		try{
 			File dir = new File(dataDirectory);
 			dir.mkdir();
@@ -56,11 +57,10 @@ public class Champions {
 	 * @return Returns a list of champions.
 	 */
 	
-	public ArrayList<Champion> getChampions(){
+	public void readChampionsToList(){
 		//ToDo: Get all info about all champions
 		//ToDo: No error checking for missing files
-		List<String> data = readFile();
-		ArrayList<Champion> champions = new ArrayList<Champion>();
+		ArrayList<String> data = readFile();
 		Champion champ;
 
 		for(String s : data){ //each line
@@ -74,10 +74,14 @@ public class Champions {
 				champ.pos = selectPos(parts[3].trim());
 				champ.role = selectRole(parts[4].trim());
 				champ.lore = parts[5].trim();
-				champions.add(champ);
+				Champs.add(champ);
 			}
 		}
-		return champions;
+		
+	}
+	
+	public ArrayList<Champion> getChampionsList(){
+		return Champs;
 	}
 	
 	public Champion getChampion(int i){
@@ -117,7 +121,6 @@ public class Champions {
 	 */
 	public void addChampion(Champion champ) {
 		Champs.add(champ);
-		writeToFile();
 	}
 	
 	public int getSize() {

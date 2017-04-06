@@ -65,4 +65,6 @@ public class GenericArray<E> {
 		}
 		return newArr;
 	}
+	
+		
 }

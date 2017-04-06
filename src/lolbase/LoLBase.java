@@ -1,7 +1,9 @@
 package lolbase;
 
 import java.util.ArrayList;
-
+/*
+ * the Base of our LoLBase, if you will
+ */
 public class LoLBase {
 	
 	private Champions champions = new Champions();
@@ -9,15 +11,15 @@ public class LoLBase {
 	private Skins skins = new Skins();
 	
 	public void readAll(){
-		champions.readFile();
-		abilities.readFile();
-		skins.readFile();
+		champions.readChampionsToList();
+		abilities.getAbilitiesToList();
+		skins.readSkinsToList();
 	}
 	
-	public void writeAll(){
+	 public void writeAll(){
 		champions.writeToFile();
-		abilities.readFile();
-		skins.readFile();
+		abilities.writeToFile();
+		skins.writeToFile();
 	}
 	
 	//Champions
@@ -39,7 +41,7 @@ public class LoLBase {
 	}
 	
 	public ArrayList<Champion> getChampionList(){
-		return champions.getChampions();
+		return champions.getChampionsList();
 	}
 	
 	public boolean championExists(String name){
@@ -62,6 +64,9 @@ public class LoLBase {
 			return null;
 		}
 	}
+	public GenericArray<Ability> getAbiltiesList(){
+		return abilities.getAbilities();
+	}
 	
 	//Skins
 	public int getSkinsAmount(){
@@ -70,6 +75,10 @@ public class LoLBase {
 	
 	public void addSkin(Skin skin){
 		skins.SkinsList.add(skin);
+	}
+	
+	public ArrayList<Skin> getSkinList(){
+		return skins.getSkinsList();
 	}
 	
 	public Skin getSkin(int i){

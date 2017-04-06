@@ -7,7 +7,7 @@ public class Champion {
 	/**
 	 * Enum of champion lanes
 	 */
-	enum Position {
+	public enum Position {
 		Top,
 		Mid,
 		Jungle,
@@ -20,7 +20,7 @@ public class Champion {
 		}
 	}
 	
-	enum Role {
+	public enum Role {
 		Mage,
 		Marksman,
 		Support,

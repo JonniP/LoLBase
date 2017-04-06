@@ -21,7 +21,7 @@ public class Skins {
 			File tmp = new File(dir, "Skins.dat");
 			tmp.createNewFile();
 			return Utility.readFile(filePath);
-		}catch(Exception e){ 
+		}catch(Exception e){
 			System.out.println("Fatal error file could not be created: "+e);
 			return null;
 		}
@@ -37,17 +37,17 @@ public class Skins {
 	/**
 	 * writes the skins to the skin datafile
 	 */
-	public void writeToFile(ArrayList<Skin> skins){
+	public void writeToFile(){
 		try{
-			String championFilePath = dataDirectory+"/Skin.dat";
+			String championFilePath = dataDirectory+"/Skins.dat";
 			PrintWriter writer = new PrintWriter(championFilePath);
 			
 			// id, name, respected champ, imagepath
 			String temp;
 			int id = 0;
-			for (Skin skin : skins) {
+			for (Skin skin : SkinsList) {
 				temp = id++ + "|" + skin.name + "|" + skin.skinsChamp + "|" + skin.imgURL;
-				writer.write(temp);
+				writer.println(temp);
 			}
 			writer.close();			
 		} catch(Exception e){
@@ -55,13 +55,16 @@ public class Skins {
 		}
 	}
 	
+	public ArrayList<Skin> getSkinsList(){
+		return SkinsList;
+	}
+	
 	/**
 	 * Reads Skins.dat file and returns a list of all skins.
 	 * @return Returns a list of skins.
 	 */
-	public ArrayList<Skin> getSkins(){
+	public void readSkinsToList(){
 		List<String> data = readFile();
-		ArrayList<Skin> skins = new ArrayList<Skin>();
 		Skin skin;
 
 		for(String s : data){ //each line
@@ -73,10 +76,9 @@ public class Skins {
 				skin = new Skin();
 				skin.name = parts[1].trim();
 				skin.imgURL = parts[3].trim();
-				skins.add(skin);
+				SkinsList.add(skin);
 			}
 		}
-		return skins;
 	}
 
 	/**

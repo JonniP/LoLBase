@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="825.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddChampionViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="825.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.AddChampionViewController">
    <children>
       <Button fx:id="confirmButton" layoutX="720.0" layoutY="723.0" mnemonicParsing="false" onMouseClicked="#onConfirmClicked" prefHeight="31.0" prefWidth="91.0" text="Confirm" />
       <Button fx:id="cancelButton" layoutX="633.0" layoutY="723.0" mnemonicParsing="false" onMouseClicked="#onCancelButton_Clicked" prefHeight="25.0" prefWidth="73.0" text="Cancel" />

@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="260.0" prefWidth="297.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddSKinViewController">
+<AnchorPane prefHeight="260.0" prefWidth="297.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.AddSKinViewController">
    <children>
       <TextField fx:id="skinNameField" layoutX="94.0" layoutY="39.0" promptText="Name" />
       <Label layoutX="48.0" layoutY="96.0" text="Image" />

@@ -3,90 +3,57 @@ package fx;
 import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import lolbase.*;
 
 /**
  * Controller class for AddChampionView
  */
 public class AddChampionViewController {
 
-    @FXML
-    private Button confirmButton;
-
-    @FXML
-    private Button cancelButton;
-
-    @FXML
-    private TextField nameField;
-
-    @FXML
-    private TextField titleField;
-
-    @FXML
-    private ChoiceBox<Champion.Role> roleField;
-
-    @FXML
-    private ChoiceBox<Champion.Position> positionField;
-
-    @FXML
-    private Button AddSkinButton;
-
-    @FXML
-    private TextField passiveName;
-
-    @FXML
-    private TextField passiveInfo;
-
-    @FXML
-    private TextArea loreField;
-
-    @FXML
-    private Button browsePassiveImageButton;
-
-    @FXML
-    private TextField qName;
-
-    @FXML
-    private TextField qInfo;
-
-    @FXML
-    private Button browseQImageButton;
-
-    @FXML
-    private TextField wName;
-
-    @FXML
-    private TextField wInfo;
-
-    @FXML
-    private Button browseWImageButton;
-
-    @FXML
-    private TextField eName;
-
-    @FXML
-    private TextField eInfo;
-
-    @FXML
-    private Button browseEImageButton;
-
-    @FXML
-    private TextField rName;
-
-    @FXML
-    private TextField rInfo;
-
-    @FXML
-    private Button browseRImageButton;
-
+    @FXML private Button confirmButton;
+    @FXML private Button cancelButton;
+    @FXML private TextField nameField;
+    @FXML private TextField titleField;
+    @FXML private ChoiceBox<Champion.Role> roleField;
+    @FXML private ChoiceBox<Champion.Position> positionField;
+    @FXML private Button AddSkinButton;
+    @FXML private TextField passiveName;
+    @FXML private TextField passiveInfo;
+    @FXML private TextArea loreField;
+    @FXML private Button browsePassiveImageButton;
+    @FXML private TextField qName;
+    @FXML private TextField qInfo;
+    @FXML private Button browseQImageButton;
+    @FXML private TextField wName;
+    @FXML private TextField wInfo;
+    @FXML private Button browseWImageButton;
+    @FXML private TextField eName;
+    @FXML private TextField eInfo;
+    @FXML private Button browseEImageButton;
+    @FXML private TextField rName;
+    @FXML private TextField rInfo;
+    @FXML private Button browseRImageButton;
+    
+    private ViewController vc;
+    private ArrayList<Skin> skinList = new ArrayList<Skin>();
     /**
      * sets the choisebox's options when the window is opened
      */
+    
+    public void setRef(ViewController vc){
+    	this.vc = vc;
+    }
+    
     @FXML
     public void initialize() {
     	//Set choicebox options
@@ -115,7 +82,27 @@ public class AddChampionViewController {
 	 */
 	@FXML
 	void onAddSkinButton_Clicked() {
-		Utility.openAnchorWindow("AddSKinView.fxml", "Add Skin");
+		//Utility.openAnchorWindow("AddSKinView.fxml", "Add Skin");
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("AddSKinView.fxml"));
+			
+			final AnchorPane root = (AnchorPane)loader.load();
+			Scene addWindow = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(addWindow);
+			
+			AddSKinViewController controller = loader.<AddSKinViewController>getController();
+			if(controller != null){
+				controller.setRef(this);
+			}
+			else System.out.println("null - error!");
+			
+			stage.show();
+			stage.setTitle("Add Skin");
+			stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
+		} catch(Exception e) {
+			e.printStackTrace();
+		}	
 	}
 	/**
 	 * closes window when cancel is clicked
@@ -138,12 +125,6 @@ public class AddChampionViewController {
 		champ.lore = loreField.getText();
 		champ.role = roleField.getValue();
 		
-		//And add it to the list
-		//Champions.addChampion(champ);
-		
-		
-		
-		//Update main list		
 		
 		//Create new abilities
 		Ability newP = new Ability();
@@ -181,20 +162,22 @@ public class AddChampionViewController {
 		//newR.ChampionID = Champions.Champs.size()+1;
 		newR.imageURL = "Walla Balla BING BANG";
 		
-		
-		/*
-		Abilities.addAbility(newP);
-		Abilities.addAbility(newQ);
-		Abilities.addAbility(newW);
-		Abilities.addAbility(newE);
-		Abilities.addAbility(newR);
-		*/
-		//TODO: Add skin here
+		Ability[] newAbis = new Ability[]{newP, newQ, newW, newE, newR};
+		vc.retrieveData(champ,newAbis,skinList);
 
+		 Stage stage = (Stage) confirmButton.getScene().getWindow();
+		 stage.close();
 	}
 	@FXML
 	void onAddBrowseImageButton_Clicked(){
 		//
+	}
+	/**
+	 * adds the new skin to the skinlist
+	 * @param skin added skin
+	 */
+	public void retrieveData(Skin skin){
+		skinList.add(skin);
 	}
 	
 }

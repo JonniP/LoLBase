@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane prefHeight="571.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewController">
+<BorderPane prefHeight="571.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.ViewController">
    <top>
       <MenuBar prefHeight="27.0" prefWidth="895.0" BorderPane.alignment="CENTER">
         <menus>
@@ -40,19 +40,19 @@
                <children>
                   <ImageView fx:id="SkinRightArrow" fitHeight="73.0" fitWidth="75.0" layoutX="718.0" layoutY="109.0" onMouseClicked="#OnArrowClick" onMouseEntered="#ArrowOnMouseEnter" onMouseExited="#ArrowOnMouseExit" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Images/Arrow_Default.png" />
+                        <Image url="@../Images/Arrow_Default.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="SkinImageView" fitHeight="142.0" fitWidth="230.0" layoutX="473.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Images/Jhin_HighNoonSkin.jpg" />
+                        <Image url="@../Images/Jhin_HighNoonSkin.jpg" />
                      </image>
                   </ImageView>
                   <Label fx:id="ChampionNameLabel" layoutX="162.0" layoutY="49.0" text="Champion name" textAlignment="CENTER" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="500.0" />
                   <Label fx:id="ChampionTitleLabel" layoutX="203.0" layoutY="74.0" prefHeight="21.0" prefWidth="34.0" text="Title" textAlignment="CENTER" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="500.0" />
                   <ImageView fx:id="SkinLeftArrow" fitHeight="75.0" fitWidth="75.0" layoutX="383.0" layoutY="108.0" onMouseClicked="#OnArrowClick" onMouseEntered="#ArrowOnMouseEnter" onMouseExited="#ArrowOnMouseExit" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Images/Arrow_Default.png" />
+                        <Image url="@../Images/Arrow_Default.png" />
                      </image>
                   </ImageView>
                   <Label fx:id="ChampionSkinNameLabel" layoutX="554.0" layoutY="49.0" text="Skin name" />
@@ -77,17 +77,17 @@
                   <Label fx:id="AbilityNameLabel" layoutX="555.0" layoutY="70.0" prefHeight="17.0" prefWidth="67.0" text="Frost shot" />
                   <ImageView fx:id="AbilityImageView" fitHeight="92.0" fitWidth="86.0" layoutX="546.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Images/Frost_Shot.png" />
+                        <Image url="@../Images/Frost_Shot.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="AbilityRightArrow" fitHeight="79.0" fitWidth="75.0" layoutX="657.0" layoutY="110.0" onMouseClicked="#OnArrowClick" onMouseEntered="#ArrowOnMouseEnter" onMouseExited="#ArrowOnMouseExit" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Images/Arrow_Default.png" />
+                        <Image url="@../Images/Arrow_Default.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="AbilityLeftArrow" fitHeight="82.0" fitWidth="75.0" layoutX="449.0" layoutY="110.0" onMouseClicked="#OnArrowClick" onMouseEntered="#ArrowOnMouseEnter" onMouseExited="#ArrowOnMouseExit" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Images/Arrow_Default.png" />
+                        <Image url="@../Images/Arrow_Default.png" />
                      </image>
                   </ImageView>
                   <TextFlow fx:id="AbilityDescription" layoutX="449.0" layoutY="203.0" prefHeight="33.0" prefWidth="276.0" textAlignment="CENTER" />

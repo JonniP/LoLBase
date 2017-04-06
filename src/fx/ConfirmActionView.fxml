@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="126.0" prefWidth="227.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ConfirmActionViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="126.0" prefWidth="227.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.ConfirmActionViewController">
    <children>
       <Button fx:id="confirmButton" layoutX="121.0" layoutY="74.0" mnemonicParsing="false" text="Confirm" />
       <Button fx:id="closeButton" layoutX="55.0" layoutY="74.0" mnemonicParsing="false" onMouseClicked="#onCancelButton_Clicked" text="Cancel" />

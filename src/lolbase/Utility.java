@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import fx.ViewController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -69,7 +70,7 @@ public class Utility {
 			return null;
 		}
 	}
-
+	
 	/***
 	 * Empties a given file
 	 */
@@ -116,10 +117,11 @@ public class Utility {
 			stage.setScene(addWindow);
 			stage.show();
 			stage.setTitle(title);
-			stage.getIcons().add(new Image(Utility.class.getResource("Images/Temu.png").toString()));
+			stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
 	}
 	
 	
