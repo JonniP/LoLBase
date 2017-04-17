@@ -304,7 +304,7 @@ public class ViewController {
      * @param champ the champion
      */
     void ChangeChampion(Champion champ){
-    	ChampionSearchField.setText(champ.name);
+    	//ChampionSearchField.setText(champ.name);
 		ChampionNameLabel.setText(champ.name);
 		ChampionTitleLabel.setText(champ.title);
 		PositionLabel.setText(champ.pos.toString());
@@ -313,17 +313,19 @@ public class ViewController {
 		LoreTextFlow.getChildren().add(new Text(champ.lore));
 		LoreTextFlow.getChildren().add(new Text(champ.lore)); // it's a feature!!
 		
+		if(lolbase.getSkin(0) != null) {
+			Skin currentSkin = lolbase.getSkin(0);
+			ChampionSkinNameLabel.setText(currentSkin.name);
+			//Utility.setImage(SkinImageView, currentSkin.imgURL);
+		}
 		
-		Skin currentSkin = lolbase.getSkin(0);
-		ChampionSkinNameLabel.setText(currentSkin.name);
-		//Utility.setImage(SkinImageView, currentSkin.imgURL);
-		
-		
-		Ability currentAbility = lolbase.getAbility(0);
-		AbilityNameLabel.setText(currentAbility.name);
-		AbilityDescription.getChildren().clear();
-		AbilityDescription.getChildren().add(new Text(currentAbility.description));
-		AbilityDescription.getChildren().add(new Text(currentAbility.description));
-		//Utility.setImage(AbilityImageView, currentAbility.imageURL); // no paths yet
+		if(lolbase.getAbility(0) != null) {
+			Ability currentAbility = lolbase.getAbility(0);
+			AbilityNameLabel.setText(currentAbility.name);
+			AbilityDescription.getChildren().clear();
+			AbilityDescription.getChildren().add(new Text(currentAbility.description));
+			AbilityDescription.getChildren().add(new Text(currentAbility.description));
+			//Utility.setImage(AbilityImageView, currentAbility.imageURL); // no paths yet
+		}
     }
 }
