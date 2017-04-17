@@ -1,7 +1,6 @@
 package lolbase;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +26,18 @@ public class Champions {
 		}catch(Exception e){ 
 			System.out.println("Fatal error file could not be created: "+e);
 			return null;
+		}
+	}
+	
+	public void removeChampion(String name){
+		if(Champs.size() > 0) {
+			for(int i = 0; i < Champs.size(); i++) {
+				if(Champs.get(i).name == name) {
+					Champs.remove(i);
+				}
+			}
+		} else {
+			System.out.println("Champs.size == 0");
 		}
 	}
 	
@@ -116,7 +127,7 @@ public class Champions {
 		}
 	}
 
-	/***
+	/**
 	 * Add new Champion to the champions list
 	 */
 	public void addChampion(Champion champ) {
@@ -137,10 +148,22 @@ public class Champions {
 		List<String> data = readFile();
 
 		for(String s : data){
-			if(s.contains(key)){
-				return true;
-			}
+			String[] parts = s.split("\\|");
+			if (parts[1].contains(key)) return true;
 		}
 		return false;
+	}
+	
+	public ArrayList<Champion> search(String key){
+		ArrayList<Champion> results = new ArrayList<Champion>();
+		ArrayList<Champion> target = getChampionsList();
+		if (key == null || key == "") return target;
+		for (Champion a : target){
+			if(a.name.toLowerCase().contains(key) || a.title.toLowerCase().contains(key) || a.pos.toString().toLowerCase().contains(key) || a.role.toString().toLowerCase().contains(key) ){
+				results.add(a);
+				continue;
+			}
+		}
+		return results;
 	}
 }
