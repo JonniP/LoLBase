@@ -142,12 +142,12 @@ public class ViewController {
 		if (champ != null) {
 			lolbase.addChampion(champ);
 		}
-		if (abilys.length != 0) {
+		if (abilys != null) {
 			for(Ability a : abilys){
 				lolbase.addAbility(a);
 			}
 		}
-		if (!skins.isEmpty()) {
+		if (skins != null) {
 			for(Skin b : skins){
 				lolbase.addSkin(b);
 			}
@@ -285,12 +285,12 @@ public class ViewController {
     	
     	ObservableList<String> selected;
 		selected = ChampionsList.getSelectionModel().getSelectedItems();
-		selectedChampion.name = selected.get(0);
+		String champName = selected.get(0);
 		if (selected.get(0) != null) {
 		
 		Champion champ = null;
 		for(int i = 0; i<lolbase.getChampionsAmount(); i++){
-			if(lolbase.getChampion(i).name == selectedChampion.name){
+			if(lolbase.getChampion(i).name == champName){
 				champ = lolbase.getChampion(i);
 			}
 		}

@@ -164,10 +164,6 @@ public class AddChampionViewController {
 	void onConfirmClicked() {
 		
 		if (this.isModifying) {
-			//Delete old champ here
-			
-			
-			
 			Champion champ = new Champion();
 			champ.name = nameField.getText();
 			champ.title = titleField.getText();
