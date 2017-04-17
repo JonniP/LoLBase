@@ -27,8 +27,12 @@ public class LoLBase {
 		return champions.getSize();
 	}
 	
-	public void addChampion(Champion champ){
+	public void addChampion(Champion champ) {
 		champions.addChampion(champ);
+	}
+	
+	public void removeChampion(String name) {
+		champions.removeChampion(name);
 	}
 	
 	
