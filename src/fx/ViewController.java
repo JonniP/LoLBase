@@ -138,9 +138,13 @@ public class ViewController {
 	/**
 	 * rounds up the data for file writing
 	 */
-	public void collectiveWrite(Champion champ, Ability[] abilys, ArrayList<Skin> skins){
+	public void collectiveWrite(Champion champ, Ability[] abilys, ArrayList<Skin> skins, String oldChampName){
 		if (champ != null) {
-			lolbase.addChampion(champ);
+			if (oldChampName != null) {
+				lolbase.modifyChampion(champ, oldChampName);
+			} else {
+				lolbase.addChampion(champ);
+			}
 		}
 		if (abilys != null) {
 			for(Ability a : abilys){

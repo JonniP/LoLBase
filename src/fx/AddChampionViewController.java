@@ -45,6 +45,7 @@ public class AddChampionViewController {
     @FXML private Button browseRImageButton;
     
     private Champion modifiedChampion;
+    private String oldChampName;
     private boolean isModifying;
     
     private ViewController vc;
@@ -127,6 +128,7 @@ public class AddChampionViewController {
 	 }
 	
 	void fillChampData(Champion champ) {
+		oldChampName = champ.name;
 		nameField.setText(champ.name);
 		titleField.setText(champ.title);
 		positionField.setValue(champ.pos);
@@ -171,7 +173,7 @@ public class AddChampionViewController {
 			champ.lore = loreField.getText();
 			champ.role = roleField.getValue();
 			
-			vc.collectiveWrite(champ,null,null);
+			vc.collectiveWrite(champ,null,null, oldChampName);
 			Stage stage = (Stage) confirmButton.getScene().getWindow();
 			stage.close();
 		} else {
@@ -220,7 +222,7 @@ public class AddChampionViewController {
 			newR.imageURL = "Walla Balla BING BANG";
 			
 			Ability[] newAbis = new Ability[]{newP, newQ, newW, newE, newR};
-			vc.collectiveWrite(champ,newAbis,skinList);
+			vc.collectiveWrite(champ,newAbis,skinList, null);
 
 			Stage stage = (Stage) confirmButton.getScene().getWindow();
 			stage.close();

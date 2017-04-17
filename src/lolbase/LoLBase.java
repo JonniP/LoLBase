@@ -28,8 +28,12 @@ public class LoLBase {
 	}
 	
 	public void addChampion(Champion champ) {
-		if (champions.championExistsSearchKey(champ.name)) {
-			champions.removeChampion(champ.name);
+		champions.addChampion(champ);
+	}
+	
+	public void modifyChampion(Champion champ, String oldChampName) {
+		if (champions.championExistsSearchKey(oldChampName)) {
+			champions.removeChampion(oldChampName);
 		}
 		champions.addChampion(champ);
 	}
