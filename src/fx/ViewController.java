@@ -18,6 +18,7 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import lolbase.Ability;
 import lolbase.Champion;
+import lolbase.Champions;
 import lolbase.LoLBase;
 import lolbase.Skin;
 import lolbase.Utility;
@@ -56,6 +57,10 @@ public class ViewController {
     public void initialize() {
 		arrowClickedImage = new Image(getClass().getResource("/Images/Arrow_Clicked.png").toString());
 		arrowDefaultImage = new Image(getClass().getResource("/Images/Arrow_Default.png").toString());
+		
+		ChampionSearchField.textProperty().addListener((obj, oldVal, newVal) -> {
+			updateListViewChampions(lolbase.search(newVal.toLowerCase()));
+		});
 		
 		SkinLeftArrow.setScaleX(-1);
 		AbilityLeftArrow.setScaleX(-1);

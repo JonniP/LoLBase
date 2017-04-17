@@ -116,7 +116,7 @@ public class Champions {
 		}
 	}
 
-	/***
+	/**
 	 * Add new Champion to the champions list
 	 */
 	public void addChampion(Champion champ) {
@@ -137,10 +137,22 @@ public class Champions {
 		List<String> data = readFile();
 
 		for(String s : data){
-			if(s.contains(key)){
-				return true;
-			}
+			String[] parts = s.split("\\|");
+			if (parts[1].contains(key)) return true;
 		}
 		return false;
+	}
+	
+	public ArrayList<Champion> search(String key){
+		ArrayList<Champion> results = new ArrayList<Champion>();
+		ArrayList<Champion> target = getChampionsList();
+		if (key == null || key == "") return target;
+		for (Champion a : target){
+			if(a.name.toLowerCase().contains(key) || a.title.toLowerCase().contains(key) || a.pos.toString().toLowerCase().contains(key) || a.role.toString().toLowerCase().contains(key) ){
+				results.add(a);
+				continue;
+			}
+		}
+		return results;
 	}
 }

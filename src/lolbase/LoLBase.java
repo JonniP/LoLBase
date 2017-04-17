@@ -40,6 +40,10 @@ public class LoLBase {
 		}
 	}
 	
+	public ArrayList<Champion> search(String key){
+		return champions.search(key);
+	}
+	
 	public ArrayList<Champion> getChampionList(){
 		return champions.getChampionsList();
 	}
