@@ -1,7 +1,6 @@
 package lolbase;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +26,18 @@ public class Champions {
 		}catch(Exception e){ 
 			System.out.println("Fatal error file could not be created: "+e);
 			return null;
+		}
+	}
+	
+	public void removeChampion(String name){
+		if(Champs.size() > 0) {
+			for(int i = 0; i < Champs.size(); i++) {
+				if(Champs.get(i).name == name) {
+					Champs.remove(i);
+				}
+			}
+		} else {
+			System.out.println("Champs.size == 0");
 		}
 	}
 	

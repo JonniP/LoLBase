@@ -49,6 +49,8 @@ public class ViewController {
     
     private LoLBase lolbase;
     
+    private String selectedChampion;
+    
 	/**
 	 * Initializes objects and loads data from files.
 	 */
@@ -76,9 +78,7 @@ public class ViewController {
 	 * On add champion button clicked, opens AddChampionView window.
 	 */
 	@FXML
-    void AddChampionClicked() {
-		// Utility.openAnchorWindow("AddChampionView.fxml", "Add Champion");
-		
+    void AddChampionClicked() {		
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("AddChampionView.fxml"));
 			
@@ -120,7 +120,57 @@ public class ViewController {
 	 */
 	@FXML
 	void OnDeleteChampionClicked() {
-		Utility.openAnchorWindow("ConfirmActionView.fxml", "Confirm Action");
+		if(selectedChampion != null){
+			try {
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("ConfirmActionView.fxml"));
+				
+				final AnchorPane root = (AnchorPane)loader.load();
+				Scene addWindow = new Scene(root);
+				Stage stage = new Stage();
+				stage.setScene(addWindow);
+					
+				ConfirmActionViewController controller = loader.<ConfirmActionViewController>getController();
+				if(controller != null){
+					controller.setRef(this, "Are you sure you want to delete", selectedChampion, "Delete");
+				} else {
+					System.out.println("ConvirmActionViewController is null");
+				}
+				
+				stage.show();
+				stage.setTitle("Confirm");
+				stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
+			} catch(Exception e) {
+				e.printStackTrace();
+			}	
+		} else {
+			try {
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("ConfirmActionView.fxml"));
+				
+				final AnchorPane root = (AnchorPane)loader.load();
+				Scene addWindow = new Scene(root);
+				Stage stage = new Stage();
+				stage.setScene(addWindow);
+					
+				ConfirmActionViewController controller = loader.<ConfirmActionViewController>getController();
+				if(controller != null){
+					controller.setMessage("Warning: No champion selected!");
+				} else {
+					System.out.println("ConvirmActionViewController is null");
+				}
+				
+				stage.show();
+				stage.setTitle("Confirm");
+				stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
+			} catch(Exception e) {
+				e.printStackTrace();
+			}	
+		}
+	}
+	
+	void removeChampion(String name) {
+		lolbase.removeChampion(name);
+		lolbase.writeAll();
+		updateListViewChampions(lolbase.getChampionList());
 	}
 	
 	/**
@@ -193,12 +243,12 @@ public class ViewController {
     	
     	ObservableList<String> selected;
 		selected = ChampionsList.getSelectionModel().getSelectedItems();
-		String champName = selected.get(0);
+		selectedChampion = selected.get(0);
 		if (selected.get(0) != null) {
 		
 		Champion champ = null;
 		for(int i = 0; i<lolbase.getChampionsAmount(); i++){
-			if(lolbase.getChampion(i).name == champName){
+			if(lolbase.getChampion(i).name == selectedChampion){
 				champ = lolbase.getChampion(i);
 			}
 		}
