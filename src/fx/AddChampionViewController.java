@@ -44,6 +44,9 @@ public class AddChampionViewController {
     @FXML private TextField rInfo;
     @FXML private Button browseRImageButton;
     
+    private Champion modifiedChampion;
+    private boolean isModifying;
+    
     private ViewController vc;
     private ArrayList<Skin> skinList = new ArrayList<Skin>();
     /**
@@ -52,6 +55,16 @@ public class AddChampionViewController {
     
     public void setRef(ViewController vc){
     	this.vc = vc;
+    }
+    
+    /**
+     * Set champion if modifying one
+     * @param champ Champion to be modified
+     */
+    public void setChamp(Champion champ) {
+    	this.modifiedChampion = champ;
+    	this.isModifying = true;
+    	fillChampData(this.modifiedChampion);
     }
     
     @FXML
@@ -112,61 +125,110 @@ public class AddChampionViewController {
 		 Stage stage = (Stage) cancelButton.getScene().getWindow();
 		 stage.close();
 	 }
+	
+	void fillChampData(Champion champ) {
+		nameField.setText(champ.name);
+		titleField.setText(champ.title);
+		positionField.setValue(champ.pos);
+		loreField.setText(champ.lore);
+		roleField.setValue(champ.role);
+		
+		//Disable unnecessary fields
+		passiveName.setDisable(true);
+		passiveInfo.setDisable(true);
+		
+		qName.setDisable(true);
+		qInfo.setDisable(true);
+		
+		wName.setDisable(true);
+		wInfo.setDisable(true);
+		
+		eName.setDisable(true);
+		eInfo.setDisable(true);
+		
+		rName.setDisable(true);
+		rInfo.setDisable(true);
+		
+		browsePassiveImageButton.setDisable(true);
+		browseQImageButton.setDisable(true);
+		browseWImageButton.setDisable(true);
+		browseEImageButton.setDisable(true);
+		browseRImageButton.setDisable(true);
+		AddSkinButton.setDisable(true);
+	}
+	
 	/**
 	 * when confirm is clicked creates the champion and its skins and abilities, and adds all champion info to their respective dat files
 	 */
 	@FXML
 	void onConfirmClicked() {
-		//Create new champion
-		Champion champ = new Champion();
-		champ.name = nameField.getText();
-		champ.title = titleField.getText();
-		champ.pos = positionField.getValue();
-		champ.lore = loreField.getText();
-		champ.role = roleField.getValue();
 		
-		
-		//Create new abilities
-		Ability newP = new Ability();
-		newP.name = passiveName.getText();
-		newP.description = passiveInfo.getText();
-		newP.school = "Passive";
-		//newP.ChampionID = Champions.Champs.size()+1;
-		newP.imageURL = "Walla Balla BING BANG";
-		
-		Ability newQ = new Ability();
-		newQ.name = qName.getText();
-		newQ.description = qInfo.getText();
-		newQ.school = "Q";
-		//newQ.ChampionID = Champions.Champs.size()+1;
-		newQ.imageURL = "Walla Balla BING BANG";
+		if (this.isModifying) {
+			//Delete old champ here
+			
+			
+			
+			Champion champ = new Champion();
+			champ.name = nameField.getText();
+			champ.title = titleField.getText();
+			champ.pos = positionField.getValue();
+			champ.lore = loreField.getText();
+			champ.role = roleField.getValue();
+			
+			vc.collectiveWrite(champ,null,null);
+			Stage stage = (Stage) confirmButton.getScene().getWindow();
+			stage.close();
+		} else {
+			//Create new champion
+			Champion champ = new Champion();
+			champ.name = nameField.getText();
+			champ.title = titleField.getText();
+			champ.pos = positionField.getValue();
+			champ.lore = loreField.getText();
+			champ.role = roleField.getValue();
+			
+			//Create new abilities
+			Ability newP = new Ability();
+			newP.name = passiveName.getText();
+			newP.description = passiveInfo.getText();
+			newP.school = "Passive";
+			//newP.ChampionID = Champions.Champs.size()+1;
+			newP.imageURL = "Walla Balla BING BANG";
+			
+			Ability newQ = new Ability();
+			newQ.name = qName.getText();
+			newQ.description = qInfo.getText();
+			newQ.school = "Q";
+			//newQ.ChampionID = Champions.Champs.size()+1;
+			newQ.imageURL = "Walla Balla BING BANG";
 
-		Ability newW = new Ability();
-		newW.name = wName.getText();
-		newW.description = wInfo.getText();
-		newW.school = "W";
-		//newW.ChampionID = Champions.Champs.size()+1;
-		newW.imageURL = "Walla Balla BING BANG";
+			Ability newW = new Ability();
+			newW.name = wName.getText();
+			newW.description = wInfo.getText();
+			newW.school = "W";
+			//newW.ChampionID = Champions.Champs.size()+1;
+			newW.imageURL = "Walla Balla BING BANG";
 
-		Ability newE = new Ability();
-		newE.name = eName.getText();
-		newE.description = eInfo.getText();
-		newE.school = "E";
-		//newE.ChampionID = Champions.Champs.size()+1;
-		newE.imageURL = "Walla Balla BING BANG";
+			Ability newE = new Ability();
+			newE.name = eName.getText();
+			newE.description = eInfo.getText();
+			newE.school = "E";
+			//newE.ChampionID = Champions.Champs.size()+1;
+			newE.imageURL = "Walla Balla BING BANG";
 
-		Ability newR = new Ability();
-		newR.name = rName.getText();
-		newR.description = rInfo.getText();
-		newR.school = "Ultimate";
-		//newR.ChampionID = Champions.Champs.size()+1;
-		newR.imageURL = "Walla Balla BING BANG";
-		
-		Ability[] newAbis = new Ability[]{newP, newQ, newW, newE, newR};
-		vc.retrieveData(champ,newAbis,skinList);
+			Ability newR = new Ability();
+			newR.name = rName.getText();
+			newR.description = rInfo.getText();
+			newR.school = "Ultimate";
+			//newR.ChampionID = Champions.Champs.size()+1;
+			newR.imageURL = "Walla Balla BING BANG";
+			
+			Ability[] newAbis = new Ability[]{newP, newQ, newW, newE, newR};
+			vc.collectiveWrite(champ,newAbis,skinList);
 
-		 Stage stage = (Stage) confirmButton.getScene().getWindow();
-		 stage.close();
+			Stage stage = (Stage) confirmButton.getScene().getWindow();
+			stage.close();
+		}
 	}
 	@FXML
 	void onAddBrowseImageButton_Clicked(){

@@ -21,7 +21,7 @@
           <Menu mnemonicParsing="false" text="Champions">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#AddChampionClicked" text="Add Champion" />
-                  <MenuItem mnemonicParsing="false" onAction="#AddChampionClicked" text="Modify Champion" />
+                  <MenuItem mnemonicParsing="false" onAction="#ModifyChampionClicked" text="Modify Champion" />
                   <MenuItem mnemonicParsing="false" onAction="#OnDeleteChampionClicked" text="Delete Champion" />
             </items>
           </Menu>

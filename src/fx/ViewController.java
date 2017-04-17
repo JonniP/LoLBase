@@ -47,6 +47,8 @@ public class ViewController {
     private Image arrowClickedImage;
     private Image arrowDefaultImage;
     
+    private Champion selectedChampion;
+    
     private LoLBase lolbase;
     
 	/**
@@ -78,7 +80,6 @@ public class ViewController {
 	@FXML
     void AddChampionClicked() {
 		// Utility.openAnchorWindow("AddChampionView.fxml", "Add Champion");
-		
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("AddChampionView.fxml"));
 			
@@ -100,17 +101,54 @@ public class ViewController {
 			e.printStackTrace();
 		}	
     }
+	
+	/**
+	 * Open AddChampionView with data filled in.
+	 */
+	@FXML
+    void ModifyChampionClicked() {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("AddChampionView.fxml"));
+			
+			final AnchorPane root = (AnchorPane)loader.load();
+			Scene addWindow = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(addWindow);
+			
+			AddChampionViewController controller = loader.<AddChampionViewController>getController();
+			if(controller != null){
+				controller.setRef(this);
+				controller.setChamp(this.selectedChampion);
+			} else {
+				System.out.println("null - error!");
+			}
+			
+			stage.show();
+			stage.setTitle("Modify Champion");
+			stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+    }
+	
 	/**
 	 * rounds up the data for file writing
 	 */
-	public void retrieveData(Champion champ, Ability[] abilys, ArrayList<Skin> skins){
-		lolbase.addChampion(champ);
-		for(Ability a : abilys){
-			lolbase.addAbility(a);
+	public void collectiveWrite(Champion champ, Ability[] abilys, ArrayList<Skin> skins){
+		if (champ != null) {
+			lolbase.addChampion(champ);
 		}
-		for(Skin b : skins){
-			lolbase.addSkin(b);
+		if (abilys.length != 0) {
+			for(Ability a : abilys){
+				lolbase.addAbility(a);
+			}
 		}
+		if (!skins.isEmpty()) {
+			for(Skin b : skins){
+				lolbase.addSkin(b);
+			}
+		}
+		
 		lolbase.writeAll();
 		updateListViewChampions(lolbase.getChampionList());
 	}
@@ -202,7 +240,7 @@ public class ViewController {
 				champ = lolbase.getChampion(i);
 			}
 		}
-		
+		selectedChampion = champ;
 		ChangeChampion(champ);
 		}
     }
