@@ -165,7 +165,7 @@ public class ViewController {
 	/**
 	 * rounds up the data for file writing
 	 */
-	public void collectiveWrite(Champion champ, Ability[] abilys, ArrayList<Skin> skins, String oldChampName){
+	public void collectiveWrite(Champion champ, ArrayList<Ability> abilys, ArrayList<Skin> skins, String oldChampName){
 		if (champ != null) {
 			if (oldChampName != null) {
 				lolbase.modifyChampion(champ, oldChampName);
