@@ -265,7 +265,6 @@ public class ViewController {
     void OnArrowClick(MouseEvent event) {
     	ImageView imgView = (ImageView)event.getSource();
     	String name = Utility.retrieveID(imgView.toString());
-    	ChampionSearchField.setText(name);
     	
     	//Temporary
     	//DataReader.searchKey("src/application/Data/Abilities.dat", "Nautilus");
