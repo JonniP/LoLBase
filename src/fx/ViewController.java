@@ -102,6 +102,7 @@ public class ViewController {
 			
 			stage.show();
 			stage.setTitle("Add Champion");
+			stage.setResizable(false);
 			stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -132,6 +133,7 @@ public class ViewController {
 				
 				stage.show();
 				stage.setTitle("Modify Champion");
+				stage.setResizable(false);
 				stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -154,6 +156,7 @@ public class ViewController {
 				
 				stage.show();
 				stage.setTitle("Confirm");
+				stage.setResizable(false);
 				stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -164,7 +167,7 @@ public class ViewController {
 	/**
 	 * rounds up the data for file writing
 	 */
-	public void collectiveWrite(Champion champ, Ability[] abilys, ArrayList<Skin> skins, String oldChampName){
+	public void collectiveWrite(Champion champ, ArrayList<Ability> abilys, ArrayList<Skin> skins, String oldChampName){
 		if (champ != null) {
 			if (oldChampName != null) {
 				lolbase.modifyChampion(champ, oldChampName);
@@ -210,6 +213,7 @@ public class ViewController {
 				
 				stage.show();
 				stage.setTitle("Confirm");
+				stage.setResizable(false);
 				stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -232,6 +236,7 @@ public class ViewController {
 				
 				stage.show();
 				stage.setTitle("Confirm");
+				stage.setResizable(false);
 				stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -239,6 +244,10 @@ public class ViewController {
 		}
 	}
 	
+	/**
+	 * removes a champion from the list
+	 * @param name - the name of the champion that is to be deleted
+	 */
 	void removeChampion(String name) {
 		lolbase.removeChampion(name);
 		lolbase.writeAll();
@@ -262,7 +271,6 @@ public class ViewController {
     void OnArrowClick(MouseEvent event) {
     	ImageView imgView = (ImageView)event.getSource();
     	String name = Utility.retrieveID(imgView.toString());
-    	ChampionSearchField.setText(name);
     	
     	//Temporary
     	//DataReader.searchKey("src/application/Data/Abilities.dat", "Nautilus");

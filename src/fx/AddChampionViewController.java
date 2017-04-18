@@ -30,19 +30,19 @@ public class AddChampionViewController {
     @FXML private TextField passiveName;
     @FXML private TextField passiveInfo;
     @FXML private TextArea loreField;
-    @FXML private Button browsePassiveImageButton;
+    @FXML private TextField passiveImageField;
     @FXML private TextField qName;
     @FXML private TextField qInfo;
-    @FXML private Button browseQImageButton;
+    @FXML private TextField QImageField;
     @FXML private TextField wName;
     @FXML private TextField wInfo;
-    @FXML private Button browseWImageButton;
+    @FXML private TextField WImageField;
     @FXML private TextField eName;
     @FXML private TextField eInfo;
-    @FXML private Button browseEImageButton;
+    @FXML private TextField EImageField;
     @FXML private TextField rName;
     @FXML private TextField rInfo;
-    @FXML private Button browseRImageButton;
+    @FXML private TextField RImageField;
     
     private Champion modifiedChampion;
     private String oldChampName;
@@ -151,11 +151,11 @@ public class AddChampionViewController {
 		rName.setDisable(true);
 		rInfo.setDisable(true);
 		
-		browsePassiveImageButton.setDisable(true);
-		browseQImageButton.setDisable(true);
-		browseWImageButton.setDisable(true);
-		browseEImageButton.setDisable(true);
-		browseRImageButton.setDisable(true);
+		passiveImageField.setDisable(true);
+		QImageField.setDisable(true);
+		WImageField.setDisable(true);
+		EImageField.setDisable(true);
+		RImageField.setDisable(true);
 		AddSkinButton.setDisable(true);
 	}
 	
@@ -177,6 +177,9 @@ public class AddChampionViewController {
 			Stage stage = (Stage) confirmButton.getScene().getWindow();
 			stage.close();
 		} else {
+			
+			ArrayList<Ability> newAbis = new ArrayList<Ability>();
+			
 			//Create new champion
 			Champion champ = new Champion();
 			champ.name = nameField.getText();
@@ -191,43 +194,66 @@ public class AddChampionViewController {
 			newP.description = passiveInfo.getText();
 			newP.school = "Passive";
 			//newP.ChampionID = Champions.Champs.size()+1;
-			newP.imageURL = "Walla Balla BING BANG";
+			newP.imageURL = passiveImageField.getText();
+			if (checkAbility(newP))
+				newAbis.add(newP);
+
 			
 			Ability newQ = new Ability();
 			newQ.name = qName.getText();
 			newQ.description = qInfo.getText();
 			newQ.school = "Q";
 			//newQ.ChampionID = Champions.Champs.size()+1;
-			newQ.imageURL = "Walla Balla BING BANG";
+
+			newQ.imageURL = QImageField.getText();
+			if (checkAbility(newQ))
+				newAbis.add(newQ);
 
 			Ability newW = new Ability();
 			newW.name = wName.getText();
 			newW.description = wInfo.getText();
 			newW.school = "W";
 			//newW.ChampionID = Champions.Champs.size()+1;
-			newW.imageURL = "Walla Balla BING BANG";
+
+			newW.imageURL = WImageField.getText();
+			if (checkAbility(newW))
+				newAbis.add(newW);
+
 
 			Ability newE = new Ability();
 			newE.name = eName.getText();
 			newE.description = eInfo.getText();
 			newE.school = "E";
 			//newE.ChampionID = Champions.Champs.size()+1;
-			newE.imageURL = "Walla Balla BING BANG";
+			newE.imageURL = EImageField.getText();
+			if (checkAbility(newE))
+				newAbis.add(newE);
 
 			Ability newR = new Ability();
 			newR.name = rName.getText();
 			newR.description = rInfo.getText();
 			newR.school = "Ultimate";
 			//newR.ChampionID = Champions.Champs.size()+1;
-			newR.imageURL = "Walla Balla BING BANG";
+			newR.imageURL = RImageField.getText();
+			if (checkAbility(newR))
+				newAbis.add(newR);
 			
-			Ability[] newAbis = new Ability[]{newP, newQ, newW, newE, newR};
+			if (newAbis.isEmpty()) newAbis = null; //Set this to null if it's empty, collectiveWrite checks it.
 			vc.collectiveWrite(champ,newAbis,skinList, null);
 
 			Stage stage = (Stage) confirmButton.getScene().getWindow();
 			stage.close();
 		}
 	}
+	
+	private boolean checkAbility(Ability abil) {
+		if (!abil.name.isEmpty() && !abil.imageURL.isEmpty() && !abil.description.isEmpty() && !abil.school.isEmpty()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	@FXML
 	void onAddBrowseImageButton_Clicked(){
 		//

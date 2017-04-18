@@ -117,6 +117,7 @@ public class Utility {
 			stage.setScene(addWindow);
 			stage.show();
 			stage.setTitle(title);
+			stage.setResizable(false);
 			stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -155,4 +156,12 @@ public class Utility {
 	    }
 
 	}*/
+	/**
+	 * removes pipe characters from given names to avoid calamity
+	 * @param name string
+	 * @return string without pipes
+	 */
+	public static String removePipes(String name){
+		return name.replaceAll("\\|", "");
+	}
 }
