@@ -177,6 +177,9 @@ public class AddChampionViewController {
 			Stage stage = (Stage) confirmButton.getScene().getWindow();
 			stage.close();
 		} else {
+			
+			ArrayList<Ability> newAbis = new ArrayList<Ability>();
+			
 			//Create new champion
 			Champion champ = new Champion();
 			champ.name = nameField.getText();
@@ -192,20 +195,30 @@ public class AddChampionViewController {
 			newP.school = "Passive";
 			//newP.ChampionID = Champions.Champs.size()+1;
 			newP.imageURL = passiveImageField.getText();
+			if (checkAbility(newP))
+				newAbis.add(newP);
+
 			
 			Ability newQ = new Ability();
 			newQ.name = qName.getText();
 			newQ.description = qInfo.getText();
 			newQ.school = "Q";
 			//newQ.ChampionID = Champions.Champs.size()+1;
+
 			newQ.imageURL = QImageField.getText();
+			if (checkAbility(newQ))
+				newAbis.add(newQ);
 
 			Ability newW = new Ability();
 			newW.name = wName.getText();
 			newW.description = wInfo.getText();
 			newW.school = "W";
 			//newW.ChampionID = Champions.Champs.size()+1;
+
 			newW.imageURL = WImageField.getText();
+			if (checkAbility(newW))
+				newAbis.add(newW);
+
 
 			Ability newE = new Ability();
 			newE.name = eName.getText();
@@ -213,6 +226,8 @@ public class AddChampionViewController {
 			newE.school = "E";
 			//newE.ChampionID = Champions.Champs.size()+1;
 			newE.imageURL = EImageField.getText();
+			if (checkAbility(newE))
+				newAbis.add(newE);
 
 			Ability newR = new Ability();
 			newR.name = rName.getText();
@@ -220,14 +235,25 @@ public class AddChampionViewController {
 			newR.school = "Ultimate";
 			//newR.ChampionID = Champions.Champs.size()+1;
 			newR.imageURL = RImageField.getText();
+			if (checkAbility(newR))
+				newAbis.add(newR);
 			
-			Ability[] newAbis = new Ability[]{newP, newQ, newW, newE, newR};
+			if (newAbis.isEmpty()) newAbis = null; //Set this to null if it's empty, collectiveWrite checks it.
 			vc.collectiveWrite(champ,newAbis,skinList, null);
 
 			Stage stage = (Stage) confirmButton.getScene().getWindow();
 			stage.close();
 		}
 	}
+	
+	private boolean checkAbility(Ability abil) {
+		if (!abil.name.isEmpty() && !abil.imageURL.isEmpty() && !abil.description.isEmpty() && !abil.school.isEmpty()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	@FXML
 	void onAddBrowseImageButton_Clicked(){
 		//
