@@ -100,6 +100,7 @@ public class ViewController {
 			
 			stage.show();
 			stage.setTitle("Add Champion");
+			stage.setResizable(false);
 			stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -130,6 +131,7 @@ public class ViewController {
 				
 				stage.show();
 				stage.setTitle("Modify Champion");
+				stage.setResizable(false);
 				stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -152,6 +154,7 @@ public class ViewController {
 				
 				stage.show();
 				stage.setTitle("Confirm");
+				stage.setResizable(false);
 				stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -208,6 +211,7 @@ public class ViewController {
 				
 				stage.show();
 				stage.setTitle("Confirm");
+				stage.setResizable(false);
 				stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -230,6 +234,7 @@ public class ViewController {
 				
 				stage.show();
 				stage.setTitle("Confirm");
+				stage.setResizable(false);
 				stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
 			} catch(Exception e) {
 				e.printStackTrace();
