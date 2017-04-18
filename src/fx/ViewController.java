@@ -18,7 +18,6 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import lolbase.Ability;
 import lolbase.Champion;
-import lolbase.Champions;
 import lolbase.LoLBase;
 import lolbase.Skin;
 import lolbase.Utility;
@@ -51,6 +50,9 @@ public class ViewController {
     private Champion selectedChampion;
     
     private LoLBase lolbase;
+    
+    private ArrayList<Ability> selectedChampionAbilities = new ArrayList<Ability>();
+    private ArrayList<Skin> selectedChampionSkins = new ArrayList<Skin>();
     
 	/**
 	 * Initializes objects and loads data from files.
@@ -332,6 +334,13 @@ public class ViewController {
      * @param champ the champion
      */
     void ChangeChampion(Champion champ){
+    	
+    	selectedChampionAbilities = lolbase.getChampionAbilities(champ.name);
+    	System.out.println("Abilities size: " +selectedChampionAbilities.size() );
+    	
+    	selectedChampionSkins = lolbase.getChampionSkins(champ.name);
+    	System.out.println("Skins size: " + selectedChampionSkins.size() );
+    	
     	//ChampionSearchField.setText(champ.name);
 		ChampionNameLabel.setText(champ.name);
 		ChampionTitleLabel.setText(champ.title);

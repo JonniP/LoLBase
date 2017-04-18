@@ -9,6 +9,6 @@ public class Skin {
 	public String imgURL;
 	
 	public Skin(){
-		this.skinsChamp = "this skin is orphan";
+		this.skinsChamp = "DefaultOwner";
 	}
 }

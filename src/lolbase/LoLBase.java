@@ -64,6 +64,11 @@ public class LoLBase {
 	}
 	
 	//Abilities
+		
+	public ArrayList<Ability> getChampionAbilities(String name) {
+		return abilities.getChampionAbilities(name);
+	}
+	
 	public int getAbilitiesAmount(){
 		return abilities.abilitiesAmount();
 	}
@@ -84,6 +89,10 @@ public class LoLBase {
 	}
 	
 	//Skins
+	public ArrayList<Skin> getChampionSkins(String name) {
+		return skins.getChampionSkins(name);
+	}
+	
 	public int getSkinsAmount(){
 		return skins.SkinsList.size();
 	}

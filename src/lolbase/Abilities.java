@@ -60,7 +60,7 @@ public class Abilities {
 			int id = 0;
 			Ability[] abils = AbilitiesList.toArray(Ability.class);
 			for(Ability a : abils){
-				temp = id++ + "|" + a.name + "|" + a.school + "|" + a.ChampionID + "|" +
+				temp = id++ + "|" + a.name + "|" + a.school + "|" + a.ChampionName + "|" +
 					a.imageURL + "|" + a.description;
 				writer.println(temp);
 			}
@@ -106,6 +106,7 @@ public class Abilities {
 	 * @param ID champion's id
 	 * @return arraylist of the abilities that meet the required id
 	 */
+	/*
 	public ArrayList<String> searchAbilitiesWithChampionID(int ID){
 		//ToDo: Read the file and return only abilities with specific champion ID
 		String key = Integer.toString(ID);
@@ -114,6 +115,24 @@ public class Abilities {
 		for(String s : data){
 			//ToDo: Check if ability is respected champion ID (?)
 			if(s.contains(key)) data.add(s);
+		}
+		return filteredData;
+	}
+	*/
+	
+	public ArrayList<Ability> getChampionAbilities(String name){
+		//ToDo: Optimize search from existing abilities list
+		ArrayList<String> data = readFile();
+		ArrayList<Ability> filteredData = new ArrayList<Ability>();
+		for(String s : data){
+			String[] split = s.split("\\|");
+			if(split[3].contains(name)) {
+				Ability abil = new Ability();
+				abil.name = split[1].trim();
+				abil.description = split[4].trim();
+				abil.imageURL = split[5].trim();
+				filteredData.add(abil);
+			}
 		}
 		return filteredData;
 	}

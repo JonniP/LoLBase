@@ -86,6 +86,7 @@ public class Skins {
 	 * @param ID champion's id
 	 * @return skins that belong to the champion
 	 */
+	/*
 	public ArrayList<String> searchSkinWithChampionID(int ID){
 		//ToDo: Read the file and return only skins with specific champion ID
 		List<String> data = readFile();
@@ -99,5 +100,22 @@ public class Skins {
 
 		}
 		return results;
+	}*/
+	
+	public ArrayList<Skin> getChampionSkins(String name){
+		//ToDo: Search skins from existing list rather than reading file
+		ArrayList<String> data = readFile();
+		ArrayList<Skin> filteredData = new ArrayList<Skin>();
+		for(String s : data){
+			String[] split = s.split("\\|");
+			if(split[2].contains(name)) {
+				Skin skin = new Skin();
+				skin.name = split[1].trim();
+				skin.skinsChamp = split[2].trim();
+				skin.imgURL = split[3].trim();
+				filteredData.add(skin);
+			}
+		}
+		return filteredData;
 	}
 }
