@@ -60,8 +60,8 @@ public class Abilities {
 			int id = 0;
 			Ability[] abils = AbilitiesList.toArray(Ability.class);
 			for(Ability a : abils){
-				temp = id++ + "|" + a.name + "|" + a.school + "|" + a.ChampionID + "|" +
-					a.imageURL + "|" + a.description;
+				temp = id++ + "|" + Utility.removePipes(a.name) + "|" + a.school + "|" + a.ChampionID + "|" +
+						Utility.removePipes(a.imageURL) + "|" + Utility.removePipes(a.description);
 				writer.println(temp);
 			}
 			writer.close();			

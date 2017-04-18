@@ -156,4 +156,12 @@ public class Utility {
 	    }
 
 	}*/
+	/**
+	 * removes pipe characters from given names to avoid calamity
+	 * @param name string
+	 * @return string without pipes
+	 */
+	public static String removePipes(String name){
+		return name.replaceAll("\\|", "");
+	}
 }

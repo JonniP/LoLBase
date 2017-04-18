@@ -46,7 +46,7 @@ public class Skins {
 			String temp;
 			int id = 0;
 			for (Skin skin : SkinsList) {
-				temp = id++ + "|" + skin.name + "|" + skin.skinsChamp + "|" + skin.imgURL;
+				temp = id++ + "|" + Utility.removePipes(skin.name) + "|" + Utility.removePipes(skin.skinsChamp) + "|" + Utility.removePipes(skin.imgURL);
 				writer.println(temp);
 			}
 			writer.close();			

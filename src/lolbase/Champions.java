@@ -52,7 +52,7 @@ public class Champions {
 			int id = 0;
 			for (Champion champ : this.Champs){
 				if(champ != null){
-					temp = id++ + "|" + champ.name + "|" + champ.title + "|" + champ.pos + "|" + champ.role + "|" + champ.lore;
+					temp = id++ + "|" + Utility.removePipes(champ.name) + "|" + Utility.removePipes(champ.title) + "|" + champ.pos + "|" + champ.role + "|" + Utility.removePipes(champ.lore);
 					writer.println(temp);
 				}
 			}
