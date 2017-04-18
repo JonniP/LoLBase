@@ -111,27 +111,51 @@ public class ViewController {
 	 */
 	@FXML
     void ModifyChampionClicked() {
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("AddChampionView.fxml"));
-			
-			final AnchorPane root = (AnchorPane)loader.load();
-			Scene addWindow = new Scene(root);
-			Stage stage = new Stage();
-			stage.setScene(addWindow);
-			
-			AddChampionViewController controller = loader.<AddChampionViewController>getController();
-			if(controller != null){
-				controller.setRef(this);
-				controller.setChamp(this.selectedChampion);
-			} else {
-				System.out.println("null - error!");
+		if (selectedChampion != null) {
+			try {
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("AddChampionView.fxml"));
+				
+				final AnchorPane root = (AnchorPane)loader.load();
+				Scene addWindow = new Scene(root);
+				Stage stage = new Stage();
+				stage.setScene(addWindow);
+				
+				AddChampionViewController controller = loader.<AddChampionViewController>getController();
+				if(controller != null){
+					controller.setRef(this);
+					controller.setChamp(this.selectedChampion);
+				} else {
+					System.out.println("null - error!");
+				}
+				
+				stage.show();
+				stage.setTitle("Modify Champion");
+				stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
+			} catch(Exception e) {
+				e.printStackTrace();
 			}
-			
-			stage.show();
-			stage.setTitle("Modify Champion");
-			stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
-		} catch(Exception e) {
-			e.printStackTrace();
+		} else {
+			try {
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("ConfirmActionView.fxml"));
+				
+				final AnchorPane root = (AnchorPane)loader.load();
+				Scene addWindow = new Scene(root);
+				Stage stage = new Stage();
+				stage.setScene(addWindow);
+					
+				ConfirmActionViewController controller = loader.<ConfirmActionViewController>getController();
+				if(controller != null){
+					controller.setMessage("Warning: No champion selected!");
+				} else {
+					System.out.println("ConfirmActionViewController is null");
+				}
+				
+				stage.show();
+				stage.setTitle("Confirm");
+				stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
+			} catch(Exception e) {
+				e.printStackTrace();
+			}	
 		}
     }
 	
