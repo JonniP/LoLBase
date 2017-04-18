@@ -55,6 +55,10 @@ public class Skins {
 		}
 	}
 	
+	/**
+	 * returns the list of skins
+	 * @return the list of skins
+	 */
 	public ArrayList<Skin> getSkinsList(){
 		return SkinsList;
 	}

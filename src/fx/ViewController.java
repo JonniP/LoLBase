@@ -242,6 +242,10 @@ public class ViewController {
 		}
 	}
 	
+	/**
+	 * removes a champion from the list
+	 * @param name - the name of the champion that is to be deleted
+	 */
 	void removeChampion(String name) {
 		lolbase.removeChampion(name);
 		lolbase.writeAll();

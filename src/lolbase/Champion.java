@@ -19,7 +19,9 @@ public class Champion {
 			return super.toString();
 		}
 	}
-	
+	/**
+	 * Enum of roles
+	 */
 	public enum Role {
 		Mage,
 		Marksman,
