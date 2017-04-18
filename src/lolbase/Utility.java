@@ -117,6 +117,7 @@ public class Utility {
 			stage.setScene(addWindow);
 			stage.show();
 			stage.setTitle(title);
+			stage.setResizable(false);
 			stage.getIcons().add(new Image(Utility.class.getResource("/Images/Temu.png").toString()));
 		} catch(Exception e) {
 			e.printStackTrace();
