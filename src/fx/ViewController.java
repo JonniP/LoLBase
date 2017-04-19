@@ -38,11 +38,12 @@ public class ViewController {
     @FXML private Label AbilityNameLabel;
     @FXML private TextField ChampionSearchField;
     @FXML private TextFlow LoreTextFlow;
-    @FXML private TextFlow AbilityDescription;
+    @FXML private Label AbilityDescription;
     @FXML private ImageView SkinRightArrow;
     @FXML private ImageView SkinLeftArrow;
     @FXML private ImageView AbilityRightArrow;
     @FXML private ImageView AbilityLeftArrow;
+    @FXML private Label abilitySchoolLabel;
     
     private Image arrowClickedImage;
     private Image arrowDefaultImage;
@@ -370,7 +371,6 @@ public class ViewController {
 		RoleLabel.setText(champ.role.toString());
 		LoreTextFlow.getChildren().clear();
 		LoreTextFlow.getChildren().add(new Text(champ.lore));
-		LoreTextFlow.getChildren().add(new Text(champ.lore)); 
 		
 		if(selectedChampionSkins.size() == 0 || selectedChampionAbilities.size() == 0) return;
 		if(selectedChampionSkins.get(skinClicks) != null) {
@@ -394,10 +394,9 @@ public class ViewController {
     
     private void updateAbility() {
     	Ability currentAbility = selectedChampionAbilities.get(abilityClicks);
+    	abilitySchoolLabel.setText(currentAbility.school);
 		AbilityNameLabel.setText(currentAbility.name);
-		AbilityDescription.getChildren().clear();
-		AbilityDescription.getChildren().add(new Text(currentAbility.description));
-		AbilityDescription.getChildren().add(new Text(currentAbility.description));
+		AbilityDescription.setText(currentAbility.description);
 		try {
 			Utility.setImage(AbilityImageView, currentAbility.imageURL);
 		} catch(Exception e) {

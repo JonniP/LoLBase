@@ -73,13 +73,14 @@ public class Skins {
 
 		for(String s : data){ //each line
 			//Note: | is a reserved character and needs \\ to "escape"
-			String[] parts = s.split("\\|");
+			String[] split = s.split("\\|");
 
 			//id |skin name     |respected champion	|image URL     
-			if(parts.length > 1){
+			if(split.length > 1){
 				skin = new Skin();
-				skin.name = parts[1].trim();
-				skin.imgURL = parts[3].trim();
+				skin.name = split[1].trim();
+				skin.skinsChamp = split[2].trim();
+				skin.imgURL = split[3].trim();
 				SkinsList.add(skin);
 			}
 		}

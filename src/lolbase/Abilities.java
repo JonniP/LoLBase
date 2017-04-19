@@ -127,12 +127,14 @@ public class Abilities {
 		ArrayList<String> data = readFile();
 		ArrayList<Ability> filteredData = new ArrayList<Ability>();
 		for(String s : data){
-			String[] split = s.split("\\|");
-			if(split[3].contains(name)) {
+			String[] parts = s.split("\\|");
+			if(parts[3].contains(name)) {
 				Ability abil = new Ability();
-				abil.name = split[1].trim();
-				abil.description = split[4].trim();
-				abil.imageURL = split[5].trim();
+				abil.name = parts[1].trim();
+				abil.school = parts[2].trim();
+				abil.ChampionName = parts[3].trim();
+				abil.imageURL = parts[4].trim();
+				abil.description = parts[5].trim();
 				filteredData.add(abil);
 			}
 		}
