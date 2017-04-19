@@ -361,14 +361,9 @@ public class ViewController {
      * @param champ the champion
      */
     void ChangeChampion(Champion champ){
-    	
-    	selectedChampionAbilities = lolbase.getChampionAbilities(champ.name);
-    	System.out.println("Abilities size: " +selectedChampionAbilities.size() );
-    	
+    	selectedChampionAbilities = lolbase.getChampionAbilities(champ.name);    	
     	selectedChampionSkins = lolbase.getChampionSkins(champ.name);
-    	System.out.println("Skins size: " + selectedChampionSkins.size() );
-    	
-    	//ChampionSearchField.setText(champ.name);
+
 		ChampionNameLabel.setText(champ.name);
 		ChampionTitleLabel.setText(champ.title);
 		PositionLabel.setText(champ.pos.toString());
@@ -388,7 +383,6 @@ public class ViewController {
     }
     
     private void updateSkin() {
-    	System.out.println("skinClicks: " + skinClicks);
     	Skin currentSkin = selectedChampionSkins.get(skinClicks);
 		ChampionSkinNameLabel.setText(currentSkin.name);
 		try {
@@ -399,7 +393,6 @@ public class ViewController {
     }
     
     private void updateAbility() {
-    	System.out.println("abilityClicks: " + abilityClicks);
     	Ability currentAbility = selectedChampionAbilities.get(abilityClicks);
 		AbilityNameLabel.setText(currentAbility.name);
 		AbilityDescription.getChildren().clear();
