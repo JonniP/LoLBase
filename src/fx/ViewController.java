@@ -54,6 +54,8 @@ public class ViewController {
     private ArrayList<Ability> selectedChampionAbilities = new ArrayList<Ability>();
     private ArrayList<Skin> selectedChampionSkins = new ArrayList<Skin>();
     
+    private int abilityClicks = 0, skinClicks = 0;
+    
 	/**
 	 * Initializes objects and loads data from files.
 	 */
@@ -269,28 +271,45 @@ public class ViewController {
      */
     @FXML
     void OnArrowClick(MouseEvent event) {
+    	if(selectedChampionSkins.size() == 0 || selectedChampionAbilities.size() == 0) return;
     	ImageView imgView = (ImageView)event.getSource();
     	String name = Utility.retrieveID(imgView.toString());
     	
-    	//Temporary
-    	//DataReader.searchKey("src/application/Data/Abilities.dat", "Nautilus");
-    	
     	switch(name){
-    		//Note: Utility.setImage will work just fine
     		case "SkinLeftArrow":
-    			//ToDo: Change skin to left
+    			if(skinClicks == 0) { 
+    				skinClicks = selectedChampionSkins.size() - 1;
+    			} else {
+    				skinClicks--;
+    			}
+    			updateSkin();
     			break;
     			
     		case "SkinRightArrow":
-    			//ToDo: Change skin to right
+    			if(skinClicks == selectedChampionSkins.size() - 1) {
+    				skinClicks = 0;
+    			} else {
+    				skinClicks++;
+    			}
+    			updateSkin();
     			break;
     		
     		case "AbilityLeftArrow":
-    			//ToDo: Change ability to left
+    			if(abilityClicks == 0) {
+    				abilityClicks = selectedChampionAbilities.size() - 1;
+    			} else { 
+    				abilityClicks--;
+    			}
+    			updateAbility();
     			break;
     			
     		case "AbilityRightArrow":
-    			//ToDo: Change ability to right
+    			if(abilityClicks == selectedChampionAbilities.size() - 1) {
+    				abilityClicks = 0;
+    			} else {
+    				abilityClicks++;
+    			}
+    			updateAbility();
     			break;
     	}
     }
@@ -356,21 +375,40 @@ public class ViewController {
 		RoleLabel.setText(champ.role.toString());
 		LoreTextFlow.getChildren().clear();
 		LoreTextFlow.getChildren().add(new Text(champ.lore));
-		LoreTextFlow.getChildren().add(new Text(champ.lore)); // it's a feature!!
+		LoreTextFlow.getChildren().add(new Text(champ.lore)); 
 		
-		if(lolbase.getSkin(0) != null) {
-			Skin currentSkin = lolbase.getSkin(0);
-			ChampionSkinNameLabel.setText(currentSkin.name);
-			//Utility.setImage(SkinImageView, currentSkin.imgURL);
+		if(selectedChampionSkins.size() == 0 || selectedChampionAbilities.size() == 0) return;
+		if(selectedChampionSkins.get(skinClicks) != null) {
+			updateSkin();
 		}
 		
-		if(lolbase.getAbility(0) != null) {
-			Ability currentAbility = lolbase.getAbility(0);
-			AbilityNameLabel.setText(currentAbility.name);
-			AbilityDescription.getChildren().clear();
-			AbilityDescription.getChildren().add(new Text(currentAbility.description));
-			AbilityDescription.getChildren().add(new Text(currentAbility.description));
-			//Utility.setImage(AbilityImageView, currentAbility.imageURL); // no paths yet
+		if(selectedChampionAbilities.get(skinClicks) != null) {
+			updateAbility();
+		}
+    }
+    
+    private void updateSkin() {
+    	System.out.println("skinClicks: " + skinClicks);
+    	Skin currentSkin = selectedChampionSkins.get(skinClicks);
+		ChampionSkinNameLabel.setText(currentSkin.name);
+		try {
+			Utility.setImage(SkinImageView, currentSkin.imgURL);
+		} catch(Exception e) {
+			System.out.println("ViewController: Invalid skin URL!");
+		}
+    }
+    
+    private void updateAbility() {
+    	System.out.println("abilityClicks: " + abilityClicks);
+    	Ability currentAbility = selectedChampionAbilities.get(abilityClicks);
+		AbilityNameLabel.setText(currentAbility.name);
+		AbilityDescription.getChildren().clear();
+		AbilityDescription.getChildren().add(new Text(currentAbility.description));
+		AbilityDescription.getChildren().add(new Text(currentAbility.description));
+		try {
+			Utility.setImage(AbilityImageView, currentAbility.imageURL);
+		} catch(Exception e) {
+			System.out.println("ViewController: Invalid ability URL!");
 		}
     }
 }
