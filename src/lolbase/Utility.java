@@ -100,7 +100,7 @@ public class Utility {
 	
 	//Known bug: Sometimes displayes invisible images
 	//Potential reason: JPG appears to work, not jpg, png etc.
-	public void setImage(ImageView imgView, String image){
+	public static void setImage(ImageView imgView, String image){
 		setImage(imgView, new Image(image));
 	}
 
