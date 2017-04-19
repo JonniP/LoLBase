@@ -90,8 +90,10 @@ public class Abilities {
 			if(parts.length > 1){
 				abil = new Ability();
 				abil.name = parts[1].trim();
-				abil.description = parts[4].trim();
-				abil.imageURL = parts[5].trim();
+				abil.school = parts[2].trim();
+				abil.ChampionName = parts[3].trim();
+				abil.imageURL = parts[4].trim();
+				abil.description = parts[5].trim();
 				AbilitiesList.add(Ability.class, abil);
 			}
 		}

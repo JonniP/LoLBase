@@ -116,6 +116,6 @@
       </AnchorPane>
    </left>
    <cursor>
-      <Cursor fx:constant="WAIT" />
+      <Cursor fx:constant="DEFAULT" />
    </cursor>
 </BorderPane>
