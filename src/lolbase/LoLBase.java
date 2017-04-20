@@ -69,6 +69,8 @@ public class LoLBase {
 	
 	public void removeChampion(int id) {
 		champions.removeChampion(id);
+		//abilities.removeAbilities(id);
+		skins.removeSkins(id);
 	}
 	
 	/**
