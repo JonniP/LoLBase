@@ -169,4 +169,18 @@ public class Utility {
 	public static String removePipes(String name){
 		return name.replaceAll("\\|", "");
 	}
+	
+	/**
+	 * Transforms string number into integer
+	 * @param s string number
+	 * @return string as integer
+	 */
+	public static int stringToInt(String s) {
+		try {
+			return Integer.parseInt(s);
+		} catch(Exception e) {
+			System.out.println("String is not a valid integer: " + e);
+			return -1;
+		}
+	}
 }

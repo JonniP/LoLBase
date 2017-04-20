@@ -6,7 +6,7 @@ package lolbase;
 public class Ability {
 	public String name;
 	public String school; //passive, Q, W, E, R...
-	public String ChampionName;
+	public int ChampionID;
 	public String imageURL;
 	public String description;
 
@@ -17,7 +17,7 @@ public class Ability {
 		this.name = "";
 		this.description = "";
 		this.school = "";
-		this.ChampionName = "DefaultOwner";
+		this.ChampionID = -1;
 		this.imageURL = "";
 	}
 }

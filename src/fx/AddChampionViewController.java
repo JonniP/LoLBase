@@ -45,7 +45,6 @@ public class AddChampionViewController {
     @FXML private TextField RImageField;
     
     private Champion modifiedChampion;
-    private String oldChampName;
     private boolean isModifying;
     
     private ViewController vc;
@@ -132,7 +131,6 @@ public class AddChampionViewController {
 	 * @param champ the champion that is to be modified
 	 */
 	void fillChampData(Champion champ) {
-		oldChampName = champ.name;
 		nameField.setText(champ.name);
 		titleField.setText(champ.title);
 		positionField.setValue(champ.pos);
@@ -171,13 +169,14 @@ public class AddChampionViewController {
 		
 		if (this.isModifying) {
 			Champion champ = new Champion();
+			champ.id = modifiedChampion.id;
 			champ.name = nameField.getText();
 			champ.title = titleField.getText();
 			champ.pos = positionField.getValue();
 			champ.lore = loreField.getText();
 			champ.role = roleField.getValue();
 			
-			vc.collectiveWrite(champ,null,null, oldChampName);
+			vc.collectiveWrite(champ,null,null, true);
 			Stage stage = (Stage) confirmButton.getScene().getWindow();
 			stage.close();
 		} else {
@@ -186,6 +185,7 @@ public class AddChampionViewController {
 			
 			//Create new champion
 			Champion champ = new Champion();
+			champ.id = vc.getChampionsAmount();
 			champ.name = nameField.getText();
 			champ.title = titleField.getText();
 			champ.pos = positionField.getValue();
@@ -197,7 +197,7 @@ public class AddChampionViewController {
 			newP.name = passiveName.getText();
 			newP.description = passiveInfo.getText();
 			newP.school = "Passive";
-			newP.ChampionName = champ.name;
+			newP.ChampionID = champ.id;
 			newP.imageURL = passiveImageField.getText();
 			if (checkAbility(newP))
 				newAbis.add(newP);
@@ -207,7 +207,7 @@ public class AddChampionViewController {
 			newQ.name = qName.getText();
 			newQ.description = qInfo.getText();
 			newQ.school = "Q";
-			newQ.ChampionName = champ.name;
+			newQ.ChampionID = champ.id;
 
 			newQ.imageURL = QImageField.getText();
 			if (checkAbility(newQ))
@@ -217,7 +217,7 @@ public class AddChampionViewController {
 			newW.name = wName.getText();
 			newW.description = wInfo.getText();
 			newW.school = "W";
-			newW.ChampionName = champ.name;
+			newW.ChampionID = champ.id;
 
 			newW.imageURL = WImageField.getText();
 			if (checkAbility(newW))
@@ -228,7 +228,7 @@ public class AddChampionViewController {
 			newE.name = eName.getText();
 			newE.description = eInfo.getText();
 			newE.school = "E";
-			newE.ChampionName = champ.name;
+			newE.ChampionID = champ.id;
 			newE.imageURL = EImageField.getText();
 			if (checkAbility(newE))
 				newAbis.add(newE);
@@ -237,16 +237,16 @@ public class AddChampionViewController {
 			newR.name = rName.getText();
 			newR.description = rInfo.getText();
 			newR.school = "Ultimate";
-			newR.ChampionName = champ.name;
+			newR.ChampionID = champ.id;
 			newR.imageURL = RImageField.getText();
 			if (checkAbility(newR))
 				newAbis.add(newR);
 			for(Skin a : skinList){
-				a.skinsChamp = champ.name;
+				a.champID = champ.id;
 			}
 			
 			if (newAbis.isEmpty()) newAbis = null; //Set this to null if it's empty, collectiveWrite checks it.
-			vc.collectiveWrite(champ,newAbis,skinList, null);
+			vc.collectiveWrite(champ, newAbis, skinList, false);
 
 			Stage stage = (Stage) confirmButton.getScene().getWindow();
 			stage.close();
@@ -278,6 +278,7 @@ public class AddChampionViewController {
 	 * @param skin added skin
 	 */
 	public void retrieveData(Skin skin){
+		
 		skinList.add(skin);
 	}
 	

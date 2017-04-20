@@ -47,9 +47,9 @@ public class LoLBase {
 	 * @param champ the champ
 	 * @param oldChampName champs old name in case of the name being changed
 	 */
-	public void modifyChampion(Champion champ, String oldChampName) {
-		if (champions.championExistsSearchKey(oldChampName)) {
-			champions.removeChampion(oldChampName);
+	public void modifyChampion(Champion champ) {
+		if (champions.championExists(champ.id)) {
+			champions.removeChampion(champ.id);
 		}
 		champions.addChampion(champ);
 	}
@@ -59,6 +59,10 @@ public class LoLBase {
 	 */
 	public void removeChampion(String name) {
 		champions.removeChampion(name);
+	}
+	
+	public void removeChampion(int id) {
+		champions.removeChampion(id);
 	}
 	
 	/**
@@ -83,6 +87,10 @@ public class LoLBase {
 		return champions.search(key);
 	}
 	
+	public ArrayList<Champion> search(int id){
+		return champions.search(id);
+	}
+	
 	/**
 	 * returns the current list of champions
 	 * @return the current list of champions
@@ -96,7 +104,11 @@ public class LoLBase {
 	 * @return yes or no
 	 */
 	public boolean championExists(String name){
-		return champions.championExistsSearchKey(name);
+		return champions.championExists(name);
+	}
+	
+	public boolean championExists(int id) {
+		return champions.championExists(id);
 	}
 	
 	//Abilities		
@@ -107,6 +119,10 @@ public class LoLBase {
 	 */
 	public ArrayList<Ability> getChampionAbilities(String name) {
 		return abilities.getChampionAbilities(name);
+	}
+	
+	public ArrayList<Ability> getChampionAbilities(int id) {
+		return abilities.getChampionAbilities(id);
 	}
 	
 	/**
@@ -146,6 +162,10 @@ public class LoLBase {
 	//Skins
 	public ArrayList<Skin> getChampionSkins(String name) {
 		return skins.getChampionSkins(name);
+	}
+	
+	public ArrayList<Skin> getChampionSkins(int id) {
+		return skins.getChampionSkins(id);
 	}
 	
 	/**

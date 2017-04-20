@@ -31,6 +31,7 @@ public class Champion {
 		Assassin,
 	}
 	
+	public int id;
 	public String name;
 	public String title;
 	public Position pos;
@@ -39,6 +40,7 @@ public class Champion {
 	
 	//Constructor to initialise values
 	public Champion(){
+		this.id = -1;
 		this.name = "DefaultName";
 		this.title = "DefaultTitle";
 		this.lore = "DefaultLore";

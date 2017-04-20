@@ -53,7 +53,7 @@ public class Skins {
 			String temp;
 			int id = 0;
 			for (Skin skin : SkinsList) {
-				temp = id++ + "|" + Utility.removePipes(skin.name) + "|" + Utility.removePipes(skin.skinsChamp) + "|" + Utility.removePipes(skin.imgURL);
+				temp = id++ + "|" + Utility.removePipes(skin.name) + "|" + skin.champID + "|" + Utility.removePipes(skin.imgURL);
 				writer.println(temp);
 			}
 			writer.close();			
@@ -86,7 +86,7 @@ public class Skins {
 			if(split.length > 1){
 				skin = new Skin();
 				skin.name = split[1].trim();
-				skin.skinsChamp = split[2].trim();
+				skin.champID = Utility.stringToInt(split[2].trim());
 				skin.imgURL = split[3].trim();
 				SkinsList.add(skin);
 			}
@@ -95,25 +95,31 @@ public class Skins {
 
 	/**
 	 * searches for skins that have a specific champion id
-	 * @param ID champion's id
+	 * @param id champion's id
 	 * @return skins that belong to the champion
 	 */
-	/*
-	public ArrayList<String> searchSkinWithChampionID(int ID){
-		//ToDo: Read the file and return only skins with specific champion ID
-		List<String> data = readFile();
-		ArrayList<String> results = new ArrayList<String>();
-
-		String key = Integer.toString(ID);
+	public ArrayList<Skin> getChampionSkins(int id){
+		//ToDo: Search skins from existing list rather than reading file
+		ArrayList<String> data = readFile();
+		ArrayList<Skin> filteredData = new ArrayList<Skin>();
 		for(String s : data){
-			if(s.contains(key)){
-				results.add(s);
+			String[] split = s.split("\\|");
+			if(Utility.stringToInt(split[2].trim()) == id) {
+				Skin skin = new Skin();
+				skin.name = split[1].trim();
+				skin.champID = Utility.stringToInt(split[2].trim());
+				skin.imgURL = split[3].trim();
+				filteredData.add(skin);
 			}
-
 		}
-		return results;
-	}*/
+		return filteredData;
+	}
 	
+	/**
+	 * searches for skins that are owned by champion (name)
+	 * @param name Champion name
+	 * @return skins owned by champion
+	 */
 	public ArrayList<Skin> getChampionSkins(String name){
 		//ToDo: Search skins from existing list rather than reading file
 		ArrayList<String> data = readFile();
@@ -123,7 +129,7 @@ public class Skins {
 			if(split[2].contains(name)) {
 				Skin skin = new Skin();
 				skin.name = split[1].trim();
-				skin.skinsChamp = split[2].trim();
+				skin.champID = Utility.stringToInt(split[2].trim());
 				skin.imgURL = split[3].trim();
 				filteredData.add(skin);
 			}

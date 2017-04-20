@@ -81,6 +81,10 @@ public class ViewController {
 		this.lolbase = lol;
 	}
 	
+	public int getChampionsAmount() {
+		return this.lolbase.getChampionsAmount();
+	}
+	
 	/**
 	 * updates the champions in the UI list with given champions
 	 * @param champs given champions
@@ -178,10 +182,10 @@ public class ViewController {
 	/**
 	 * rounds up the data for file writing
 	 */
-	public void collectiveWrite(Champion champ, ArrayList<Ability> abilys, ArrayList<Skin> skins, String oldChampName){
+	public void collectiveWrite(Champion champ, ArrayList<Ability> abilys, ArrayList<Skin> skins, boolean modified){
 		if (champ != null) {
-			if (oldChampName != null) {
-				lolbase.modifyChampion(champ, oldChampName);
+			if (modified == true) {
+				lolbase.modifyChampion(champ);
 			} else {
 				lolbase.addChampion(champ);
 			}
@@ -370,8 +374,8 @@ public class ViewController {
      * @param champ the champion
      */
     void ChangeChampion(Champion champ){
-    	selectedChampionAbilities = lolbase.getChampionAbilities(champ.name);    	
-    	selectedChampionSkins = lolbase.getChampionSkins(champ.name);
+    	selectedChampionAbilities = lolbase.getChampionAbilities(champ.id);    	
+    	selectedChampionSkins = lolbase.getChampionSkins(champ.id);
 
 		ChampionNameLabel.setText(champ.name);
 		ChampionTitleLabel.setText(champ.title);

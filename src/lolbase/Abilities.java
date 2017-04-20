@@ -64,7 +64,7 @@ public class Abilities {
 			int id = 0;
 			Ability[] abils = AbilitiesList.toArray(Ability.class);
 			for(Ability a : abils){
-				temp = id++ + "|" + a.name + "|" + a.school + "|" + a.ChampionName + "|" +
+				temp = id++ + "|" + a.name + "|" + a.school + "|" + a.ChampionID + "|" +
 					a.imageURL + "|" + a.description;
 				writer.println(temp);
 			}
@@ -98,7 +98,7 @@ public class Abilities {
 				abil = new Ability();
 				abil.name = parts[1].trim();
 				abil.school = parts[2].trim();
-				abil.ChampionName = parts[3].trim();
+				abil.ChampionID = Utility.stringToInt(parts[3].trim());
 				abil.imageURL = parts[4].trim();
 				abil.description = parts[5].trim();
 				AbilitiesList.add(Ability.class, abil);
@@ -117,22 +117,28 @@ public class Abilities {
 
 	/**
 	 * searches abilities from the ability file based on a champion id
-	 * @param ID champion's id
+	 * @param id champion's id
 	 * @return arraylist of the abilities that meet the required id
 	 */
-	/*
-	public ArrayList<String> searchAbilitiesWithChampionID(int ID){
+	public ArrayList<Ability> getChampionAbilities(int id){
 		//ToDo: Read the file and return only abilities with specific champion ID
-		String key = Integer.toString(ID);
 		ArrayList<String> data = readFile();
-		ArrayList<String> filteredData = new ArrayList<String>();
+		ArrayList<Ability> filteredData = new ArrayList<Ability>();
 		for(String s : data){
-			//ToDo: Check if ability is respected champion ID (?)
-			if(s.contains(key)) data.add(s);
+			String[] parts = s.split("\\|");
+			if(Utility.stringToInt(parts[3].trim()) == id) {
+				Ability abil = new Ability();
+				abil.name = parts[1].trim();
+				abil.school = parts[2].trim();
+				abil.ChampionID = Utility.stringToInt(parts[3].trim());
+				abil.imageURL = parts[4].trim();
+				abil.description = parts[5].trim();
+				filteredData.add(abil);
+			}
 		}
 		return filteredData;
 	}
-	*/
+	
 	
 	/**
 	 * searches the abilitylist for abilities belonging to a certain champion
@@ -149,7 +155,7 @@ public class Abilities {
 				Ability abil = new Ability();
 				abil.name = parts[1].trim();
 				abil.school = parts[2].trim();
-				abil.ChampionName = parts[3].trim();
+				abil.ChampionID = Utility.stringToInt(parts[3].trim());
 				abil.imageURL = parts[4].trim();
 				abil.description = parts[5].trim();
 				filteredData.add(abil);

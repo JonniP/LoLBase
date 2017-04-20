@@ -5,10 +5,10 @@ package lolbase;
  */
 public class Skin {
 	public String name;
-	public String skinsChamp;
+	public int champID;
 	public String imgURL;
 	
 	public Skin(){
-		this.skinsChamp = "DefaultOwner";
+		this.champID = -1;
 	}
 }
