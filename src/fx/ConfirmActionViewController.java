@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import lolbase.Champion;
 
 /**
  * A window for confirming any action
@@ -15,7 +16,7 @@ public class ConfirmActionViewController {
 	@FXML private Button confirmButton;
 	 
 	private ViewController vc;
-	private String selectedChampion;
+	private Champion selectedChampion;
 	private String task;
 	 
 	/**
@@ -33,7 +34,7 @@ public class ConfirmActionViewController {
 	void onConfirmButton_Clicked() {
 		if(task == "Delete"){
 			if(selectedChampion != null){
-				vc.removeChampion(selectedChampion);
+				vc.removeChampion(selectedChampion.id);
 			} else {
 				System.out.println("Champion name was somehow null");
 			}
@@ -49,9 +50,9 @@ public class ConfirmActionViewController {
 	 * @param selectedChampion champion to modify/delete
 	 * @param task action that is taking place
 	 */
-    public void setRef(ViewController vc, String message, String selectedChampion, String task){
+    public void setRef(ViewController vc, String message, Champion selectedChampion, String task){
     	this.vc = vc;
-    	messageLabel.setText(message + " " + selectedChampion);
+    	messageLabel.setText(message + " " + selectedChampion.name);
     	this.selectedChampion = selectedChampion;
     	this.task = task;
     }

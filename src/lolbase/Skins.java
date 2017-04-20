@@ -70,6 +70,19 @@ public class Skins {
 		return SkinsList;
 	}
 	
+	public void removeSkins(int id){
+		if(SkinsList.size() > 0) {
+			for(int i = 0; i < SkinsList.size(); i++) {
+				if(SkinsList.get(i).champID == id) {
+					SkinsList.remove(i);
+				}
+			}
+		} else {
+			System.out.println("Abilities.size == 0");
+		}
+	}
+	
+	
 	/**
 	 * Reads Skins.dat file and returns a list of all skins.
 	 * @return Returns a list of skins.

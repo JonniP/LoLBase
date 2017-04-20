@@ -19,6 +19,7 @@ public class GenericArray<E> {
 		final E[] arr = (E[]) Array.newInstance(c, 20);
 		this.a = arr;
 	}
+	
 	/**
 	 * adds element to list
 	 * @param c list

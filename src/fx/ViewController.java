@@ -81,8 +81,8 @@ public class ViewController {
 		this.lolbase = lol;
 	}
 	
-	public int getChampionsAmount() {
-		return this.lolbase.getChampionsAmount();
+	public int getChampionID() {
+		return this.lolbase.getChampionID();
 	}
 	
 	/**
@@ -221,7 +221,7 @@ public class ViewController {
 					
 				ConfirmActionViewController controller = loader.<ConfirmActionViewController>getController();
 				if(controller != null){
-					controller.setRef(this, "Are you sure you want to delete", selectedChampion.name, "Delete");
+					controller.setRef(this, "Are you sure you want to delete", selectedChampion, "Delete");
 				} else {
 					System.out.println("ConvirmActionViewController is null");
 				}
@@ -263,8 +263,8 @@ public class ViewController {
 	 * removes a champion from the list
 	 * @param name - the name of the champion that is to be deleted
 	 */
-	void removeChampion(String name) {
-		lolbase.removeChampion(name);
+	void removeChampion(int id) {
+		lolbase.removeChampion(id);
 		lolbase.writeAll();
 		updateListViewChampions(lolbase.getChampionList());
 	}

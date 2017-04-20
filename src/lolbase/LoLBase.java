@@ -42,6 +42,12 @@ public class LoLBase {
 	public void addChampion(Champion champ) {
 		champions.addChampion(champ);
 	}
+	
+	
+	public int getChampionID() {
+		return champions.getChampionID();
+	}
+	
 	/**
 	 * modifies the information of a chamoion
 	 * @param champ the champ
@@ -63,6 +69,8 @@ public class LoLBase {
 	
 	public void removeChampion(int id) {
 		champions.removeChampion(id);
+		//abilities.removeAbilities(id);
+		skins.removeSkins(id);
 	}
 	
 	/**
