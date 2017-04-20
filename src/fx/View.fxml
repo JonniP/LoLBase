@@ -58,8 +58,8 @@
                         <Image url="@../Images/Arrow_Default.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="ChampionSkinNameLabel" layoutX="472.0" layoutY="49.0" prefHeight="17.0" prefWidth="232.0" text="Skin name" />
-                  <Label layoutX="99.0" layoutY="14.0" prefHeight="35.0" prefWidth="233.0" text="General Information">
+                  <Label fx:id="ChampionSkinNameLabel" alignment="CENTER" layoutX="382.0" layoutY="49.0" prefHeight="17.0" prefWidth="416.0" text="Skin name" />
+                  <Label layoutX="63.0" layoutY="14.0" prefHeight="35.0" prefWidth="233.0" text="General Information">
                      <font>
                         <Font size="24.0" />
                      </font>
