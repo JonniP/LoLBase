@@ -399,7 +399,6 @@ public class ViewController {
 	    		} catch(Exception e){
 	    			//
 	    		}
-				return;
 			} else if(selectedChampionAbilities.get(skinClicks) != null) {
 			updateAbility();
 		} 
