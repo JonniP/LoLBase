@@ -185,7 +185,7 @@ public class AddChampionViewController {
 			
 			//Create new champion
 			Champion champ = new Champion();
-			champ.id = vc.getChampionsAmount();
+			champ.id = vc.getChampionID();
 			champ.name = nameField.getText();
 			champ.title = titleField.getText();
 			champ.pos = positionField.getValue();

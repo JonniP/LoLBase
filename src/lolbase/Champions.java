@@ -29,6 +29,14 @@ public class Champions {
 		}
 	}
 	
+	public int getChampionID() {
+		int id = Champs.size();
+		while(championExists(id)){
+			id++;
+		}
+		return id;
+	}
+	
 	/**
 	 * removes a champion from the championlist
 	 * @param name the champion
