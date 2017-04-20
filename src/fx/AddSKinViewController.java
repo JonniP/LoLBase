@@ -51,24 +51,6 @@ public class AddSKinViewController {
     	this.addVC = vc;
     }
     
-    /*@FXML
-    void browseFileButtonPressed() {
-    	
-		Stage stage = (Stage) browseFileButton.getScene().getWindow();
-    	
-    	FileChooser fileChooser = new FileChooser();
-    	fileChooser.setTitle("Browse for image file...");
-    	File source = fileChooser.showOpenDialog(stage);
-    	if (source != null) {
-    		//Save this file, get its' path and do stuff
-    		File dest = new File(Utility.class.getResource("Images/" + source.getName()).toString());
-    		try {
-    			Utility.copyFile(source, dest);
-    		} catch (IOException e) {
-    		    e.printStackTrace();
-    		}
-    	}
-    }*/
     /**
      * closes the window
      */

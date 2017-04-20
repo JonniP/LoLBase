@@ -81,8 +81,8 @@ public class ViewController {
 		this.lolbase = lol;
 	}
 	
-	public int getChampionsAmount() {
-		return this.lolbase.getChampionsAmount();
+	public int getChampionID() {
+		return this.lolbase.getChampionID();
 	}
 	
 	/**
