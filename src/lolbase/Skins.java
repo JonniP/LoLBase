@@ -77,8 +77,6 @@ public class Skins {
 					SkinsList.remove(i);
 				}
 			}
-		} else {
-			System.out.println("Abilities.size == 0");
 		}
 	}
 	

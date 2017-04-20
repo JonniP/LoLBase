@@ -50,7 +50,7 @@
                   </ImageView>
                   <ImageView fx:id="SkinImageView" fitHeight="142.0" fitWidth="230.0" layoutX="473.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/Jhin_HighNoonSkin.jpg" />
+                        <Image url="@../Images/notfound.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="SkinLeftArrow" fitHeight="75.0" fitWidth="75.0" layoutX="383.0" layoutY="108.0" onMouseClicked="#OnArrowClick" onMouseEntered="#ArrowOnMouseEnter" onMouseExited="#ArrowOnMouseExit" pickOnBounds="true" preserveRatio="true">
@@ -132,7 +132,7 @@
                   <Label fx:id="AbilityNameLabel" layoutX="560.0" layoutY="70.0" prefHeight="17.0" prefWidth="67.0" text="Frost shot" />
                   <ImageView fx:id="AbilityImageView" fitHeight="92.0" fitWidth="86.0" layoutX="546.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/Frost_Shot.png" />
+                        <Image url="@../Images/notfound.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="AbilityRightArrow" fitHeight="79.0" fitWidth="75.0" layoutX="657.0" layoutY="110.0" onMouseClicked="#OnArrowClick" onMouseEntered="#ArrowOnMouseEnter" onMouseExited="#ArrowOnMouseExit" pickOnBounds="true" preserveRatio="true">

@@ -51,20 +51,6 @@ public class Abilities {
 		return AbilitiesList.size();
 	}
 	
-	/*
-	public void removeAbilities(int id){
-		if(AbilitiesList.size() > 0) {
-			for(int i = 0; i < AbilitiesList.size(); i++) {
-				if(AbilitiesList.get(i).ChampionID == id) {
-					AbilitiesList.delete(Ability.class, i);
-				}
-			}
-		} else {
-			System.out.println("Abilities.size == 0");
-		}
-	}
-	*/
-	
 	/**
 	 * writes abilities to the data file
 	 * @param abilitiesList2 the list that is to be written

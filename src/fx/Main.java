@@ -27,7 +27,6 @@ public class Main extends Application {
 			lolbase.readAll();
 			controller.updateListViewChampions(lolbase.getChampionList());
 			
-			//BorderPane OLD = (BorderPane)FXMLLoader.load(getClass().getResource("View.fxml"));
 			final Scene scene = new Scene(root);
 			
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
