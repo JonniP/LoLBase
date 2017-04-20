@@ -14,6 +14,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import lolbase.*;
+import lolbase.Champion.Position;
+import lolbase.Champion.Role;
 
 /**
  * Controller class for AddChampionView
@@ -171,10 +173,15 @@ public class AddChampionViewController {
 			Champion champ = new Champion();
 			champ.id = modifiedChampion.id;
 			champ.name = nameField.getText();
+			if (champ.name.isEmpty()) champ.name = "NoName";
 			champ.title = titleField.getText();
+			if (champ.title.isEmpty()) champ.title = "NoTitle";
 			champ.pos = positionField.getValue();
+			if (champ.pos == null) champ.pos = Position.Adc;
 			champ.lore = loreField.getText();
+			if (champ.lore.isEmpty()) champ.lore = "NoLore";
 			champ.role = roleField.getValue();
+			if (champ.role == null) champ.role = Role.Marksman;
 			
 			vc.collectiveWrite(champ,null,null, true);
 			Stage stage = (Stage) confirmButton.getScene().getWindow();
@@ -187,10 +194,15 @@ public class AddChampionViewController {
 			Champion champ = new Champion();
 			champ.id = vc.getChampionsAmount();
 			champ.name = nameField.getText();
+			if (champ.name.isEmpty()) champ.name = "NoName";
 			champ.title = titleField.getText();
+			if (champ.title.isEmpty()) champ.title = "NoTitle";
 			champ.pos = positionField.getValue();
+			if (champ.pos == null) champ.pos = Position.Adc;
 			champ.lore = loreField.getText();
+			if (champ.lore.isEmpty()) champ.lore = "NoLore";
 			champ.role = roleField.getValue();
+			if (champ.role == null) champ.role = Role.Marksman;
 			
 			//Create new abilities
 			Ability newP = new Ability();
