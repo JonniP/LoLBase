@@ -33,7 +33,7 @@
       <Label layoutX="473.0" layoutY="364.0" text="Ability name" />
       <TextField fx:id="wName" layoutX="568.0" layoutY="359.0" />
       <Label layoutX="473.0" layoutY="405.0" text="Description" />
-      <TextField fx:id="wInfo" layoutX="568.0" layoutY="400.0" promptText="paste image URL here" />
+      <TextField fx:id="wInfo" layoutX="568.0" layoutY="400.0" />
       <Label layoutX="473.0" layoutY="322.0" prefHeight="21.0" prefWidth="83.0" text="W-Ability" />
       <Label layoutX="469.0" layoutY="494.0" text="Ability name" />
       <TextField fx:id="eName" layoutX="568.0" layoutY="489.0" />

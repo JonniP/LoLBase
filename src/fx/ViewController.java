@@ -73,10 +73,18 @@ public class ViewController {
 		AbilityLeftArrow.setScaleX(-1);
     }
 	
+	/**
+	 * gives this class a reference to our lolbase
+	 * @param lol our lolbase
+	 */
 	public void setLoLBase(LoLBase lol){
 		this.lolbase = lol;
 	}
 	
+	/**
+	 * updates the champions in the UI list with given champions
+	 * @param champs given champions
+	 */
 	public void updateListViewChampions(ArrayList<Champion> champs){
 		ChampionsList.getItems().clear();
 		for(Champion c : champs){
@@ -382,6 +390,9 @@ public class ViewController {
 		}
     }
     
+    /**
+     * updates information of a skin targeted for editing
+     */
     private void updateSkin() {
     	Skin currentSkin = selectedChampionSkins.get(skinClicks);
 		ChampionSkinNameLabel.setText(currentSkin.name);
@@ -392,6 +403,9 @@ public class ViewController {
 		}
     }
     
+    /**
+     * updates information of an ability targeted for editing
+     */
     private void updateAbility() {
     	Ability currentAbility = selectedChampionAbilities.get(abilityClicks);
     	abilitySchoolLabel.setText(currentAbility.school);

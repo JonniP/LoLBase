@@ -18,12 +18,17 @@ public class ConfirmActionViewController {
 	private String selectedChampion;
 	private String task;
 	 
+	/**
+	 * closes the window when cancel is clicked
+	 */
 	@FXML
 	void onCancelButton_Clicked() {
 		Stage stage = (Stage) closeButton.getScene().getWindow();
 		stage.close();
 	}
-	 
+	 /**
+	  * carries out the given task when confirm is clicked
+	  */
 	@FXML
 	void onConfirmButton_Clicked() {
 		if(task == "Delete"){
@@ -37,6 +42,13 @@ public class ConfirmActionViewController {
 		stage.close();
 	}
 
+	/**
+	 * sets the references for this class
+	 * @param vc viewcontroller
+	 * @param message message shown in the window
+	 * @param selectedChampion champion to modify/delete
+	 * @param task action that is taking place
+	 */
     public void setRef(ViewController vc, String message, String selectedChampion, String task){
     	this.vc = vc;
     	messageLabel.setText(message + " " + selectedChampion);
@@ -44,6 +56,10 @@ public class ConfirmActionViewController {
     	this.task = task;
     }
     
+    /**
+     * sets a message to the label
+     * @param message the message
+     */
     public void setMessage(String message){
     	messageLabel.setText(message);
     }

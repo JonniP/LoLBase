@@ -29,6 +29,13 @@ public class Skins {
 	/**
 	 * adds a skin to the skin file
 	 * @param skin
+	 * @example
+	 * <pre name="test">
+	 * Skin testskin = new Skin();
+	 * int size = SkinsList.size();
+	 * addSkin(testskin);
+	 * SkinsList.size() === size + 1;
+	 * </pre>
 	 */
 	public void addSkin(Skin skin) {
 		SkinsList.add(skin);

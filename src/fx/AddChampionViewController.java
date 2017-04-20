@@ -127,6 +127,10 @@ public class AddChampionViewController {
 		 stage.close();
 	 }
 	
+	/**
+	 * fills the textfields with the champion data when entering the modify window
+	 * @param champ the champion that is to be modified
+	 */
 	void fillChampData(Champion champ) {
 		oldChampName = champ.name;
 		nameField.setText(champ.name);
@@ -249,6 +253,11 @@ public class AddChampionViewController {
 		}
 	}
 	
+	/**
+	 * checks if an ability has all it's fields defined
+	 * @param abil the ability
+	 * @return true if yes, false if no
+	 */
 	private boolean checkAbility(Ability abil) {
 		if (!abil.name.isEmpty() && !abil.imageURL.isEmpty() && !abil.description.isEmpty() && !abil.school.isEmpty()) {
 			return true;
@@ -257,6 +266,9 @@ public class AddChampionViewController {
 		}
 	}
 	
+	/**
+	 * old stuff
+	 */
 	@FXML
 	void onAddBrowseImageButton_Clicked(){
 		//

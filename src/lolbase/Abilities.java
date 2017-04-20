@@ -43,6 +43,10 @@ public class Abilities {
 		AbilitiesList.add(Ability.class, ability);
 	}
 	
+	/**
+	 * returns the size of the abilitylist
+	 * @return the size
+	 */
 	public int abilitiesAmount(){
 		return AbilitiesList.size();
 	}
@@ -78,6 +82,9 @@ public class Abilities {
 		return AbilitiesList;
 	}
 	 
+	/**
+	 * reads abilities from the data file and puts them to the abilitylist
+	 */
 	public void getAbilitiesToList(){
 		List<String> data = readFile();
 		//GenericArray<Ability> abilities = new GenericArray<Ability>(Ability.class);
@@ -99,6 +106,11 @@ public class Abilities {
 		}
 	}
 	
+	/**
+	 * finds an ability from a given index from the list
+	 * @param i the index
+	 * @return the ability from the index
+	 */
 	public Ability getAbility(int i){
 		return AbilitiesList.get(i);
 	}
@@ -122,6 +134,11 @@ public class Abilities {
 	}
 	*/
 	
+	/**
+	 * searches the abilitylist for abilities belonging to a certain champion
+	 * @param name champion's name
+	 * @return a list of his abilities
+	 */
 	public ArrayList<Ability> getChampionAbilities(String name){
 		//ToDo: Optimize search from existing abilities list
 		ArrayList<String> data = readFile();

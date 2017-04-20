@@ -29,6 +29,10 @@ public class Champions {
 		}
 	}
 	
+	/**
+	 * removes a champion from the championlist
+	 * @param name the champion
+	 */
 	public void removeChampion(String name){
 		if(Champs.size() > 0) {
 			for(int i = 0; i < Champs.size(); i++) {
@@ -41,6 +45,9 @@ public class Champions {
 		}
 	}
 	
+	/**
+	 * writes championlist to the champion datafile
+	 */
 	public void writeToFile(){
 		try{
 			String championFilePath = dataDirectory+"/Champions.dat";
@@ -91,10 +98,19 @@ public class Champions {
 		
 	}
 	
+	/**
+	 * returns the list of champions
+	 * @return the list of champions
+	 */
 	public ArrayList<Champion> getChampionsList(){
 		return Champs;
 	}
 	
+	/**
+	 * returns a champion from a given index
+	 * @param i given index
+	 * @return the champion from the index
+	 */
 	public Champion getChampion(int i){
 		return Champs.get(i);
 	}
@@ -129,11 +145,22 @@ public class Champions {
 
 	/**
 	 * Add new Champion to the champions list
+	 * @example
+	 * <pre name="test">
+	 * Champion testme = new Champion();
+	 * int size = Champs.size();
+	 * addChampion(testme);
+	 * Champs.size() === size + 1;
+	 * </pre>
 	 */
 	public void addChampion(Champion champ) {
 		Champs.add(champ);
 	}
 	
+	/**
+	 * returns the size of the championlist
+	 * @return the size of the championlist
+	 */
 	public int getSize() {
 		return Champs.size();
 	}
@@ -154,6 +181,11 @@ public class Champions {
 		return false;
 	}
 	
+	/**
+	 * searches the champion list for champions with name, title, role or position matching the given search key
+	 * @param key the search key
+	 * @return results as a list
+	 */
 	public ArrayList<Champion> search(String key){
 		ArrayList<Champion> results = new ArrayList<Champion>();
 		ArrayList<Champion> target = getChampionsList();

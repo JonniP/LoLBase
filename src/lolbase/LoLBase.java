@@ -28,6 +28,10 @@ public class LoLBase {
 	}
 	
 	//Champions
+	 /**
+	  * returns the amount of champions in the championlist
+	  * @return the amount
+	  */
 	public int getChampionsAmount() {
 		return champions.getSize();
 	}
@@ -96,10 +100,19 @@ public class LoLBase {
 	}
 	
 	//Abilities		
+	/**
+	 * searches for abilities that belong to a given champion
+	 * @param name name of the champion
+	 * @return list of the champion's abilities
+	 */
 	public ArrayList<Ability> getChampionAbilities(String name) {
 		return abilities.getChampionAbilities(name);
 	}
 	
+	/**
+	 * returns the amount of abilities in the abilitylist
+	 * @return the amount
+	 */
 	public int getAbilitiesAmount(){
 		return abilities.abilitiesAmount();
 	}
@@ -135,6 +148,10 @@ public class LoLBase {
 		return skins.getChampionSkins(name);
 	}
 	
+	/**
+	 * reeturns the amount of skins in the skinlist
+	 * @return the amount
+	 */
 	public int getSkinsAmount(){
 		return skins.SkinsList.size();
 	}
