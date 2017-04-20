@@ -19,6 +19,15 @@ public class GenericArray<E> {
 		final E[] arr = (E[]) Array.newInstance(c, 20);
 		this.a = arr;
 	}
+	
+	/***
+	 * Removes element <index> from list
+	 * @param index Index of element to remove
+	 */
+	public void delete(int index) {
+		System.arraycopy(a, index + 1 , a, index, a.length - 1 - index);
+	}
+	
 	/**
 	 * adds element to list
 	 * @param c list
