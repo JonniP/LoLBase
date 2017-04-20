@@ -8,8 +8,6 @@ import javafx.stage.Stage;
 import lolbase.*;
 /**
  * viewcontroller for addskinview
- * @author Jonni
- *
  */
 public class AddSKinViewController {
 

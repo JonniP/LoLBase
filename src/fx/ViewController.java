@@ -384,14 +384,28 @@ public class ViewController {
 		LoreTextFlow.getChildren().clear();
 		LoreTextFlow.getChildren().add(new Text(champ.lore));
 		
-		if(selectedChampionSkins.size() == 0 || selectedChampionAbilities.size() == 0) return;
-		if(selectedChampionSkins.get(skinClicks) != null) {
+		if(selectedChampionSkins.size() == 0){
+	    		try{
+				Utility.setImage(SkinImageView, "/Images/notfound.png");
+				ChampionSkinNameLabel.setText("No skins have been added to this champion");
+	    		} catch(Exception e){
+	    		}
+		}else if(selectedChampionSkins.get(skinClicks) != null) {
 			updateSkin();
 		}
 		
-		if(selectedChampionAbilities.get(skinClicks) != null) {
+		if(selectedChampionAbilities.size() == 0){
+			try{
+				Utility.setImage(AbilityImageView, "/Images/notfound.png");
+				abilitySchoolLabel.setText("");
+				AbilityNameLabel.setText("No abilities have been added to this champion");
+				AbilityDescription.setText("");
+	    		} catch(Exception e){
+	    			//
+	    		}
+			} else if(selectedChampionAbilities.get(skinClicks) != null) {
 			updateAbility();
-		}
+		} 
     }
     
     /**
@@ -400,11 +414,12 @@ public class ViewController {
     private void updateSkin() {
     	Skin currentSkin = selectedChampionSkins.get(skinClicks);
 		ChampionSkinNameLabel.setText(currentSkin.name);
+		
 		try {
 			Utility.setImage(SkinImageView, currentSkin.imgURL);
 		} catch(Exception e) {
 			System.out.println("ViewController: Invalid skin URL!");
-		}
+		} 
     }
     
     /**
