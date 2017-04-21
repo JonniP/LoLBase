@@ -51,10 +51,11 @@ public class AddChampionViewController {
     
     private ViewController vc;
     private ArrayList<Skin> skinList = new ArrayList<Skin>();
+    
     /**
      * sets the choisebox's options when the window is opened
+     * @param vc viewcontroller
      */
-    
     public void setRef(ViewController vc){
     	this.vc = vc;
     }
@@ -69,6 +70,10 @@ public class AddChampionViewController {
     	fillChampData(this.modifiedChampion);
     }
     
+
+    /**
+     * does the necessary things when the program starts
+     */
     @FXML
     public void initialize() {
     	//Set choicebox options
@@ -273,9 +278,8 @@ public class AddChampionViewController {
 	private boolean checkAbility(Ability abil) {
 		if (!abil.name.isEmpty() && !abil.imageURL.isEmpty() && !abil.description.isEmpty() && !abil.school.isEmpty()) {
 			return true;
-		} else {
-			return false;
 		}
+		return false;
 	}
 	
 	/**

@@ -73,11 +73,14 @@ public class Utility {
 	
 	/***
 	 * Empties a given file
+	 * @param filepath given file
 	 */
 	public void clearFile(String filepath) {
 		try {
-			FileWriter fwOb = new FileWriter(filepath, false);
-	        PrintWriter pwOb = new PrintWriter(fwOb, false);
+			@SuppressWarnings("resource")
+            FileWriter fwOb = new FileWriter(filepath, false);
+	        @SuppressWarnings("resource")
+            PrintWriter pwOb = new PrintWriter(fwOb, false);
 	        pwOb.flush();
 	        pwOb.close();
 	        fwOb.close();
@@ -100,6 +103,10 @@ public class Utility {
 	
 	//Known bug: Sometimes displayes invisible images
 	//Potential reason: JPG appears to work, not jpg, png etc.
+	/**
+	 * @param imgView the place where image is to be placed
+	 * @param image image
+	 */
 	public static void setImage(ImageView imgView, String image){
 		setImage(imgView, new Image(image));
 	}

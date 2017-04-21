@@ -13,6 +13,9 @@ public class GenericArray<E> {
 	private E[] a;
 	private int objCount;
 	
+	/**
+	 * @param c a list of given type
+	 */
 	@SuppressWarnings("unchecked")
 	public GenericArray(Class<E> c) {
 		this.objCount = 0;

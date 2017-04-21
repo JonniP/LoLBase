@@ -45,7 +45,7 @@ public class AddSKinViewController {
     }
     /**
      * corrects the viewcontroller that is used
-     * @param vc
+     * @param vc given viewcontroller for addchampionview
      */
     public void setRef(AddChampionViewController vc){
     	this.addVC = vc;

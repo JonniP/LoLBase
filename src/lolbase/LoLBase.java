@@ -1,7 +1,7 @@
 package lolbase;
 
 import java.util.ArrayList;
-/*
+/**
  * the Base of our LoLBase, if you will
  */
 public class LoLBase {
@@ -44,6 +44,9 @@ public class LoLBase {
 	}
 	
 	
+	/**
+	 * @return the last id in the championlist
+	 */
 	public int getChampionID() {
 		return champions.getChampionID();
 	}
@@ -51,7 +54,6 @@ public class LoLBase {
 	/**
 	 * modifies the information of a chamoion
 	 * @param champ the champ
-	 * @param oldChampName champs old name in case of the name being changed
 	 */
 	public void modifyChampion(Champion champ) {
 		if (champions.championExists(champ.id)) {
@@ -67,6 +69,9 @@ public class LoLBase {
 		champions.removeChampion(name);
 	}
 	
+	/**
+	 * @param id id of the champ that is to be removed
+	 */
 	public void removeChampion(int id) {
 		champions.removeChampion(id);
 		//abilities.removeAbilities(id);
@@ -95,6 +100,10 @@ public class LoLBase {
 		return champions.search(key);
 	}
 	
+	/**
+	 * @param id id of a champ
+	 * @return champions found with id
+	 */
 	public ArrayList<Champion> search(int id){
 		return champions.search(id);
 	}
@@ -115,6 +124,10 @@ public class LoLBase {
 		return champions.championExists(name);
 	}
 	
+	/**
+	 * @param id id of the supposed champion
+	 * @return yes if the champion exists
+	 */
 	public boolean championExists(int id) {
 		return champions.championExists(id);
 	}
@@ -129,6 +142,10 @@ public class LoLBase {
 		return abilities.getChampionAbilities(name);
 	}
 	
+	/**
+	 * @param id id of the champion
+	 * @return abilities of the given champion
+	 */
 	public ArrayList<Ability> getChampionAbilities(int id) {
 		return abilities.getChampionAbilities(id);
 	}
@@ -168,10 +185,18 @@ public class LoLBase {
 	}
 	
 	//Skins
+	/**
+	 * @param name champion whose skins are looked for
+	 * @return the skins of the given champ
+	 */
 	public ArrayList<Skin> getChampionSkins(String name) {
 		return skins.getChampionSkins(name);
 	}
 	
+	/**
+	 * @param id id of the champion whose skins we want
+	 * @return the skins of the given champ
+	 */
 	public ArrayList<Skin> getChampionSkins(int id) {
 		return skins.getChampionSkins(id);
 	}

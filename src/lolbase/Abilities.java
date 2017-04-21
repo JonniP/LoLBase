@@ -5,6 +5,11 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Johnny
+ * @version 21 Apr 2017
+ * class for handling abilities
+ */
 public class Abilities {
 
 	private final String dataDirectory = "Data/";
@@ -53,12 +58,12 @@ public class Abilities {
 	
 	/**
 	 * writes abilities to the data file
-	 * @param abilitiesList2 the list that is to be written
 	 */
 	 public void writeToFile(){
 		try{
 			String championFilePath = dataDirectory+"/Abilities.dat";
-			PrintWriter writer = new PrintWriter(championFilePath);
+			@SuppressWarnings("resource")
+            PrintWriter writer = new PrintWriter(championFilePath);
 			
 			//ID, Ability name, Ability school(??), Respected champion, Image path, Description
 			String temp;

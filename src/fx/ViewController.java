@@ -81,6 +81,9 @@ public class ViewController {
 		this.lolbase = lol;
 	}
 	
+	/**
+	 * @return the ID of the last champion in the champion list
+	 */
 	public int getChampionID() {
 		return this.lolbase.getChampionID();
 	}
@@ -181,6 +184,10 @@ public class ViewController {
 	
 	/**
 	 * rounds up the data for file writing
+	 * @param champ champion to write
+	 * @param abilys champion's abilities
+	 * @param skins champion's skins
+	 * @param modified boolean whether or not champ is being made or modified
 	 */
 	public void collectiveWrite(Champion champ, ArrayList<Ability> abilys, ArrayList<Skin> skins, boolean modified){
 		if (champ != null) {
@@ -324,6 +331,8 @@ public class ViewController {
     			}
     			updateAbility();
     			break;
+        default:
+            break;
     	}
     }
     
@@ -389,6 +398,7 @@ public class ViewController {
 				Utility.setImage(SkinImageView, "/Images/notfound.png");
 				ChampionSkinNameLabel.setText("No skins have been added to this champion");
 	    		} catch(Exception e){
+	    		    //
 	    		}
 		}else if(selectedChampionSkins.get(skinClicks) != null) {
 			updateSkin();

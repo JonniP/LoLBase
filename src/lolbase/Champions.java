@@ -29,6 +29,9 @@ public class Champions {
 		}
 	}
 	
+	/**
+	 * @return the last id of the championlist
+	 */
 	public int getChampionID() {
 		int id = Champs.size();
 		while(championExists(id)){
@@ -53,6 +56,9 @@ public class Champions {
 		}
 	}
 	
+	/**
+	 * @param id removes a champion from the list
+	 */
 	public void removeChampion(int id){
 		if(Champs.size() > 0) {
 			for(int i = 0; i < Champs.size(); i++) {
@@ -72,7 +78,8 @@ public class Champions {
 		try{
 			String championFilePath = dataDirectory+"/Champions.dat";
 			
-			PrintWriter writer = new PrintWriter(championFilePath);
+			@SuppressWarnings("resource")
+            PrintWriter writer = new PrintWriter(championFilePath);
 			
 			//ID, Name, Title, Position, Lore
 			String temp;
@@ -91,7 +98,6 @@ public class Champions {
 
 	/**
 	 * Reads Champions.dat file and returns a list of all champions.
-	 * @return Returns a list of champions.
 	 */
 	
 	public void readChampionsToList(){
@@ -133,7 +139,8 @@ public class Champions {
 	}
 	
 	/**
-	 * @returns a position enum based on the input string
+	 * @param a position as a string
+	 * @return  position as an enum
 	 */
 	public static Champion.Position selectPos(String a){
 		switch(a){
@@ -146,6 +153,7 @@ public class Champions {
 		}
 	}
 	/**
+	 * @param a role as a string
 	 * @return a role based on the input string
 	 */
 	public static Champion.Role selectRole(String a){
@@ -162,6 +170,7 @@ public class Champions {
 
 	/**
 	 * Add new Champion to the champions list
+	 * @param champ champion that is to be added
 	 * @example
 	 * <pre name="test">
 	 * Champion testme = new Champion();
@@ -184,8 +193,8 @@ public class Champions {
 
 	/**
 	 * Reads specified file and searches for lines that contain key value.
-	 * @param filePath - Path to file
 	 * @param key - Word we are looking for
+	 * @return yes if the champion exists
 	 */
 	public boolean championExists(String key){
 		List<String> data = readFile();

@@ -5,7 +5,15 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Johnny
+ * @version 21 Apr 2017
+ * class that handles the skins
+ */
 public class Skins {
+	/**
+	 * the arraylist of skins
+	 */
 	public ArrayList<Skin> SkinsList = new ArrayList<Skin>();
 	private String filePath = "Data/Skins.dat";
 	private final String dataDirectory = "Data/";
@@ -28,7 +36,7 @@ public class Skins {
 	}
 	/**
 	 * adds a skin to the skin file
-	 * @param skin
+	 * @param skin skin that is to be added
 	 * @example
 	 * <pre name="test">
 	 * Skin testskin = new Skin();
@@ -47,7 +55,8 @@ public class Skins {
 	public void writeToFile(){
 		try{
 			String championFilePath = dataDirectory+"/Skins.dat";
-			PrintWriter writer = new PrintWriter(championFilePath);
+			@SuppressWarnings("resource")
+            PrintWriter writer = new PrintWriter(championFilePath);
 			
 			// id, name, respected champ, imagepath
 			String temp;
@@ -70,6 +79,9 @@ public class Skins {
 		return SkinsList;
 	}
 	
+	/**
+	 * @param id id of the champ whose skins are to be removed
+	 */
 	public void removeSkins(int id){
 		if(SkinsList.size() > 0) {
 			for(int i = 0; i < SkinsList.size(); i++) {
@@ -83,7 +95,6 @@ public class Skins {
 	
 	/**
 	 * Reads Skins.dat file and returns a list of all skins.
-	 * @return Returns a list of skins.
 	 */
 	public void readSkinsToList(){
 		List<String> data = readFile();
