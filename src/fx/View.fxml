@@ -129,7 +129,7 @@
                <children>
                   <TextFlow fx:id="LoreTextFlow" layoutX="51.0" layoutY="62.0" lineSpacing="1.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="138.0" prefWidth="333.0" textAlignment="CENTER" />
                   <Label fx:id="abilitySchoolLabel" layoutX="571.0" layoutY="54.0" text="Ability" />
-                  <Label fx:id="AbilityNameLabel" layoutX="560.0" layoutY="70.0" prefHeight="17.0" prefWidth="67.0" text="Frost shot" />
+                  <Label fx:id="AbilityNameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="448.0" layoutY="70.0" prefHeight="17.0" prefWidth="284.0" text="Frost shot" />
                   <ImageView fx:id="AbilityImageView" fitHeight="92.0" fitWidth="86.0" layoutX="546.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/notfound.png" />
