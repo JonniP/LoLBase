@@ -124,8 +124,9 @@ public class AddChampionViewController {
 			e.printStackTrace();
 		}	
 	}
+
 	/**
-	 * closes window when cancel is clicked
+	 * closes the window when cancel button is clicked
 	 */
 	@FXML
 	 void onCancelButton_Clicked() {
@@ -294,7 +295,6 @@ public class AddChampionViewController {
 	 * @param skin added skin
 	 */
 	public void retrieveData(Skin skin){
-		
 		skinList.add(skin);
 	}
 	

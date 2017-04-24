@@ -78,8 +78,7 @@ public class Champions {
 		try{
 			String championFilePath = dataDirectory+"/Champions.dat";
 			
-			@SuppressWarnings("resource")
-            PrintWriter writer = new PrintWriter(championFilePath);
+            try(PrintWriter writer = new PrintWriter(championFilePath)){
 			
 			//ID, Name, Title, Position, Lore
 			String temp;
@@ -89,7 +88,8 @@ public class Champions {
 					writer.println(temp);
 				}
 			}
-			writer.close();			
+			writer.close();	
+            }
 		} catch(Exception e){
 			System.out.println(e);
 		}
@@ -99,7 +99,6 @@ public class Champions {
 	/**
 	 * Reads Champions.dat file and returns a list of all champions.
 	 */
-	
 	public void readChampionsToList(){
 		ArrayList<String> data = readFile();
 		Champion champ;

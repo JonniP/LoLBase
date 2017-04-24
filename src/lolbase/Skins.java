@@ -55,17 +55,16 @@ public class Skins {
 	public void writeToFile(){
 		try{
 			String championFilePath = dataDirectory+"/Skins.dat";
-			@SuppressWarnings("resource")
-            PrintWriter writer = new PrintWriter(championFilePath);
-			
-			// id, name, respected champ, imagepath
-			String temp;
-			int id = 0;
-			for (Skin skin : SkinsList) {
-				temp = id++ + "|" + Utility.removePipes(skin.name) + "|" + skin.champID + "|" + Utility.removePipes(skin.imgURL);
-				writer.println(temp);
-			}
-			writer.close();			
+            try(PrintWriter writer = new PrintWriter(championFilePath)){
+	
+    			String temp;
+    			int id = 0;
+    			for (Skin skin : SkinsList) {
+    				temp = id++ + "|" + Utility.removePipes(skin.name) + "|" + skin.champID + "|" + Utility.removePipes(skin.imgURL);
+    				writer.println(temp);
+    			}
+    			writer.close();
+            }			
 		} catch(Exception e){
 			System.out.println(e);
 		}

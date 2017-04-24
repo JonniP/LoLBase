@@ -62,8 +62,7 @@ public class Abilities {
 	 public void writeToFile(){
 		try{
 			String championFilePath = dataDirectory+"/Abilities.dat";
-			@SuppressWarnings("resource")
-            PrintWriter writer = new PrintWriter(championFilePath);
+            try(PrintWriter writer = new PrintWriter(championFilePath)){
 			
 			//ID, Ability name, Ability school(??), Respected champion, Image path, Description
 			String temp;
@@ -74,7 +73,8 @@ public class Abilities {
 					a.imageURL + "|" + a.description;
 				writer.println(temp);
 			}
-			writer.close();			
+			writer.close();	
+            }
 		} catch(Exception e){
 			System.out.println(e);
 		}
