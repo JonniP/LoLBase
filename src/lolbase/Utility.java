@@ -77,9 +77,9 @@ public class Utility {
 	 */
 	public void clearFile(String filepath) {
 		try {
-			@SuppressWarnings("resource")
+			// @SuppressWarnings("resource")
             FileWriter fwOb = new FileWriter(filepath, false);
-	        @SuppressWarnings("resource")
+	        // @SuppressWarnings("resource")
             PrintWriter pwOb = new PrintWriter(fwOb, false);
 	        pwOb.flush();
 	        pwOb.close();

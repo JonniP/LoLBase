@@ -2,6 +2,9 @@ package lolbase;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +18,6 @@ public class Champions {
 	private final String dataDirectory = "Data/";
 	private final String filePath = "Data/Champions.dat";
 	
-
 	private ArrayList<String> readFile() {
 		try{
 			File dir = new File(dataDirectory);
