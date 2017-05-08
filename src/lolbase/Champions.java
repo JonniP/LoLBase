@@ -3,9 +3,12 @@ package lolbase;
 import java.io.File;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -17,6 +20,64 @@ public class Champions {
 
 	private final String dataDirectory = "Data/";
 	private final String filePath = "Data/Champions.dat";
+	private Database dbase;
+	private static Champion helpChamp = new Champion();
+	
+	public Champions(String name) {
+		dbase = Database.formatDatabase(name);
+		try (Connection dbConn = dbase.giveRootConnection()) {
+			DatabaseMetaData meta = dbConn.getMetaData();
+			
+			try (ResultSet table = meta.getTables(null, null, "Champions", null)) {
+				if (!table.next()) {
+					//Create new table
+					try (PreparedStatement sql = dbConn.prepareStatement(helpChamp.createChampionsDataBase())) {
+						sql.execute();
+					}
+				}
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("Fäck");
+		}
+	}
+	
+	public void addChamp(Champion champ) throws SQLException {
+		try ( Connection dbConn = dbase.giveRootConnection(); PreparedStatement sql = helpChamp.formatCreate(dbConn) ) {
+			sql.executeUpdate();
+			try ( ResultSet rs = sql.getGeneratedKeys() ) {
+				helpChamp.checkID(rs);
+		    } catch (SQLException e) {
+		    	System.out.println("EYY CRASH JOHN CENA");
+		    }
+		}
+	}
+	
+	// Todo: Format properly
+	public Collection<Champion> search(String searchCondition, int attributeNumber) {
+		String condition = searchCondition;
+		String question = helpChamp.getAttribute(attributeNumber);
+		if ( attributeNumber < 0 ) { question = helpChamp.getAttribute(0); condition = ""; {
+			// Avataan yhteys tietokantaan try .. with lohkossa.
+		    try ( Connection con = dbase.giveRootConnection(); PreparedStatement sql = con.prepareStatement("SELECT * FROM Jasenet WHERE " + question + " LIKE ?") ) {
+		    	ArrayList<Champion> found = new ArrayList<Champion>();
+		             
+		    	sql.setString(1, "%" + condition + "%");
+		    	try ( ResultSet results = sql.executeQuery() ) {
+		    		while ( results.next() ) {
+		    			Champion j = new Champion();
+		    			j.parse(results);
+		                found.add(j);
+		    		}
+		    	}
+		        return found;
+		    } catch ( SQLException e ) {
+		    	System.out.println("eeeeee");
+		    }
+		}
+		}
+		return null;
+	}
 	
 	private ArrayList<String> readFile() {
 		try{

@@ -2,6 +2,11 @@ package lolbase;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,9 +19,26 @@ public class Abilities {
 
 	private final String dataDirectory = "Data/";
 	private final String filePath = "Data/Abilities.dat";
+	private static Ability helpAbil = new Ability();
+	private Database dbase;
 
 	private GenericArray<Ability> AbilitiesList = new GenericArray<Ability>(Ability.class);
 
+	public Abilities(String name) throws SQLException{
+		dbase = Database.formatDatabase(name);
+		try (Connection con = dbase.giveRootConnection() ) {
+			DatabaseMetaData meta = con.getMetaData();
+			try (ResultSet table = meta.getTables(null, null, "Abilities", null)) {
+				if (!table.next()) {
+					try (PreparedStatement sql = con.prepareStatement(helpAbil.createAbilitiesDataBase())) {
+						sql.execute();
+					}
+				}
+			}
+		} catch (SQLException e){
+			System.out.println("Error huehuheue");
+		}
+	}
 	/**
 	 * reads the ability datafile
 	 * @return the file as an arraylist

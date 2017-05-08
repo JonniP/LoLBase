@@ -143,12 +143,25 @@ public class Champion {
 		return sql;
 	}
 	
-	public void tarkistaID(ResultSet rs) throws SQLException {
+	public void checkID(ResultSet rs) throws SQLException {
 		if(!rs.next() ) return;
 		int id = rs.getInt(1);
 		if (id == this.id) return;
 		this.id = id;
 	}
+	
+	public String getAttribute(int k) {
+		switch(k) {
+			case 0: return "id";
+			case 1: return "name";
+			case 2: return "title";
+			case 3: return "position";
+			case 4: return "role";
+			case 5: return "lore";
+			default: return "PaskaHarkkatyö";
+		}
+	}
+	
 	
 	public void parse(ResultSet results) throws SQLException {
 		this.id = results.getInt("id");
