@@ -1,30 +1,36 @@
 package lolbase;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 /**
  * the Base of our LoLBase, if you will
  */
 public class LoLBase {
 	
-	private Champions champions = new Champions();
-	private Abilities abilities = new Abilities();
+	private Champions champions = new Champions("championsDatabase");
+	private Abilities abilities = new Abilities("abilitiesDatabase");
 	private Skins skins = new Skins();
 	
 	/**
 	 * reads all files
 	 */
 	public void readAll(){
-		champions.readChampionsToList();
+		// champions.readChampionsToList();
 		abilities.getAbilitiesToList();
 		skins.readSkinsToList();
 	}
 	/**
 	 * writes to all files
+	 * @throws SQLException 
 	 */
-	 public void writeAll(){
-		champions.writeToFile();
-		abilities.writeToFile();
-		skins.writeToFile();
+	 public void writeAll() {
+		try {
+			champions.addAllChampions();
+			abilities.writeToFile();
+			skins.writeToFile();
+		} catch(Exception e) {
+			System.out.print(e);
+		}
 	}
 	
 	//Champions
@@ -114,14 +120,6 @@ public class LoLBase {
 	 */
 	public ArrayList<Champion> getChampionList(){
 		return champions.getChampionsList();
-	}
-	/**
-	 * tells if champion lives or not
-	 * @param name the name of the champ
-	 * @return yes or no
-	 */
-	public boolean championExists(String name){
-		return champions.championExists(name);
 	}
 	
 	/**

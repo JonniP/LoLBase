@@ -24,7 +24,7 @@ public class Abilities {
 
 	private GenericArray<Ability> AbilitiesList = new GenericArray<Ability>(Ability.class);
 
-	public Abilities(String name) throws SQLException{
+	public Abilities(String name) {
 		dbase = Database.formatDatabase(name);
 		try (Connection con = dbase.giveRootConnection() ) {
 			DatabaseMetaData meta = con.getMetaData();

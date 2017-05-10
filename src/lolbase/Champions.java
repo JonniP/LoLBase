@@ -1,7 +1,5 @@
 package lolbase;
 
-import java.io.File;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
@@ -9,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 /**
  * Contains static methods for reading champion data from files.
@@ -18,8 +15,6 @@ public class Champions {
 
 	private ArrayList<Champion> Champs = new ArrayList<Champion>();
 
-	private final String dataDirectory = "Data/";
-	private final String filePath = "Data/Champions.dat";
 	private Database dbase;
 	private static Champion helpChamp = new Champion();
 	
@@ -48,8 +43,28 @@ public class Champions {
 			try ( ResultSet rs = sql.getGeneratedKeys() ) {
 				helpChamp.checkID(rs);
 		    } catch (SQLException e) {
-		    	System.out.println("EYY CRASH JOHN CENA");
+		    	System.out.println("Crash");
 		    }
+		}
+	}
+	
+	public void addAllChampions() throws SQLException {
+		for(Champion champ : Champs) {
+			addChamp(champ);
+		}
+	}
+	
+	public void getAllChampions() throws SQLException {
+		try ( Connection dbConn = dbase.giveRootConnection(); PreparedStatement sql = dbConn.prepareStatement("SELECT * FROM Champions")) {
+			try ( ResultSet results = sql.executeQuery() ) {
+				while ( results.next() ) {
+					Champion champ = new Champion();
+					champ.parse(results);
+					Champs.add(champ);
+				}
+			} catch(SQLException e) {
+				System.out.println("error retrieving all champions");
+			}
 		}
 	}
 	
@@ -58,8 +73,7 @@ public class Champions {
 		String condition = searchCondition;
 		String question = helpChamp.getAttribute(attributeNumber);
 		if ( attributeNumber < 0 ) { question = helpChamp.getAttribute(0); condition = ""; {
-			// Avataan yhteys tietokantaan try .. with lohkossa.
-		    try ( Connection con = dbase.giveRootConnection(); PreparedStatement sql = con.prepareStatement("SELECT * FROM Jasenet WHERE " + question + " LIKE ?") ) {
+		    try ( Connection con = dbase.giveRootConnection(); PreparedStatement sql = con.prepareStatement("SELECT * FROM Champions WHERE " + question + " LIKE ?") ) {
 		    	ArrayList<Champion> found = new ArrayList<Champion>();
 		             
 		    	sql.setString(1, "%" + condition + "%");
@@ -78,20 +92,7 @@ public class Champions {
 		}
 		return null;
 	}
-	
-	private ArrayList<String> readFile() {
-		try{
-			File dir = new File(dataDirectory);
-			dir.mkdir();
-			File tmp = new File(dir, "Champions.dat");
-			tmp.createNewFile();
-			return Utility.readFile(filePath);
-		}catch(Exception e){ 
-			System.out.println("Fatal error file could not be created: "+e);
-			return null;
-		}
-	}
-	
+		
 	/**
 	 * @return the last id of the championlist
 	 */
@@ -101,6 +102,15 @@ public class Champions {
 			id++;
 		}
 		return id;
+	}
+	
+	public boolean championExists(int id) {
+		for(Champion champ : Champs) {
+			if(champ.id == id) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	/**
@@ -133,56 +143,7 @@ public class Champions {
 			System.out.println("Champs.size == 0");
 		}
 	}
-	
-	/**
-	 * writes championlist to the champion datafile
-	 */
-	public void writeToFile(){
-		try{
-			String championFilePath = dataDirectory+"/Champions.dat";
-			
-            try(PrintWriter writer = new PrintWriter(championFilePath)){
-			
-			//ID, Name, Title, Position, Lore
-			String temp;
-			for (Champion champ : this.Champs){
-				if(champ != null){
-					temp = champ.id + "|" + Utility.removePipes(champ.name) + "|" + Utility.removePipes(champ.title) + "|" + champ.pos + "|" + champ.role + "|" + Utility.removePipes(champ.lore);
-					writer.println(temp);
-				}
-			}
-			writer.close();	
-            }
-		} catch(Exception e){
-			System.out.println(e);
-		}
-	}
-
-
-	/**
-	 * Reads Champions.dat file and returns a list of all champions.
-	 */
-	public void readChampionsToList(){
-		ArrayList<String> data = readFile();
-		Champion champ;
-
-		for(String s : data){ //each line
-			//Note: | is a reserved character and needs \\ to "escape"
-			String[] parts = s.split("\\|");			
-
-			if(parts.length > 1){
-				champ = new Champion();
-				champ.id = Utility.stringToInt(parts[0].trim());
-				champ.name = parts[1].trim();
-				champ.title = parts[2].trim();;
-				champ.pos = selectPos(parts[3].trim());
-				champ.role = selectRole(parts[4].trim());
-				champ.lore = parts[5].trim();
-				Champs.add(champ);
-			}
-		}
-	}
-	
+		
 	/**
 	 * returns the list of champions
 	 * @return the list of champions
@@ -252,38 +213,7 @@ public class Champions {
 	public int getSize() {
 		return Champs.size();
 	}
-
-	/**
-	 * Reads specified file and searches for lines that contain key value.
-	 * @param key - Word we are looking for
-	 * @return yes if the champion exists
-	 */
-	public boolean championExists(String key){
-		List<String> data = readFile();
-
-		for(String s : data){
-			String[] parts = s.split("\\|");
-			if (parts[1].contains(key)) return true;
-		}
-		return false;
-	}
-	
-	
-	/**
-	 * Reads specified file and searches for line that contains ID.
-	 * @param id champion unique identifier
-	 * @return champion exists
-	 */
-	public boolean championExists(int id){
-		List<String> data = readFile();
 		
-		for(String s : data) {
-			String[] parts = s.split("\\|");
-			if(Utility.stringToInt(parts[0].trim()) == id) return true;
-		}
-		return false;
-	}
-	
 	/**
 	 * searches the champion list for champions with name, title, role or position matching the given search key
 	 * @param key the search key

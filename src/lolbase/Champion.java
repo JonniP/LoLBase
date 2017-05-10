@@ -158,7 +158,7 @@ public class Champion {
 			case 3: return "position";
 			case 4: return "role";
 			case 5: return "lore";
-			default: return "PaskaHarkkatyö";
+			default: return "Meh";
 		}
 	}
 	
